@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Task List{% endblock %}
+
+{% block body %}
+    <section class="task-list">
+        {% for task in tasks %}
+            <article class="task">
+                <h2 class="task-title">{{ task.title }}</h2>
+                <div class="task-meta">
+                    <span class="category">Category: {{ task.Category.nom }}</span>
+                    <span class="deadline">Due: {{ task.deadline|date('d/m/Y') }}</span>
+                </div>
+                <div class="task-description">
+                    {{ task.description | raw }}
+                </div>
+                <a href="#" class="btn btn-primary">Read More</a>
+            </article>
+        {% endfor %}
+    </section>
+    <style>
+        .task-list {
+            margin: 20px;
+        }
+
+        .task {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .task-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .task-meta {
+            margin-bottom: 10px;
+        }
+
+        .category {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .deadline {
+            color: #888;
+        }
+
+        .task-description {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+{% endblock %}
+{% endblock %}

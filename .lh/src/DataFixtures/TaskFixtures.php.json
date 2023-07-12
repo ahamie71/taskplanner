@@ -1,0 +1,258 @@
+{
+    "sourceFile": "src/DataFixtures/TaskFixtures.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 60,
+            "patches": [
+                {
+                    "date": 1688974312379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688974325174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,14 +3,15 @@\n namespace App\\DataFixtures;\n \n use Doctrine\\Bundle\\FixturesBundle\\Fixture;\n use Doctrine\\Persistence\\ObjectManager;\n-\n+use App\\Entity\\Category;\n+use App\\Entity\\Comment;\n+use Faker\\Factory;\n class TaskFixtures extends Fixture\n {\n     public function load(ObjectManager $manager): void\n     {\n-\n         $faker = Factory::create('fr_FR');\n \n         //on vz creer 3 catégorie fakées\n          for($i = 1; $i <= 3; $i++){\n"
+                },
+                {
+                    "date": 1688974334461,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,8 @@\n \n use Doctrine\\Bundle\\FixturesBundle\\Fixture;\n use Doctrine\\Persistence\\ObjectManager;\n use App\\Entity\\Category;\n-use App\\Entity\\Comment;\n use Faker\\Factory;\n class TaskFixtures extends Fixture\n {\n     public function load(ObjectManager $manager): void\n"
+                },
+                {
+                    "date": 1688974352075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n \n         //on vz creer 3 catégorie fakées\n          for($i = 1; $i <= 3; $i++){\n             $category=new Category();\n-            $category->setTitle($faker->word())\n+            $category->set($faker->word())\n                      ->setDescription($faker->paragraph());\n \n                 $manager->persist($category);        \n \n"
+                },
+                {
+                    "date": 1688974359073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,10 @@\n \n         //on vz creer 3 catégorie fakées\n          for($i = 1; $i <= 3; $i++){\n             $category=new Category();\n-            $category->set($faker->word())\n-                     ->setDescription($faker->paragraph());\n+            $category->setNom($faker->word())\n+                     \n \n                 $manager->persist($category);        \n \n          }\n"
+                },
+                {
+                    "date": 1688974367962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,9 @@\n \n         //on vz creer 3 catégorie fakées\n          for($i = 1; $i <= 3; $i++){\n             $category=new Category();\n-            $category->setNom($faker->word())\n-                     \n-\n+            $category->setNom($faker->word());\n                 $manager->persist($category);        \n \n          }\n         // $product = new Product();\n"
+                },
+                {
+                    "date": 1688974379349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,9 @@\n             $category->setNom($faker->word());\n                 $manager->persist($category);        \n \n          }\n+         \n         // $product = new Product();\n         // $manager->persist($product);\n \n         $manager->flush();\n"
+                },
+                {
+                    "date": 1688974387176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,11 +18,11 @@\n             $category->setNom($faker->word());\n                 $manager->persist($category);        \n \n          }\n-         \n-        // $product = new Product();\n+\n+        \n         // $manager->persist($product);\n \n-        $manager->flush();\n+   \n     }\n }\n"
+                },
+                {
+                    "date": 1688974394000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n          }\n \n         \n-        // $manager->persist($product);\n+         $manager->persist($product);\n \n    \n     }\n }\n"
+                },
+                {
+                    "date": 1688974399182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n          }\n \n         \n-         $manager->persist($product);\n+         $manager->persist($category);\n \n    \n     }\n }\n"
+                },
+                {
+                    "date": 1688974455119,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,13 +16,10 @@\n          for($i = 1; $i <= 3; $i++){\n             $category=new Category();\n             $category->setNom($faker->word());\n                 $manager->persist($category);        \n-\n          }\n+         \n \n-        \n-         $manager->persist($category);\n-\n    \n     }\n }\n"
+                },
+                {
+                    "date": 1688974462264,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,9 @@\n             $category->setNom($faker->word());\n                 $manager->persist($category);        \n          }\n          \n+       \n+   \n \n-   \n     }\n }\n"
+                },
+                {
+                    "date": 1688974476591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n             $category->setNom($faker->word());\n                 $manager->persist($category);        \n          }\n          \n-       \n+             \n    \n \n     }\n }\n"
+                },
+                {
+                    "date": 1688974484156,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,20 @@\n             $category->setNom($faker->word());\n                 $manager->persist($category);        \n          }\n          \n+         for($j =1; $j <= mt_rand(4,10); $j++){\n+            $article= new Article();\n+           \n+            $content = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n              \n+             $article->setTitle($faker->word())\n+                    ->setContent($content)\n+                    ->setImage($faker->imageUrl())\n+                    ->setCreatedAt($faker->dateTimeBetween('-6 months'))    \n+                    ->setCategory($category);\n+ \n+             $manager->persist($article);   \n    \n \n     }\n }\n"
+                },
+                {
+                    "date": 1688974492756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,6 +32,6 @@\n  \n              $manager->persist($article);   \n    \n \n-    }\n+    \n }\n"
+                },
+                {
+                    "date": 1688974498813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,20 +18,21 @@\n             $category->setNom($faker->word());\n                 $manager->persist($category);        \n          }\n          \n-         for($j =1; $j <= mt_rand(4,10); $j++){\n-            $article= new Article();\n-           \n-            $content = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n-             \n-             $article->setTitle($faker->word())\n-                    ->setContent($content)\n-                    ->setImage($faker->imageUrl())\n-                    ->setCreatedAt($faker->dateTimeBetween('-6 months'))    \n-                    ->setCategory($category);\n- \n-             $manager->persist($article);   \n+             for($j =1; $j <= mt_rand(4,10); $j++){\n+           $article= new Article();\n+          \n+           $content = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n+            \n+            $article->setTitle($faker->word())\n+                   ->setContent($content)\n+                   ->setImage($faker->imageUrl())\n+                   ->setCreatedAt($faker->dateTimeBetween('-6 months'))    \n+                   ->setCategory($category);\n+\n+            $manager->persist($article);   \n    \n \n-    \n+    }\n }\n+\n"
+                },
+                {
+                    "date": 1688974533845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n                 $manager->persist($category);        \n          }\n          \n              for($j =1; $j <= mt_rand(4,10); $j++){\n-           $article= new Article();\n+           $task= new Article();\n           \n            $content = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n             \n             $article->setTitle($faker->word())\n@@ -35,4 +35,5 @@\n \n     }\n }\n \n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688974541807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,14 @@\n <?php\n \n namespace App\\DataFixtures;\n \n+use Faker\\Factory;\n+use App\\Entity\\Task;\n+use App\\Entity\\Category;\n+use Doctrine\\Persistence\\ObjectManager;\n use Doctrine\\Bundle\\FixturesBundle\\Fixture;\n-use Doctrine\\Persistence\\ObjectManager;\n-use App\\Entity\\Category;\n-use Faker\\Factory;\n+\n class TaskFixtures extends Fixture\n {\n     public function load(ObjectManager $manager): void\n     {\n@@ -19,9 +21,9 @@\n                 $manager->persist($category);        \n          }\n          \n              for($j =1; $j <= mt_rand(4,10); $j++){\n-           $task= new Article();\n+           $task= new Task();\n           \n            $content = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n             \n             $article->setTitle($faker->word())\n"
+                },
+                {
+                    "date": 1688974565199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n          \n              for($j =1; $j <= mt_rand(4,10); $j++){\n            $task= new Task();\n           \n-           $content = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n+           $desc = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n             \n             $article->setTitle($faker->word())\n                    ->setContent($content)\n                    ->setImage($faker->imageUrl())\n"
+                },
+                {
+                    "date": 1688974574655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,11 +23,11 @@\n          \n              for($j =1; $j <= mt_rand(4,10); $j++){\n            $task= new Task();\n           \n-           $desc = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n+           $description = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n             \n-            $article->setTitle($faker->word())\n+            $task->setTitle($faker->word())\n                    ->setContent($content)\n                    ->setImage($faker->imageUrl())\n                    ->setCreatedAt($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category);\n"
+                },
+                {
+                    "date": 1688974585012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n           \n            $description = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n             \n             $task->setTitle($faker->word())\n-                   ->setContent($content)\n+                   ->set($content)\n                    ->setImage($faker->imageUrl())\n                    ->setCreatedAt($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category);\n \n"
+                },
+                {
+                    "date": 1688974591758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n           \n            $description = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n             \n             $task->setTitle($faker->word())\n-                   ->set($content)\n+                   ->setDescription($c)\n                    ->setImage($faker->imageUrl())\n                    ->setCreatedAt($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category);\n \n"
+                },
+                {
+                    "date": 1688974597609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n           \n            $description = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n             \n             $task->setTitle($faker->word())\n-                   ->setDescription($c)\n+                   ->setDescription($description)\n                    ->setImage($faker->imageUrl())\n                    ->setCreatedAt($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category);\n \n"
+                },
+                {
+                    "date": 1688974603248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n            $description = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n             \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n-                   ->setImage($faker->imageUrl())\n+                  \n                    ->setCreatedAt($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category);\n \n             $manager->persist($article);   \n"
+                },
+                {
+                    "date": 1688974610334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n             \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n                   \n-                   ->setCreatedAt($faker->dateTimeBetween('-6 months'))    \n+                   ->setDe($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category);\n \n             $manager->persist($article);   \n    \n"
+                },
+                {
+                    "date": 1688974616833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,12 +28,12 @@\n             \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n                   \n-                   ->setDe($faker->dateTimeBetween('-6 months'))    \n+                   ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category);\n \n-            $manager->persist($article);   \n+            $manager->persist($);   \n    \n \n     }\n }\n"
+                },
+                {
+                    "date": 1688974679760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category);\n \n-            $manager->persist($);   \n+            $manager->persist($task;   \n    \n \n     }\n }\n"
+                },
+                {
+                    "date": 1688974699400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n             $category->setNom($faker->word());\n                 $manager->persist($category);        \n          }\n          \n+          //Creer entre 4 et 6 article\n              for($j =1; $j <= mt_rand(4,10); $j++){\n            $task= new Task();\n           \n            $description = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n@@ -31,9 +32,9 @@\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category);\n \n-            $manager->persist($task;   \n+            $manager->persist($task);   \n    \n \n     }\n }\n"
+                },
+                {
+                    "date": 1688974704668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n             $category->setNom($faker->word());\n                 $manager->persist($category);        \n          }\n          \n-          //Creer entre 4 et 6 article\n+          //Creer entre 4 et 6 tasks\n              for($j =1; $j <= mt_rand(4,10); $j++){\n            $task= new Task();\n           \n            $description = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n"
+                },
+                {
+                    "date": 1688974741750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,6 +37,6 @@\n    \n \n     }\n }\n-\n+   \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688975319054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,12 +31,13 @@\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category);\n-\n+                    \n             $manager->persist($task);   \n    \n \n     }\n+    $manager->flush();\n }\n    \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688975324762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,10 @@\n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n-                   ->setCategory($category);\n+                   ->setCategory($category)\n+                   ->isIsDone;\n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688975329901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n-                   ->isIsDone;\n+                   ->isIsDone();\n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688975388366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n-                   ->isIsDone();\n+                   ->isIsDone()->;\n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688975395459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n-                   ->isIsDone()->;\n+                   ->isIsDone();\n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688975403584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n-                   ->isIsDone();\n+                   ->isIsDone($faker->dateTime);\n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688975414792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n-                   ->isIsDone($faker->dateTime);\n+                   ->isIsDone(dateTime());\n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688975440098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n-                   ->isIsDone(dateTime());\n+                   ->setisIsDone();\n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688975448777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n-                   ->setisIsDone();\n+                   ->;\n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688975790263,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n-                   ->;\n+                   ->setIsDone(trie);\n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688975839637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n-                   ->setIsDone(trie);\n+                   ->setIsDone(TRUE);\n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688977498136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,10 @@\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n-                   ->setIsDone(TRUE);\n+                   ->setIsDone(true);\n+                   \n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688977506331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,10 +31,10 @@\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n+                   ->setIsDone(true)\n                    ->setIsDone(true);\n-                   \n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688977511577,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n                    ->setIsDone(true)\n-                   ->setIsDone(true);\n+                   ->setUrgency(true);\n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688977520736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n                    ->setIsDone(true)\n-                   ->setUrgency(true);\n+                   ->setUrgency($faker->word());\n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688977586407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n            $description = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n             \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n-                  \n+                   ->setUrgency($faker->word());\n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n                    ->setIsDone(true)\n                    ->setUrgency($faker->word());\n"
+                },
+                {
+                    "date": 1688980088547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,17 +24,17 @@\n           //Creer entre 4 et 6 tasks\n              for($j =1; $j <= mt_rand(4,10); $j++){\n            $task= new Task();\n           \n-           $description = '<p>' .implode( '</p><p>',$faker->paragraphs(5)). '</p>';\n+           $description = '<p>' .implode( $faker->paragraphs(5)). '</p>';\n             \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n-                   ->setUrgency($faker->word());\n+                   ->setUrgency($faker->word())\n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n-                   ->setIsDone(true)\n-                   ->setUrgency($faker->word());\n+                   ->setIsDone(true);\n+                   \n                     \n             $manager->persist($task);   \n    \n \n"
+                },
+                {
+                    "date": 1688980184734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n           //Creer entre 4 et 6 tasks\n              for($j =1; $j <= mt_rand(4,10); $j++){\n            $task= new Task();\n           \n-           $description = '<p>' .implode( $faker->paragraphs(5)). '</p>';\n+           $description = implode( $faker->paragraphs(5)). '</p>';\n             \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n                    ->setUrgency($faker->word())\n"
+                },
+                {
+                    "date": 1688980218903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n           //Creer entre 4 et 6 tasks\n              for($j =1; $j <= mt_rand(4,10); $j++){\n            $task= new Task();\n           \n-           $description = implode( $faker->paragraphs(5)). '</p>';\n+           $description = implode( $faker->paragraphs(5));\n             \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n                    ->setUrgency($faker->word())\n"
+                },
+                {
+                    "date": 1688988926949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n            $description = implode( $faker->paragraphs(5));\n             \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n-                   ->setUrgency($faker->word())\n+                  \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n                    ->setIsDone(true);\n                    \n"
+                },
+                {
+                    "date": 1688991585745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n            $task= new Task();\n           \n            $description = implode( $faker->paragraphs(5));\n             \n+           \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n"
+                },
+                {
+                    "date": 1688991592667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,11 +24,12 @@\n           //Creer entre 4 et 6 tasks\n              for($j =1; $j <= mt_rand(4,10); $j++){\n            $task= new Task();\n           \n+           $t\n            $description = implode( $faker->paragraphs(5));\n             \n-           \n+\n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n                   \n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n"
+                },
+                {
+                    "date": 1688991608356,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n           //Creer entre 4 et 6 tasks\n              for($j =1; $j <= mt_rand(4,10); $j++){\n            $task= new Task();\n           \n-           $t\n+           \n            $description = implode( $faker->paragraphs(5));\n             \n \n             $task->setTitle($faker->word())\n"
+                },
+                {
+                    "date": 1688991615175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,12 +27,12 @@\n           \n            \n            $description = implode( $faker->paragraphs(5));\n             \n-\n+            \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n-                  \n+                  ->\n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n                    ->setIsDone(true);\n                    \n"
+                },
+                {
+                    "date": 1688991621286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n             \n             \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n-                  ->\n+                  ->setUser\n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n                    ->setIsDone(true);\n                    \n"
+                },
+                {
+                    "date": 1688991628973,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n             \n             \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n-                  ->setUser\n+                  ->setUser();\n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n                    ->setIsDone(true);\n                    \n"
+                },
+                {
+                    "date": 1688991639361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n             \n             \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n-                  ->setUser();\n+                  ->setUser($)\n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n                    ->setIsDone(true);\n                    \n"
+                },
+                {
+                    "date": 1688991648594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,12 +27,12 @@\n           \n            \n            $description = implode( $faker->paragraphs(5));\n             \n-            \n+             \n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n-                  ->setUser($)\n+                  ->setUser($user)\n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n                    ->setCategory($category)\n                    ->setIsDone(true);\n                    \n"
+                },
+                {
+                    "date": 1688991657267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n           \n            \n            $description = implode( $faker->paragraphs(5));\n             \n-             \n+             $user= $task->\n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n                   ->setUser($user)\n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n"
+                },
+                {
+                    "date": 1688991664451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n           \n            \n            $description = implode( $faker->paragraphs(5));\n             \n-             $user= $task->\n+             $user= $task->getUser()->getNom();\n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n                   ->setUser($user)\n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n"
+                },
+                {
+                    "date": 1688991765625,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n           \n            \n            $description = implode( $faker->paragraphs(5));\n             \n-             $user= $task->getUser()->getNom();\n+             $user= $task->getUser()\n             $task->setTitle($faker->word())\n                    ->setDescription($description)\n                   ->setUser($user)\n                    ->setDeadline($faker->dateTimeBetween('-6 months'))    \n"
+                }
+            ],
+            "date": 1688974312379,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\DataFixtures;\n\nuse Doctrine\\Bundle\\FixturesBundle\\Fixture;\nuse Doctrine\\Persistence\\ObjectManager;\n\nclass TaskFixtures extends Fixture\n{\n    public function load(ObjectManager $manager): void\n    {\n\n        $faker = Factory::create('fr_FR');\n\n        //on vz creer 3 catégorie fakées\n         for($i = 1; $i <= 3; $i++){\n            $category=new Category();\n            $category->setTitle($faker->word())\n                     ->setDescription($faker->paragraph());\n\n                $manager->persist($category);        \n\n         }\n        // $product = new Product();\n        // $manager->persist($product);\n\n        $manager->flush();\n    }\n}\n"
+        }
+    ]
+}

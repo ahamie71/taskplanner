@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Task List{% endblock %}
+
+{% block body %}
+    <h1>Task List</h1>
+
+    {% if category %}
+        <h2>Category: {{ category.name }}</h2>
+    {% else %}
+        <p>No category found with the specified ID.</p>
+    {% endif %}
+
+    <div class="container">
+        {% for task in tasks %}
+            <div class="task">
+                <div class="task-header">
+                    <h2 class="task-title">{{ task.title }}</h2>
+                </div>
+                <div class="task-meta">
+                    <span class="task-category">Category: {{ task.category.nom }}</span></br>
+                    <span class="task-deadline">Due: {{ task.deadline | date('d/m/Y') }}</span>
+                    <span class="task-user">Posted By: <strong>{{ task.user.nom }}</strong></span>
+                </div>
+                <div class="task-description">
+                    {{ task.description }}
+                </div>
+                <div class="task-actions">
+                    <a href="{{ path('editTask', {'id': task.id }) }}" class="btn btn-success">Edit</a>
+                    <a href="{{ path('deleteTask', {'id': task.id }) }}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+            <a href="{{ path('showTask', {'id': task.id }) }}" class="btn btn-primary">Read More</a>
+            <div class="task-checkbox">
+                <input type="checkbox" id="task-{{ task.id }}" class="task-checkbox-input" {% if task.isDone %}checked{% endif %}>
+                <label for="task-{{ task.id }}" class="task-checkbox-label"></label>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/Entity/User.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1688758771155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688758779621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n     #[ORM\\Column(length: 255)]\n     #[Assert\\Length(\n         min: 2,\n         max: 50,\n-        minMessage: 'Your first name must be at least {{ limit }} characters long',\n+        minMessage: 'Your first name must be at least {{ limit }} characters long')\n     private ?string $nom = null;\n \n     #[ORM\\Column(length: 255)]\n     private ?string $prenom = null;\n"
+                },
+                {
+                    "date": 1688758795177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,11 +28,11 @@\n     private ?string $password = null;\n \n     #[ORM\\Column(length: 255)]\n     #[Assert\\Length(\n-        min: 2,\n+        min: ,\n         max: 50,\n-        minMessage: 'Your first name must be at least {{ limit }} characters long')\n+        minMessage: 'Your first name must be at least {{ limit }} characters long')]\n     private ?string $nom = null;\n \n     #[ORM\\Column(length: 255)]\n     private ?string $prenom = null;\n"
+                },
+                {
+                    "date": 1688758801312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,10 +28,10 @@\n     private ?string $password = null;\n \n     #[ORM\\Column(length: 255)]\n     #[Assert\\Length(\n-        min: ,\n-        max: 50,\n+        min: 5,\n+        max: 15,\n         minMessage: 'Your first name must be at least {{ limit }} characters long')]\n     private ?string $nom = null;\n \n     #[ORM\\Column(length: 255)]\n"
+                },
+                {
+                    "date": 1688758817086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,9 @@\n         minMessage: 'Your first name must be at least {{ limit }} characters long')]\n     private ?string $nom = null;\n \n     #[ORM\\Column(length: 255)]\n+    \n     private ?string $prenom = null;\n \n     public function getId(): ?int\n     {\n"
+                },
+                {
+                    "date": 1688758840314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n namespace App\\Entity;\n \n use App\\Repository\\UserRepository;\n+use Symfony\\Component\\Validator\\Constraints as Assert;\n use Doctrine\\ORM\\Mapping as ORM;\n use Symfony\\Component\\Security\\Core\\User\\PasswordAuthenticatedUserInterface;\n use Symfony\\Component\\Security\\Core\\User\\UserInterface;\n \n@@ -34,9 +35,12 @@\n         minMessage: 'Your first name must be at least {{ limit }} characters long')]\n     private ?string $nom = null;\n \n     #[ORM\\Column(length: 255)]\n-    \n+    #[Assert\\Length(\n+        min: 5,\n+        max: 15,\n+        minMessage: 'Your first name must be at least {{ limit }} characters long')]\n     private ?string $prenom = null;\n \n     public function getId(): ?int\n     {\n"
+                },
+                {
+                    "date": 1688758876302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n     #[ORM\\Column]\n     private ?int $id = null;\n \n     #[ORM\\Column(length: 180, unique: true)]\n+    \n     private ?string $email = null;\n \n     #[ORM\\Column]\n     private array $roles = [];\n"
+                },
+                {
+                    "date": 1688990682473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,10 @@\n \n namespace App\\Entity;\n \n use App\\Repository\\UserRepository;\n+use Doctrine\\Common\\Collections\\ArrayCollection;\n+use Doctrine\\Common\\Collections\\Collection;\n use Symfony\\Component\\Validator\\Constraints as Assert;\n use Doctrine\\ORM\\Mapping as ORM;\n use Symfony\\Component\\Security\\Core\\User\\PasswordAuthenticatedUserInterface;\n use Symfony\\Component\\Security\\Core\\User\\UserInterface;\n@@ -16,9 +18,11 @@\n     #[ORM\\Column]\n     private ?int $id = null;\n \n     #[ORM\\Column(length: 180, unique: true)]\n-    \n+    #[Assert\\Email(\n+        message: 'The email {{ value }} is not a valid email.',\n+    )]\n     private ?string $email = null;\n \n     #[ORM\\Column]\n     private array $roles = [];\n@@ -33,17 +37,25 @@\n     #[Assert\\Length(\n         min: 5,\n         max: 15,\n         minMessage: 'Your first name must be at least {{ limit }} characters long')]\n-    private ?string $nom = null;\n+    private ?string $nom ;\n \n     #[ORM\\Column(length: 255)]\n     #[Assert\\Length(\n         min: 5,\n         max: 15,\n         minMessage: 'Your first name must be at least {{ limit }} characters long')]\n     private ?string $prenom = null;\n \n+    #[ORM\\OneToMany(mappedBy: 'user', targetEntity: Task::class)]\n+    private Collection $tasks;\n+\n+    public function __construct()\n+    {\n+        $this->tasks = new ArrayCollection();\n+    }\n+\n     public function getId(): ?int\n     {\n         return $this->id;\n     }\n@@ -135,5 +147,35 @@\n         $this->prenom = $prenom;\n \n         return $this;\n     }\n+\n+    /**\n+     * @return Collection<int, Task>\n+     */\n+    public function getTasks(): Collection\n+    {\n+        return $this->tasks;\n+    }\n+\n+    public function addTask(Task $task): static\n+    {\n+        if (!$this->tasks->contains($task)) {\n+            $this->tasks->add($task);\n+            $task->setUser($this);\n+        }\n+\n+        return $this;\n+    }\n+\n+    public function removeTask(Task $task): static\n+    {\n+        if ($this->tasks->removeElement($task)) {\n+            // set the owning side to null (unless already changed)\n+            if ($task->getUser() === $this) {\n+                $task->setUser(null);\n+            }\n+        }\n+\n+        return $this;\n+    }\n }\n"
+                },
+                {
+                    "date": 1688990689118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n     #[Assert\\Length(\n         min: 5,\n         max: 15,\n         minMessage: 'Your first name must be at least {{ limit }} characters long')]\n-    private ?string $nom ;\n+    private ?string $nom = null;\n \n     #[ORM\\Column(length: 255)]\n     #[Assert\\Length(\n         min: 5,\n"
+                }
+            ],
+            "date": 1688758771155,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Entity;\n\nuse App\\Repository\\UserRepository;\nuse Doctrine\\ORM\\Mapping as ORM;\nuse Symfony\\Component\\Security\\Core\\User\\PasswordAuthenticatedUserInterface;\nuse Symfony\\Component\\Security\\Core\\User\\UserInterface;\n\n#[ORM\\Entity(repositoryClass: UserRepository::class)]\nclass User implements UserInterface, PasswordAuthenticatedUserInterface\n{\n    #[ORM\\Id]\n    #[ORM\\GeneratedValue]\n    #[ORM\\Column]\n    private ?int $id = null;\n\n    #[ORM\\Column(length: 180, unique: true)]\n    private ?string $email = null;\n\n    #[ORM\\Column]\n    private array $roles = [];\n\n    /**\n     * @var string The hashed password\n     */\n    #[ORM\\Column]\n    private ?string $password = null;\n\n    #[ORM\\Column(length: 255)]\n    #[Assert\\Length(\n        min: 2,\n        max: 50,\n        minMessage: 'Your first name must be at least {{ limit }} characters long',\n    private ?string $nom = null;\n\n    #[ORM\\Column(length: 255)]\n    private ?string $prenom = null;\n\n    public function getId(): ?int\n    {\n        return $this->id;\n    }\n\n    public function getEmail(): ?string\n    {\n        return $this->email;\n    }\n\n    public function setEmail(string $email): static\n    {\n        $this->email = $email;\n\n        return $this;\n    }\n\n    /**\n     * A visual identifier that represents this user.\n     *\n     * @see UserInterface\n     */\n    public function getUserIdentifier(): string\n    {\n        return (string) $this->email;\n    }\n\n    /**\n     * @see UserInterface\n     */\n    public function getRoles(): array\n    {\n        $roles = $this->roles;\n        // guarantee every user at least has ROLE_USER\n        $roles[] = 'ROLE_USER';\n\n        return array_unique($roles);\n    }\n\n    public function setRoles(array $roles): static\n    {\n        $this->roles = $roles;\n\n        return $this;\n    }\n\n    /**\n     * @see PasswordAuthenticatedUserInterface\n     */\n    public function getPassword(): string\n    {\n        return $this->password;\n    }\n\n    public function setPassword(string $password): static\n    {\n        $this->password = $password;\n\n        return $this;\n    }\n\n    /**\n     * @see UserInterface\n     */\n    public function eraseCredentials(): void\n    {\n        // If you store any temporary, sensitive data on the user, clear it here\n        // $this->plainPassword = null;\n    }\n\n    public function getNom(): ?string\n    {\n        return $this->nom;\n    }\n\n    public function setNom(string $nom): static\n    {\n        $this->nom = $nom;\n\n        return $this;\n    }\n\n    public function getPrenom(): ?string\n    {\n        return $this->prenom;\n    }\n\n    public function setPrenom(string $prenom): static\n    {\n        $this->prenom = $prenom;\n\n        return $this;\n    }\n}\n"
+        }
+    ]
+}

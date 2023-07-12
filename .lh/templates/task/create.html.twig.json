@@ -1,0 +1,170 @@
+{
+    "sourceFile": "templates/task/create.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 38,
+            "patches": [
+                {
+                    "date": 1688981642656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688981649495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,7 @@\n+\n+\n+\n {{ form_start(form) }}\n     \n {{ form_row(form.title) }}\n \n"
+                },
+                {
+                    "date": 1688981654519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n \n+{\n \n \n {{ form_start(form) }}\n     \n@@ -13,5 +14,4 @@\n \n <button type=\"submit\">Submit</button>\n \n {{ form_end(form) }}\n-</form>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688981689068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +0,0 @@\n-\n-{\n-\n-\n-{{ form_start(form) }}\n-    \n-{{ form_row(form.title) }}\n-\n-{{ form_row(form.description) }}\n-\n-{{ form_row(form.isDone) }}\n-\n-{{ form_row(form.Category) }}\n-\n-<button type=\"submit\">Submit</button>\n-\n-{{ form_end(form) }}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688981696916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,40 @@\n+% extends 'base.html.twig'%}\n \n+{% form_theme formArticle 'bootstrap_4_layout.html.twig' %}\n+\n+{% block body %}\n+\n+   <h1> Create a task </h1>\n+\n+    {{form_start(formArticle) }}\n+\n+   {{form_row(formArticle.title, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n+\n+    {{form_row(formArticle.category)}}\n+\n+     {{form_row(formArticle.content, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n+\n+      {{form_row(formArticle.image, {'attr':{'placeholder':\"url  de l'image\"}})}}\n+\n+   \n+\n+<button type=\"submit\" class=\"btn btn-success\">\n+     {% if editMode %}\n+        \n+        Enregistrer les modification\n+         \n+         {% else %}\n+\n+     Ajouter l'article\n+     {% endif %}\n+     </button>\n+\n+\n+{{form_end(formArticle)}}\n+\n+</div>\n+\n+\n+\n+\n+{% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688981702840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n {% block body %}\n \n    <h1> Create a task </h1>\n \n-    {{form_start(formArticle) }}\n+    {{form_start(formTask) }}\n \n    {{form_row(formArticle.title, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n \n     {{form_row(formArticle.category)}}\n"
+                },
+                {
+                    "date": 1688981711361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n {% block body %}\n \n    <h1> Create a task </h1>\n-\n+{{}}\n     {{form_start(formTask) }}\n \n    {{form_row(formArticle.title, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n \n"
+                },
+                {
+                    "date": 1688981721033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n-% extends 'base.html.twig'%}\n+{% extends 'base.html.twig'%}\n \n-{% form_theme formArticle 'bootstrap_4_layout.html.twig' %}\n \n+\n {% block body %}\n \n    <h1> Create a task </h1>\n-{{}}\n+\n     {{form_start(formTask) }}\n \n    {{form_row(formArticle.title, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n \n"
+                },
+                {
+                    "date": 1688981727849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,13 @@\n {% extends 'base.html.twig'%}\n \n-\n-\n {% block body %}\n \n    <h1> Create a task </h1>\n \n     {{form_start(formTask) }}\n \n-   {{form_row(formArticle.title, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n+   {{form_row(form.title, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n \n     {{form_row(formArticle.category)}}\n \n      {{form_row(formArticle.content, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n"
+                },
+                {
+                    "date": 1688981735791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n    <h1> Create a task </h1>\n \n     {{form_start(formTask) }}\n \n-   {{form_row(form.title, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n+   {{form_row(formTask.title, {'attr':{'placeholder':\"Title de l'article\"}})}}\n \n     {{form_row(formArticle.category)}}\n \n      {{form_row(formArticle.content, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n"
+                },
+                {
+                    "date": 1688981741941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n    <h1> Create a task </h1>\n \n     {{form_start(formTask) }}\n \n-   {{form_row(formTask.title, {'attr':{'placeholder':\"Title de l'article\"}})}}\n+   {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n \n     {{form_row(formArticle.category)}}\n \n      {{form_row(formArticle.content, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n"
+                },
+                {
+                    "date": 1688981748245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     {{form_start(formTask) }}\n \n    {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n \n-    {{form_row(formArticle.category)}}\n+    {{form_row(form.category)}}\n \n      {{form_row(formArticle.content, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n \n       {{form_row(formArticle.image, {'attr':{'placeholder':\"url  de l'image\"}})}}\n"
+                },
+                {
+                    "date": 1688981757948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     {{form_start(formTask) }}\n \n    {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n \n-    {{form_row(form.category)}}\n+    {{form_row(formTask.category)}}\n \n      {{form_row(formArticle.content, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n \n       {{form_row(formArticle.image, {'attr':{'placeholder':\"url  de l'image\"}})}}\n"
+                },
+                {
+                    "date": 1688981767318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     {{form_start(formTask) }}\n \n    {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n \n-    {{form_row(formTask.category)}}\n+    {{form_row(formTask.category.nom, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formArticle.content, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n \n       {{form_row(formArticle.image, {'attr':{'placeholder':\"url  de l'image\"}})}}\n"
+                },
+                {
+                    "date": 1688981777137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n    {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n \n     {{form_row(formTask.category.nom, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n-     {{form_row(formArticle.content, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n+     {{form_row(formTask.content, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n \n       {{form_row(formArticle.image, {'attr':{'placeholder':\"url  de l'image\"}})}}\n \n    \n"
+                },
+                {
+                    "date": 1688981782294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n    {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n \n     {{form_row(formTask.category.nom, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n-     {{form_row(formTask.content, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n+     {{form_row(formTask.description, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n \n       {{form_row(formArticle.image, {'attr':{'placeholder':\"url  de l'image\"}})}}\n \n    \n"
+                },
+                {
+                    "date": 1688981793999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n    {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n \n     {{form_row(formTask.category.nom, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n-     {{form_row(formTask.description, {'attr':{'placeholder':\"Contenu de l'article\"}})}}\n+     {{form_row(formTask.description, {'attr':{'placeholder':\"Description  de l'article\"}})}}\n \n       {{form_row(formArticle.image, {'attr':{'placeholder':\"url  de l'image\"}})}}\n \n    \n"
+                },
+                {
+                    "date": 1688981800850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n    {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n \n     {{form_row(formTask.category.nom, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n-     {{form_row(formTask.description, {'attr':{'placeholder':\"Description  de l'article\"}})}}\n+     {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n \n       {{form_row(formArticle.image, {'attr':{'placeholder':\"url  de l'image\"}})}}\n \n    \n"
+                },
+                {
+                    "date": 1688981816137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,18 +15,9 @@\n       {{form_row(formArticle.image, {'attr':{'placeholder':\"url  de l'image\"}})}}\n \n    \n \n-<button type=\"submit\" class=\"btn btn-success\">\n-     {% if editMode %}\n-        \n-        Enregistrer les modification\n-         \n-         {% else %}\n \n-     Ajouter l'article\n-     {% endif %}\n-     </button>\n \n \n {{form_end(formArticle)}}\n \n"
+                },
+                {
+                    "date": 1688981825846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,16 +11,16 @@\n     {{form_row(formTask.category.nom, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n \n-      {{form_row(formArticle.image, {'attr':{'placeholder':\"url  de l'image\"}})}}\n+      {{form_row(formtask.image, {'attr':{'placeholder':\"url  de l'image\"}})}}\n \n    \n \n \n \n \n-{{form_end(formArticle)}}\n+{{form_end(formTask)}}\n \n </div>\n \n \n"
+                },
+                {
+                    "date": 1688981831425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     {{form_row(formTask.category.nom, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n \n-      {{form_row(formtask.image, {'attr':{'placeholder':\"url  de l'image\"}})}}\n+      {{form_row(formtask.\n \n    \n \n \n"
+                },
+                {
+                    "date": 1688981838774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     {{form_row(formTask.category.nom, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n \n-      {{form_row(formtask.\n+      {{form_row(formtask.isDone)\n \n    \n \n \n"
+                },
+                {
+                    "date": 1688981844179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,15 +11,9 @@\n     {{form_row(formTask.category.nom, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n \n-      {{form_row(formtask.isDone)\n-\n-   \n-\n-\n-\n-\n+      {{form_row(formtask.isDone)}}\n {{form_end(formTask)}}\n \n </div>\n \n"
+                },
+                {
+                    "date": 1688981871234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     {{form_row(formTask.category.nom, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n \n-      {{form_row(formtask.isDone)}}\n+      {{form_row(formTask.isDone)}}\n {{form_end(formTask)}}\n \n </div>\n \n"
+                },
+                {
+                    "date": 1688981879878,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n    {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n \n     {{form_row(formTask.category.nom, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n-     {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n+     {{form_row(formTwask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n \n       {{form_row(formTask.isDone)}}\n {{form_end(formTask)}}\n \n"
+                },
+                {
+                    "date": 1688981896453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     {{form_start(formTask) }}\n \n    {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n \n-    {{form_row(formTask.category.nom, {'attr':{'placeholder':\"Category of the task\"}})}}\n+    {{form_row(formTask.category. {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTwask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n \n       {{form_row(formTask.isDone)}}\n"
+                },
+                {
+                    "date": 1688981907997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,11 @@\n     {{form_start(formTask) }}\n \n    {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n \n-    {{form_row(formTask.category. {'attr':{'placeholder':\"Category of the task\"}})}}\n+    {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n-     {{form_row(formTwask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n+     {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n \n       {{form_row(formTask.isDone)}}\n {{form_end(formTask)}}\n \n"
+                },
+                {
+                    "date": 1688981970062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n \n-      {{form_row(formTask.isDone)}}\n+   \n {{form_end(formTask)}}\n \n </div>\n \n"
+                },
+                {
+                    "date": 1688982244585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n \n-   \n+         \n {{form_end(formTask)}}\n \n </div>\n \n"
+                },
+                {
+                    "date": 1688982280050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n \n          \n+     \n {{form_end(formTask)}}\n \n </div>\n \n"
+                },
+                {
+                    "date": 1688982290385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,11 @@\n     {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n \n-         \n-     \n+     <button type=\"submit\" class=\"btn btn-success\">\n+     Add the  \n+\n {{form_end(formTask)}}\n \n </div>\n \n"
+                },
+                {
+                    "date": 1688982371006,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,11 @@\n \n     {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n-\n+    \n      <button type=\"submit\" class=\"btn btn-success\">\n-     Add the  \n+     Add the Task \n \n {{form_end(formTask)}}\n \n </div>\n"
+                },
+                {
+                    "date": 1688982464381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,12 +10,13 @@\n \n     {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n-    \n+\n      <button type=\"submit\" class=\"btn btn-success\">\n      Add the Task \n \n+     \n {{form_end(formTask)}}\n \n </div>\n \n"
+                },
+                {
+                    "date": 1688996815896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,13 +10,14 @@\n \n     {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n-\n+     \n+     \n      <button type=\"submit\" class=\"btn btn-success\">\n      Add the Task \n \n-     \n+\n {{form_end(formTask)}}\n \n </div>\n \n"
+                },
+                {
+                    "date": 1688996828905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n      \n-     \n+      w\n      <button type=\"submit\" class=\"btn btn-success\">\n      Add the Task \n \n \n"
+                },
+                {
+                    "date": 1688996837837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,16 +11,16 @@\n     {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n      \n-      w\n+      <div\n      <button type=\"submit\" class=\"btn btn-success\">\n      Add the Task \n \n \n {{form_end(formTask)}}\n \n-</div>\n+<\n \n \n \n \n"
+                },
+                {
+                    "date": 1688996843611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n      \n-      <div\n+      <div class='hello'>\n      <button type=\"submit\" class=\"btn btn-success\">\n      Add the Task \n \n \n"
+                },
+                {
+                    "date": 1688996851355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,11 @@\n      \n       <div class='hello'>\n      <button type=\"submit\" class=\"btn btn-success\">\n      Add the Task \n+     </button>\n+      </div>\n \n-\n {{form_end(formTask)}}\n \n <\n \n"
+                },
+                {
+                    "date": 1688996919168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,18 +11,14 @@\n     {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n      \n-      <div class='hello'>\n-     <button type=\"submit\" class=\"btn btn-success\">\n-     Add the Task \n-     </button>\n-      </div>\n+     \n \n {{form_end(formTask)}}\n \n-<\n \n \n \n \n+\n {% endblock %}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1688981642656,
+            "name": "Commit-0",
+            "content": "{{ form_start(form) }}\n    \n{{ form_row(form.title) }}\n\n{{ form_row(form.description) }}\n\n{{ form_row(form.isDone) }}\n\n{{ form_row(form.Category) }}\n\n<button type=\"submit\">Submit</button>\n\n{{ form_end(form) }}\n</form>"
+        }
+    ]
+}

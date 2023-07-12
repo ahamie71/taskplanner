@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/Entity/Category.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1689061635515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1689148829487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n     {\n         return $this->tasks;\n     }\n \n-    public function addTask(Task $task): static\n+    public function addTask(T ask $task): static\n     {\n         if (!$this->tasks->contains($task)) {\n             $this->tasks->add($task);\n             $task->setCategory($this);\n"
+                }
+            ],
+            "date": 1689061635515,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Entity;\n\nuse App\\Entity\\Task;\nuse Doctrine\\ORM\\Mapping as ORM;\nuse App\\Repository\\CategoryRepository;\nuse Doctrine\\Common\\Collections\\Collection;\nuse Doctrine\\Common\\Collections\\ArrayCollection;\n\n#[ORM\\Entity(repositoryClass: CategoryRepository::class)]\nclass Category\n{\n    #[ORM\\Id]\n    #[ORM\\GeneratedValue]\n    #[ORM\\Column]\n    private ?int $id = null;\n\n    #[ORM\\Column(length: 255)]\n    private ?string $nom = null;\n\n    #[ORM\\OneToMany(mappedBy: 'Category', targetEntity: Task::class)]\n    private Collection $tasks;\n\n    public function __construct()\n    {\n        $this->tasks = new ArrayCollection();\n    }\n\n    public function getId(): ?int\n    {\n        return $this->id;\n    }\n\n    public function getNom(): ?string\n    {\n        return $this->nom;\n    }\n\n    public function setNom(string $nom): static\n    {\n        $this->nom = $nom;\n\n        return $this;\n    }\n\n    /**\n     * @return Collection<int, Task>\n     */\n    public function getTasks(): Collection\n    {\n        return $this->tasks;\n    }\n\n    public function addTask(Task $task): static\n    {\n        if (!$this->tasks->contains($task)) {\n            $this->tasks->add($task);\n            $task->setCategory($this);\n        }\n\n        return $this;\n    }\n\n    public function removeTask(Task $task): static\n    {\n        if ($this->tasks->removeElement($task)) {\n            // set the owning side to null (unless already changed)\n            if ($task->getCategory() === $this) {\n                $task->setCategory(null);\n            }\n        }\n\n        return $this;\n    }\n}\n"
+        }
+    ]
+}

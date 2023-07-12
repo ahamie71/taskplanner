@@ -1,0 +1,446 @@
+{
+    "sourceFile": "src/Controller/Admin/TaskCrudController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 107,
+            "patches": [
+                {
+                    "date": 1689153586957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1689153595942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n \n class TaskCrudController extends AbstractCrudController\n {\n@@ -20,6 +21,6 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n         ];\n     }\n-    */\n+    \n }\n"
+                },
+                {
+                    "date": 1689153611808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     \n     public function configureFields(string $pageName): iterable\n     {\n         return [\n-            IdField::new('id'),\n+            Id::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n         ];\n     }\n"
+                },
+                {
+                    "date": 1689153657228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n \n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n-use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n \n class TaskCrudController extends AbstractCrudController\n {\n@@ -12,13 +11,13 @@\n     {\n         return Task::class;\n     }\n \n-    \n+    /*\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n-            Id::new('id'),\n+            IdField::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n         ];\n     }\n"
+                },
+                {
+                    "date": 1689153669411,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,17 +3,18 @@\n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n \n class TaskCrudController extends AbstractCrudController\n {\n     public static function getEntityFqcn(): string\n     {\n         return Task::class;\n     }\n \n-    /*\n+    \n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n"
+                },
+                {
+                    "date": 1689153674858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n use App\\Entity\\Task;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextField;\n \n class TaskCrudController extends AbstractCrudController\n {\n     public static function getEntityFqcn(): string\n"
+                },
+                {
+                    "date": 1689153682340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n use App\\Entity\\Task;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextEditorField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextField;\n \n class TaskCrudController extends AbstractCrudController\n {\n"
+                },
+                {
+                    "date": 1689153704155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n+            \n             TextEditorField::new('description'),\n         ];\n     }\n     \n"
+                },
+                {
+                    "date": 1689153713508,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n-            \n+            ENTITY\n             TextEditorField::new('description'),\n         ];\n     }\n     \n"
+                },
+                {
+                    "date": 1689153719546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n-            ENTITY\n+            Entity\n             TextEditorField::new('description'),\n         ];\n     }\n     \n"
+                },
+                {
+                    "date": 1689153725514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n-            Entity\n+            \n             TextEditorField::new('description'),\n         ];\n     }\n     \n"
+                },
+                {
+                    "date": 1689153744522,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,26 +3,22 @@\n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n-use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n-use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextEditorField;\n-use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextField;\n \n class TaskCrudController extends AbstractCrudController\n {\n     public static function getEntityFqcn(): string\n     {\n         return Task::class;\n     }\n \n-    \n+    /*\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n-            \n             TextEditorField::new('description'),\n         ];\n     }\n     \n"
+                },
+                {
+                    "date": 1689153791436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,15 +11,15 @@\n     {\n         return Task::class;\n     }\n \n-    /*\n+    \n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n         ];\n     }\n-    \n+    */\n }\n"
+                },
+                {
+                    "date": 1689153804658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n \n class TaskCrudController extends AbstractCrudController\n {\n     public static function getEntityFqcn(): string\n@@ -20,6 +21,6 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n         ];\n     }\n-    */\n+    \n }\n"
+                },
+                {
+                    "date": 1689153810122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n use App\\Entity\\Task;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextField;\n \n class TaskCrudController extends AbstractCrudController\n {\n     public static function getEntityFqcn(): string\n"
+                },
+                {
+                    "date": 1689153816709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n use App\\Entity\\Task;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextEditorField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextField;\n \n class TaskCrudController extends AbstractCrudController\n {\n"
+                },
+                {
+                    "date": 1689153924710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n+            TextField::new('title'),\n             TextEditorField::new('description'),\n         ];\n     }\n     \n"
+                },
+                {
+                    "date": 1689153952899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,27 +3,23 @@\n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n-use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n-use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextEditorField;\n-use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextField;\n \n class TaskCrudController extends AbstractCrudController\n {\n     public static function getEntityFqcn(): string\n     {\n         return Task::class;\n     }\n \n-    \n+    /*\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n-            TextField::new('title'),\n             TextEditorField::new('description'),\n         ];\n     }\n-    \n+    */\n }\n"
+                },
+                {
+                    "date": 1689154418289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     {\n         return Task::class;\n     }\n \n-    /*\n+   -\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n"
+                },
+                {
+                    "date": 1689154481369,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,15 +11,16 @@\n     {\n         return Task::class;\n     }\n \n-   -\n+\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n+            date\n         ];\n     }\n-    */\n+   \n }\n"
+                },
+                {
+                    "date": 1689154487202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n-            date\n+            DateField::new('created\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689154492554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n-            DateField::new('created\n+            DateTiField::new('\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689154515868,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n-            DateTiField::new('\n+            DateTimeField::new('dea\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689154521958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\DateTimeField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n \n class TaskCrudController extends AbstractCrudController\n {\n@@ -18,9 +19,9 @@\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n-            DateTimeField::new('dea\n+            DateTimeField::new('deadline'),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689154529122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,11 @@\n \n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\DateTimeField;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextEditorField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n \n class TaskCrudController extends AbstractCrudController\n {\n"
+                },
+                {
+                    "date": 1689154540941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\DateTimeField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextEditorField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n"
+                },
+                {
+                    "date": 1689154639354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n+            IdField::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n         ];\n"
+                },
+                {
+                    "date": 1689154650917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n-            IdField::new('id'),\n+            IdField::new('user_id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n         ];\n"
+                },
+                {
+                    "date": 1689154677354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n-            IdField::new('user_id'),\n+            IdField::new('use'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n         ];\n"
+                },
+                {
+                    "date": 1689154684529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n-            IdField::new('use'),\n+            IdField::new('users'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n         ];\n"
+                },
+                {
+                    "date": 1689154692725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n-            IdField::new('users'),\n+           ,\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n         ];\n"
+                },
+                {
+                    "date": 1689154819546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n-           ,\n+            \n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n         ];\n"
+                },
+                {
+                    "date": 1689154826185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n-            \n+            BooleField::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n         ];\n"
+                },
+                {
+                    "date": 1689154833633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\BooleanField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\DateTimeField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextEditorField;\n@@ -20,9 +21,9 @@\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n-            BooleField::new('id'),\n+            BooleanField::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n         ];\n"
+                },
+                {
+                    "date": 1689154839260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n-            BooleanField::new('id'),\n+            BooleanField::new('isDone'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n         ];\n"
+                },
+                {
+                    "date": 1689154848942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n             BooleanField::new('isDone'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n+            BooleanField::new('isDone'),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155078530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,13 +21,13 @@\n     public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n-            BooleanField::new('isDone'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n+            \n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155087871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\AssociationField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\BooleanField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\DateTimeField;\n@@ -25,9 +26,9 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-            \n+            yield AssociationField::new('keywords')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155093712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-            yield AssociationField::new('keywords')\n+            yield AssociationField::new('user')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155099509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-            yield AssociationField::new('user')\n+            yield AssociationField::new('user_id')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155111436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-            yield AssociationField::new('user_id')\n+             AssociationField::new('user_id')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155119893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-             AssociationField::new('user_id')\n+           AssociationField::new('')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155138106,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-           AssociationField::new('')\n+            AssociationField::new('user')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155322345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user')\n+            AssociationField::new('user')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155328153,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,10 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-            AssociationField::new('user')\n-            AssociationField::new('user')\n+            AssociationField::new('user'),\n+            AssociationField::new('Category')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155350995,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category')\n+            AssociationField::new('Category',)\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155356557,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category',)\n+            AssociationField::new('Category','Nom')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155366554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category','Nom')\n+            AssociationField::new('Category,'nom')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155385870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category,'nom')\n+            AssociationField::new('Category')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155403285,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category')\n+            AssociationField::new('Category nom')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155409149,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category nom')\n+            AssociationField::new('Category' , 'nom')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155428216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category' , 'nom')\n+            AssociationField::new('Category')\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155462751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category')\n+            AssociationField::new('Category')->\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155475624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category')->\n+            AssociationField::new('Category'),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155480897,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category'),\n+            AssociationField::new('Category'->getNom()),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155486794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category'->getNom()),\n+            AssociationField::new('Category->getNom()),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155493086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category->getNom()),\n+            AssociationField::new(Category::->getNom()),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155512661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new(Category::->getNom()),\n+            AssociationField::new('category'),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155518348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('category'),\n+            AssociationField::new('Category'),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155523452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category'),\n+            AssociationField::new('Category.nom'),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155529907,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category.nom'),\n+            AssociationField::new('Category'),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155627581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n-            DateTimeField::new('deadline'),\n+            DateTimeField::new('deadline '),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n             AssociationField::new('Category'),\n         ];\n"
+                },
+                {
+                    "date": 1689155633675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,12 +24,12 @@\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n-            DateTimeField::new('deadline '),\n+            DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category'),\n+            AssociationField::new('Category.nom'),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155649983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category.nom'),\n+            AssociationField::new('Category.'),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155673575,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category.'),\n+            AssociationField::new('Category.nom= :'),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155681769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'),\n-            AssociationField::new('Category.nom= :'),\n+            AssociationField::new('Category'),\n         ];\n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155790126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,16 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n+            $someRepository = $this->entityManager->getRepository(SomeEntity::class);\n+\n+yield AssociationField::new('...')->setQueryBuilder(\n+    $someRepository->createQueryBuilder('entity')\n+        ->where('entity.some_property = :some_value')\n+        ->setParameter('some_value', '...')\n+        ->orderBy('entity.some_property', 'ASC')\n+);\n             AssociationField::new('user'),\n             AssociationField::new('Category'),\n         ];\n     }\n"
+                },
+                {
+                    "date": 1689155796070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,16 +26,9 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-            $someRepository = $this->entityManager->getRepository(SomeEntity::class);\n-\n-yield AssociationField::new('...')->setQueryBuilder(\n-    $someRepository->createQueryBuilder('entity')\n-        ->where('entity.some_property = :some_value')\n-        ->setParameter('some_value', '...')\n-        ->orderBy('entity.some_property', 'ASC')\n-);\n+             \n             AssociationField::new('user'),\n             AssociationField::new('Category'),\n         ];\n     }\n"
+                },
+                {
+                    "date": 1689155807093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,18 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-             \n+            $someRepository = $this->entityManager->getRepository(SomeEntity::class);\n             AssociationField::new('user'),\n+            $someRepository = $this->entityManager->getRepository(SomeEntity::class);\n+\n+yield AssociationField::new('...')->setQueryBuilder(\n+    $someRepository->createQueryBuilder('entity')\n+        ->where('entity.some_property = :some_value')\n+        ->setParameter('some_value', '...')\n+        ->orderBy('entity.some_property', 'ASC')\n+);\n             AssociationField::new('Category'),\n         ];\n     }\n    \n"
+                },
+                {
+                    "date": 1689155818180,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             $someRepository = $this->entityManager->getRepository(SomeEntity::class);\n             AssociationField::new('user'),\n-            $someRepository = $this->entityManager->getRepository(SomeEntity::class);\n+            \n \n yield AssociationField::new('...')->setQueryBuilder(\n     $someRepository->createQueryBuilder('entity')\n         ->where('entity.some_property = :some_value')\n"
+                },
+                {
+                    "date": 1689155825329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-            $someRepository = $this->entityManager->getRepository(SomeEntity::class);\n+            $someRepository = $this->entityManager->getRepository(User::class);\n             AssociationField::new('user'),\n             \n \n yield AssociationField::new('...')->setQueryBuilder(\n"
+                },
+                {
+                    "date": 1689155839835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,10 +27,10 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             $someRepository = $this->entityManager->getRepository(User::class);\n-            AssociationField::new('user'),\n             \n+            \n \n yield AssociationField::new('...')->setQueryBuilder(\n     $someRepository->createQueryBuilder('entity')\n         ->where('entity.some_property = :some_value')\n"
+                },
+                {
+                    "date": 1689155848255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n             $someRepository = $this->entityManager->getRepository(User::class);\n             \n             \n \n-yield AssociationField::new('...')->setQueryBuilder(\n+y AssociationField::new('user')->setQueryBuilder(\n     $someRepository->createQueryBuilder('entity')\n         ->where('entity.some_property = :some_value')\n         ->setParameter('some_value', '...')\n         ->orderBy('entity.some_property', 'ASC')\n"
+                },
+                {
+                    "date": 1689155854984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n             \n             \n \n y AssociationField::new('user')->setQueryBuilder(\n-    $someRepository->createQueryBuilder('entity')\n+    $someRepository->createQueryBuilder('')\n         ->where('entity.some_property = :some_value')\n         ->setParameter('some_value', '...')\n         ->orderBy('entity.some_property', 'ASC')\n );\n"
+                },
+                {
+                    "date": 1689155862559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,10 +31,10 @@\n             \n             \n \n y AssociationField::new('user')->setQueryBuilder(\n-    $someRepository->createQueryBuilder('')\n-        ->where('entity.some_property = :some_value')\n+    $someRepository->createQueryBuilder('user')\n+        ->where('user.some_property = :some_value')\n         ->setParameter('some_value', '...')\n         ->orderBy('entity.some_property', 'ASC')\n );\n             AssociationField::new('Category'),\n"
+                },
+                {
+                    "date": 1689155868556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n             \n \n y AssociationField::new('user')->setQueryBuilder(\n     $someRepository->createQueryBuilder('user')\n-        ->where('user.some_property = :some_value')\n+        ->where('user.nom = :nom')\n         ->setParameter('some_value', '...')\n         ->orderBy('entity.some_property', 'ASC')\n );\n             AssociationField::new('Category'),\n"
+                },
+                {
+                    "date": 1689155876793,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,10 +33,10 @@\n \n y AssociationField::new('user')->setQueryBuilder(\n     $someRepository->createQueryBuilder('user')\n         ->where('user.nom = :nom')\n-        ->setParameter('some_value', '...')\n-        ->orderBy('entity.some_property', 'ASC')\n+       \n+        ->orderBy('entity.s', 'ASC')\n );\n             AssociationField::new('Category'),\n         ];\n     }\n"
+                },
+                {
+                    "date": 1689155883004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n y AssociationField::new('user')->setQueryBuilder(\n     $someRepository->createQueryBuilder('user')\n         ->where('user.nom = :nom')\n        \n-        ->orderBy('entity.s', 'ASC')\n+        ->orderBy('user.nom', 'ASC')\n );\n             AssociationField::new('Category'),\n         ];\n     }\n"
+                },
+                {
+                    "date": 1689155890816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n             $someRepository = $this->entityManager->getRepository(User::class);\n             \n             \n \n-y AssociationField::new('user')->setQueryBuilder(\n+ AssociationField::new('user')->setQueryBuilder(\n     $someRepository->createQueryBuilder('user')\n         ->where('user.nom = :nom')\n        \n         ->orderBy('user.nom', 'ASC')\n"
+                },
+                {
+                    "date": 1689155897481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n             $someRepository = $this->entityManager->getRepository(User::class);\n             \n             \n \n- AssociationField::new('user')->setQueryBuilder(\n+       AssociationField::new('user')->setQueryBuilder(\n     $someRepository->createQueryBuilder('user')\n         ->where('user.nom = :nom')\n        \n         ->orderBy('user.nom', 'ASC')\n@@ -40,5 +40,5 @@\n             AssociationField::new('Category'),\n         ];\n     }\n    \n-}\n+\n"
+                },
+                {
+                    "date": 1689155905395,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,8 +37,8 @@\n        \n         ->orderBy('user.nom', 'ASC')\n );\n             AssociationField::new('Category'),\n-        ];\n+       \n     }\n    \n-\n+}\n"
+                },
+                {
+                    "date": 1689155910801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,9 @@\n         ->where('user.nom = :nom')\n        \n         ->orderBy('user.nom', 'ASC')\n );\n+\n             AssociationField::new('Category'),\n        \n     }\n    \n"
+                },
+                {
+                    "date": 1689155918056,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,8 +38,9 @@\n         ->orderBy('user.nom', 'ASC')\n );\n \n             AssociationField::new('Category'),\n+        ]\n        \n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155936581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,14 +33,14 @@\n \n        AssociationField::new('user')->setQueryBuilder(\n     $someRepository->createQueryBuilder('user')\n         ->where('user.nom = :nom')\n-       \n+\n         ->orderBy('user.nom', 'ASC')\n );\n \n-            AssociationField::new('Category'),\n-        ]\n+            AssociationField::new('Category')\n+];\n        \n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155943406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,15 +27,11 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             $someRepository = $this->entityManager->getRepository(User::class);\n-            \n-            \n-\n        AssociationField::new('user')->setQueryBuilder(\n     $someRepository->createQueryBuilder('user')\n         ->where('user.nom = :nom')\n-\n         ->orderBy('user.nom', 'ASC')\n );\n \n             AssociationField::new('Category')\n"
+                },
+                {
+                    "date": 1689155948885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,11 +27,11 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             $someRepository = $this->entityManager->getRepository(User::class);\n-       AssociationField::new('user')->setQueryBuilder(\n-    $someRepository->createQueryBuilder('user')\n-        ->where('user.nom = :nom')\n+           AssociationField::new('user')->setQueryBuilder(\n+         $someRepository->createQueryBuilder('user')\n+           ->where('user.nom = :nom')\n         ->orderBy('user.nom', 'ASC')\n );\n \n             AssociationField::new('Category')\n"
+                },
+                {
+                    "date": 1689155957630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,13 +30,12 @@\n             $someRepository = $this->entityManager->getRepository(User::class);\n            AssociationField::new('user')->setQueryBuilder(\n          $someRepository->createQueryBuilder('user')\n            ->where('user.nom = :nom')\n-        ->orderBy('user.nom', 'ASC')\n+          ->orderBy('user.nom', 'ASC')\n );\n+            AssociationField::new('Category')\n \n-            AssociationField::new('Category')\n-];\n        \n     }\n    \n }\n"
+                },
+                {
+                    "date": 1689155965229,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-            $someRepository = $this->entityManager->getRepository(User::class);\n+            $someRepository = $this->entityManager->getRepository(User::class)\n            AssociationField::new('user')->setQueryBuilder(\n          $someRepository->createQueryBuilder('user')\n            ->where('user.nom = :nom')\n           ->orderBy('user.nom', 'ASC')\n"
+                },
+                {
+                    "date": 1689155974299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,15 +26,15 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-            $someRepository = $this->entityManager->getRepository(User::class)\n+            $someRepository = $this->entityManager->getRepository(User::class),\n            AssociationField::new('user')->setQueryBuilder(\n          $someRepository->createQueryBuilder('user')\n            ->where('user.nom = :nom')\n           ->orderBy('user.nom', 'ASC')\n-);\n-            AssociationField::new('Category')\n+)\n+            AssociationField::new('Category'),\n \n        \n     }\n    \n"
+                },
+                {
+                    "date": 1689155980065,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,10 +31,10 @@\n            AssociationField::new('user')->setQueryBuilder(\n          $someRepository->createQueryBuilder('user')\n            ->where('user.nom = :nom')\n           ->orderBy('user.nom', 'ASC')\n-)\n-            AssociationField::new('Category'),\n+           ),\n+            AssociationField::new('Category')\n \n        \n     }\n    \n"
+                },
+                {
+                    "date": 1689155986331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,7 +35,7 @@\n            ),\n             AssociationField::new('Category')\n \n        \n-    }\n+    \n    \n }\n"
+                },
+                {
+                    "date": 1689155991970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,8 @@\n           ->orderBy('user.nom', 'ASC')\n            ),\n             AssociationField::new('Category')\n \n-       \n+        ]\n     \n    \n }\n"
+                },
+                {
+                    "date": 1689155997210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,11 +31,11 @@\n            AssociationField::new('user')->setQueryBuilder(\n          $someRepository->createQueryBuilder('user')\n            ->where('user.nom = :nom')\n           ->orderBy('user.nom', 'ASC')\n-           ),\n+           );\n             AssociationField::new('Category')\n \n-        ]\n+        ];\n     \n    \n }\n"
+                },
+                {
+                    "date": 1689156009946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n            AssociationField::new('user')->setQueryBuilder(\n          $someRepository->createQueryBuilder('user')\n            ->where('user.nom = :nom')\n           ->orderBy('user.nom', 'ASC')\n-           );\n+           )\n             AssociationField::new('Category')\n \n         ];\n     \n"
+                },
+                {
+                    "date": 1689156017742,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,10 +30,10 @@\n             $someRepository = $this->entityManager->getRepository(User::class),\n            AssociationField::new('user')->setQueryBuilder(\n          $someRepository->createQueryBuilder('user')\n            ->where('user.nom = :nom')\n-          ->orderBy('user.nom', 'ASC')\n-           )\n+          ->orderBy('user.nom', 'ASC'),\n+           );\n             AssociationField::new('Category')\n \n         ];\n     \n"
+                },
+                {
+                    "date": 1689156023615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,11 +31,11 @@\n            AssociationField::new('user')->setQueryBuilder(\n          $someRepository->createQueryBuilder('user')\n            ->where('user.nom = :nom')\n           ->orderBy('user.nom', 'ASC'),\n-           );\n+           ),\n             AssociationField::new('Category')\n \n         ];\n     \n    \n-}\n+\n"
+                },
+                {
+                    "date": 1689156036736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,7 +35,9 @@\n            ),\n             AssociationField::new('Category')\n \n         ];\n+\n+    }\n     \n    \n \n"
+                },
+                {
+                    "date": 1689156041868,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,7 +37,8 @@\n \n         ];\n \n     }\n+}\n     \n    \n \n"
+                },
+                {
+                    "date": 1689156060355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         return Task::class;\n     }\n \n \n-    public function configureFields(string $pageName): iterable\n+    public function configureFields(string $pageName ): iterable\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n"
+                },
+                {
+                    "date": 1689156066470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         return Task::class;\n     }\n \n \n-    public function configureFields(string $pageName ): iterable\n+    public function configureFields(string $pageName EntityMa): iterable\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n"
+                },
+                {
+                    "date": 1689156071906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n+use Doctrine\\ORM\\EntityManager;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\AssociationField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\BooleanField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextField;\n@@ -18,9 +19,9 @@\n         return Task::class;\n     }\n \n \n-    public function configureFields(string $pageName EntityMa): iterable\n+    public function configureFields(string $pageName EntityManager): iterable\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n"
+                },
+                {
+                    "date": 1689156078520,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n use Doctrine\\ORM\\EntityManager;\n+use Doctrine\\ORM\\EntityManagerInterface;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\AssociationField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\BooleanField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextField;\n@@ -19,9 +20,9 @@\n         return Task::class;\n     }\n \n \n-    public function configureFields(string $pageName EntityManager): iterable\n+    public function configureFields(string $pageName EntityManagerInterface $entity): iterable\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n"
+                },
+                {
+                    "date": 1689156084589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n         return Task::class;\n     }\n \n \n-    public function configureFields(string $pageName EntityManagerInterface $entity): iterable\n+    public function configureFields(string $pageName ,EntityManagerInterface $entityManager): iterable\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n"
+                },
+                {
+                    "date": 1689156111090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,8 @@\n \n namespace App\\Controller\\Admin;\n \n use App\\Entity\\Task;\n-use Doctrine\\ORM\\EntityManager;\n-use Doctrine\\ORM\\EntityManagerInterface;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\AssociationField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\BooleanField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\IdField;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Field\\TextField;\n@@ -20,27 +18,18 @@\n         return Task::class;\n     }\n \n \n-    public function configureFields(string $pageName ,EntityManagerInterface $entityManager): iterable\n+    public function configureFields(string $pageName): iterable\n     {\n         return [\n             IdField::new('id'),\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-            $someRepository = $this->entityManager->getRepository(User::class),\n-           AssociationField::new('user')->setQueryBuilder(\n-         $someRepository->createQueryBuilder('user')\n-           ->where('user.nom = :nom')\n-          ->orderBy('user.nom', 'ASC'),\n-           ),\n-            AssociationField::new('Category')\n-\n+            AssociationField::new('user'),\n+            AssociationField::new('Category'),\n         ];\n-\n     }\n+   \n }\n-    \n-   \n-\n"
+                },
+                {
+                    "date": 1689156121780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-            AssociationField::new('user'),\n+            AssociationField::new('user'), \n             AssociationField::new('Category'),\n         ];\n     }\n    \n"
+                },
+                {
+                    "date": 1689156239771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user'), \n+            ->orderBy('entity.some_property', 'ASC')\n             AssociationField::new('Category'),\n         ];\n     }\n    \n"
+                },
+                {
+                    "date": 1689156245153,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,10 @@\n             TextField::new('title'),\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n-            AssociationField::new('user'), \n-            ->orderBy('entity.some_property', 'ASC')\n+            AssociationField::new('user')\n+            ->orderBy('entity.some_property', 'ASC'),\n             AssociationField::new('Category'),\n         ];\n     }\n    \n"
+                },
+                {
+                    "date": 1689156260217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n             TextEditorField::new('description'),\n             DateTimeField::new('deadline'),\n             BooleanField::new('isDone'),\n             AssociationField::new('user')\n-            ->orderBy('entity.some_property', 'ASC'),\n+            \n             AssociationField::new('Category'),\n         ];\n     }\n    \n"
+                }
+            ],
+            "date": 1689153586957,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Controller\\Admin;\n\nuse App\\Entity\\Task;\nuse EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractCrudController;\n\nclass TaskCrudController extends AbstractCrudController\n{\n    public static function getEntityFqcn(): string\n    {\n        return Task::class;\n    }\n\n    \n    public function configureFields(string $pageName): iterable\n    {\n        return [\n            IdField::new('id'),\n            TextField::new('title'),\n            TextEditorField::new('description'),\n        ];\n    }\n    */\n}\n"
+        }
+    ]
+}

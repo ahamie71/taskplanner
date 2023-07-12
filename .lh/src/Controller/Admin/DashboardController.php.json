@@ -1,0 +1,166 @@
+{
+    "sourceFile": "src/Controller/Admin/DashboardController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 37,
+            "patches": [
+                {
+                    "date": 1689148562716,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1689148568645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,13 +9,13 @@\n use Symfony\\Component\\Routing\\Annotation\\Route;\n \n class DashboardController extends AbstractDashboardController\n {\n-    #[Route('/admin', name: 'admin')]\n+    #[Route('/admin', name: 'admin.index')]\n     public function index(): Response\n     {\n         \n-        // return $this->render('some/path/my-dashboard.html.twig');\n+         return $this->render('some/path/my-dashboard.html.twig');\n     }\n \n     public function configureDashboard(): Dashboard\n     {\n"
+                },
+                {
+                    "date": 1689148593465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     #[Route('/admin', name: 'admin.index')]\n     public function index(): Response\n     {\n         \n-         return $this->render('some/path/my-dashboard.html.twig');\n+         return $this->render('dashboard.html.twig');\n     }\n \n     public function configureDashboard(): Dashboard\n     {\n"
+                },
+                {
+                    "date": 1689148821584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,13 +9,13 @@\n use Symfony\\Component\\Routing\\Annotation\\Route;\n \n class DashboardController extends AbstractDashboardController\n {\n-    #[Route('/admin', name: 'admin.index')]\n+    #[Route('/admin', name: 'admin')]\n     public function index(): Response\n     {\n         \n-         return $this->render('dashboard.html.twig');\n+         return $this->render('admin/dashboard.html.twig');\n     }\n \n     public function configureDashboard(): Dashboard\n     {\n"
+                },
+                {
+                    "date": 1689149122284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n     public function configureDashboard(): Dashboard\n     {\n         return Dashboard::new()\n             ->setTitle('TaskApp');\n+            \n     }\n \n     public function configureMenuItems(): iterable\n     {\n"
+                },
+                {
+                    "date": 1689149129641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     public function configureDashboard(): Dashboard\n     {\n         return Dashboard::new()\n             ->setTitle('TaskApp');\n-            \n+            ->render\n     }\n \n     public function configureMenuItems(): iterable\n     {\n"
+                },
+                {
+                    "date": 1689149135456,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     public function configureDashboard(): Dashboard\n     {\n         return Dashboard::new()\n             ->setTitle('TaskApp');\n-            ->render\n+            ->renderContent\n     }\n \n     public function configureMenuItems(): iterable\n     {\n"
+                },
+                {
+                    "date": 1689149140665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n     public function configureDashboard(): Dashboard\n     {\n         return Dashboard::new()\n-            ->setTitle('TaskApp');\n+            ->setTitle('TaskApp')\n             ->renderContent\n     }\n \n     public function configureMenuItems(): iterable\n"
+                },
+                {
+                    "date": 1689149146757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     public function configureDashboard(): Dashboard\n     {\n         return Dashboard::new()\n             ->setTitle('TaskApp')\n-            ->renderContent\n+            ->renderContentM\n     }\n \n     public function configureMenuItems(): iterable\n     {\n"
+                },
+                {
+                    "date": 1689149152298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     public function configureDashboard(): Dashboard\n     {\n         return Dashboard::new()\n             ->setTitle('TaskApp')\n-            ->renderContentM\n+            ->renderContentMaximized()\n     }\n \n     public function configureMenuItems(): iterable\n     {\n"
+                },
+                {
+                    "date": 1689149160143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,10 @@\n \n     public function configureDashboard(): Dashboard\n     {\n         return Dashboard::new()\n-            ->setTitle('TaskApp')\n-            ->renderContentMaximized()\n+            ->setTitle('TaskApp',)\n+            ->renderContentMaximized();\n     }\n \n     public function configureMenuItems(): iterable\n     {\n"
+                },
+                {
+                    "date": 1689149167944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n     public function configureDashboard(): Dashboard\n     {\n         return Dashboard::new()\n-            ->setTitle('TaskApp',)\n+            ->setTitle('TaskApp', Administration)\n             ->renderContentMaximized();\n     }\n \n     public function configureMenuItems(): iterable\n"
+                },
+                {
+                    "date": 1689149173091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n     public function configureDashboard(): Dashboard\n     {\n         return Dashboard::new()\n-            ->setTitle('TaskApp', Administration)\n+            ->setTitle('TaskApp Administration)\n             ->renderContentMaximized();\n     }\n \n     public function configureMenuItems(): iterable\n"
+                },
+                {
+                    "date": 1689149182773,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n     public function configureDashboard(): Dashboard\n     {\n         return Dashboard::new()\n-            ->setTitle('TaskApp Administration)\n+            ->setTitle('TaskApp Administration')\n             ->renderContentMaximized();\n     }\n \n     public function configureMenuItems(): iterable\n"
+                },
+                {
+                    "date": 1689149189578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n     public function configureDashboard(): Dashboard\n     {\n         return Dashboard::new()\n-            ->setTitle('TaskApp Administration')\n+            ->setTitle('TaskApp </br>Administration')\n             ->renderContentMaximized();\n     }\n \n     public function configureMenuItems(): iterable\n"
+                },
+                {
+                    "date": 1689149200809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n     public function configureDashboard(): Dashboard\n     {\n         return Dashboard::new()\n-            ->setTitle('TaskApp </br>Administration')\n+            ->setTitle('TaskApp </br> Escpace Administration')\n             ->renderContentMaximized();\n     }\n \n     public function configureMenuItems(): iterable\n"
+                },
+                {
+                    "date": 1689149209486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n     public function configureDashboard(): Dashboard\n     {\n         return Dashboard::new()\n-            ->setTitle('TaskApp </br> Escpace Administration')\n+            ->setTitle('TaskApp </br> Espace Administration')\n             ->renderContentMaximized();\n     }\n \n     public function configureMenuItems(): iterable\n"
+                },
+                {
+                    "date": 1689149469361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,7 +26,7 @@\n \n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);\n+         yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689149475544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,7 +26,7 @@\n \n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n-         yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);\n+        yield MenuItem::linkToCrud('The Label', 'fas fa-User', EntityClass::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689149499357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,7 +26,7 @@\n \n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n-        yield MenuItem::linkToCrud('The Label', 'fas fa-User', EntityClass::class);\n+        yield MenuItem::linkToCrud('The Label', 'fas fa-User', User::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689149510198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,14 @@\n <?php\n \n namespace App\\Controller\\Admin;\n \n+use App\\Entity\\User;\n+use Symfony\\Component\\HttpFoundation\\Response;\n+use Symfony\\Component\\Routing\\Annotation\\Route;\n+use EasyCorp\\Bundle\\EasyAdminBundle\\Config\\MenuItem;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Config\\Dashboard;\n-use EasyCorp\\Bundle\\EasyAdminBundle\\Config\\MenuItem;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractDashboardController;\n-use Symfony\\Component\\HttpFoundation\\Response;\n-use Symfony\\Component\\Routing\\Annotation\\Route;\n \n class DashboardController extends AbstractDashboardController\n {\n     #[Route('/admin', name: 'admin')]\n"
+                },
+                {
+                    "date": 1689149522328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,7 +27,7 @@\n \n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n-        yield MenuItem::linkToCrud('The Label', 'fas fa-User', User::class);\n+        yield MenuItem::linkToCrud('The Label', 'fas fa-User', user::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689149529645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,7 +27,7 @@\n \n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n-        yield MenuItem::linkToCrud('The Label', 'fas fa-User', user::class);\n+        yield MenuItem::linkToCrud('The Label', 'fas fa-User',user::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689149546301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,7 +27,7 @@\n \n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n-        yield MenuItem::linkToCrud('The Label', 'fas fa-User',user::class);\n+        yield MenuItem::linkToCrud('The Label', 'fas fa-User',ser::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689149733650,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,7 +27,7 @@\n \n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n-        yield MenuItem::linkToCrud('The Label', 'fas fa-User',ser::class);\n+        yield MenuItem::linkToCrud('User', 'fas fa-user',User::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689149899129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,6 +28,8 @@\n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n         yield MenuItem::linkToCrud('User', 'fas fa-user',User::class);\n+        yield MenuItem::linkToCrud('User', 'fas fa-user',User::class);\n+        yield MenuItem::linkToCrud('User', 'fas fa-user',User::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689149905884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,8 @@\n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n         yield MenuItem::linkToCrud('User', 'fas fa-user',User::class);\n+        yield MenuItem::linkToCrud('User', 'fas fa-user',Tasl::class);\n         yield MenuItem::linkToCrud('User', 'fas fa-user',User::class);\n-        yield MenuItem::linkToCrud('User', 'fas fa-user',User::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689149918537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n namespace App\\Controller\\Admin;\n \n use App\\Entity\\User;\n+use App\\Entity\\Category;\n use Symfony\\Component\\HttpFoundation\\Response;\n use Symfony\\Component\\Routing\\Annotation\\Route;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Config\\MenuItem;\n use EasyCorp\\Bundle\\EasyAdminBundle\\Config\\Dashboard;\n@@ -28,8 +29,8 @@\n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n         yield MenuItem::linkToCrud('User', 'fas fa-user',User::class);\n-        yield MenuItem::linkToCrud('User', 'fas fa-user',Tasl::class);\n-        yield MenuItem::linkToCrud('User', 'fas fa-user',User::class);\n+        yield MenuItem::linkToCrud('User', 'fas fa-user',Task::class);\n+        yield MenuItem::linkToCrud('User', 'fas fa-user',Category::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689149926739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n <?php\n \n namespace App\\Controller\\Admin;\n \n+use App\\Entity\\Task;\n use App\\Entity\\User;\n use App\\Entity\\Category;\n use Symfony\\Component\\HttpFoundation\\Response;\n use Symfony\\Component\\Routing\\Annotation\\Route;\n@@ -29,8 +30,8 @@\n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n         yield MenuItem::linkToCrud('User', 'fas fa-user',User::class);\n-        yield MenuItem::linkToCrud('User', 'fas fa-user',Task::class);\n+        yield MenuItem::linkToCrud('', 'fas fa-user',Task::class);\n         yield MenuItem::linkToCrud('User', 'fas fa-user',Category::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689149932244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,8 +30,8 @@\n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n         yield MenuItem::linkToCrud('User', 'fas fa-user',User::class);\n-        yield MenuItem::linkToCrud('', 'fas fa-user',Task::class);\n+        yield MenuItem::linkToCrud('T', 'fas fa-user',Task::class);\n         yield MenuItem::linkToCrud('User', 'fas fa-user',Category::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689149937553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,8 +30,8 @@\n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n         yield MenuItem::linkToCrud('User', 'fas fa-user',User::class);\n-        yield MenuItem::linkToCrud('T', 'fas fa-user',Task::class);\n-        yield MenuItem::linkToCrud('User', 'fas fa-user',Category::class);\n+        yield MenuItem::linkToCrud('Tâches', 'fas fa-user',Task::class);\n+        yield MenuItem::linkToCrud('Cate', 'fas fa-user',Category::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689149948709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n \n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n-        yield MenuItem::linkToCrud('User', 'fas fa-user',User::class);\n+        yield MenuItem::linkToCrud('Utlisateur', 'fas fa-user',User::class);\n         yield MenuItem::linkToCrud('Tâches', 'fas fa-user',Task::class);\n-        yield MenuItem::linkToCrud('Cate', 'fas fa-user',Category::class);\n+        yield MenuItem::linkToCrud('Categories', 'fas fa-user',Category::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689150084681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n \n     public function configureMenuItems(): iterable\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n-        yield MenuItem::linkToCrud('Utlisateur', 'fas fa-user',User::class);\n-        yield MenuItem::linkToCrud('Tâches', 'fas fa-user',Task::class);\n+        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user',User::class);\n+        yield MenuItem::linkToCrud('Tâches', 'fa-solid fa-list-check',Task::class);\n         yield MenuItem::linkToCrud('Categories', 'fas fa-user',Category::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689150565052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,7 +31,7 @@\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user',User::class);\n         yield MenuItem::linkToCrud('Tâches', 'fa-solid fa-list-check',Task::class);\n-        yield MenuItem::linkToCrud('Categories', 'fas fa-user',Category::class);\n+        yield MenuItem::linkToCrud('Categories', '<i class=\"fa-thin fa-list\"></i>',Category::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689150571187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,7 +31,7 @@\n     {\n         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user',User::class);\n         yield MenuItem::linkToCrud('Tâches', 'fa-solid fa-list-check',Task::class);\n-        yield MenuItem::linkToCrud('Categories', '<i class=\"fa-thin fa-list\"></i>',Category::class);\n+        yield MenuItem::linkToCrud('Categories', \"fa-thin fa-list\"',Category::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689150674047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,10 +28,10 @@\n     }\n \n     public function configureMenuItems(): iterable\n     {\n-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n+        yield MenuItem::linkToDashboard('Ho', 'fa fa-home');\n         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user',User::class);\n         yield MenuItem::linkToCrud('Tâches', 'fa-solid fa-list-check',Task::class);\n-        yield MenuItem::linkToCrud('Categories', \"fa-thin fa-list\"',Category::class);\n+        yield MenuItem::linkToCrud('Categories', \"fa-thin fa-list\",Category::class);\n     }\n }\n"
+                },
+                {
+                    "date": 1689150685675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n {\n     #[Route('/admin', name: 'admin')]\n     public function index(): Response\n     {\n-        \n+        /admin\n          return $this->render('admin/dashboard.html.twig');\n     }\n \n     public function configureDashboard(): Dashboard\n@@ -28,9 +28,9 @@\n     }\n \n     public function configureMenuItems(): iterable\n     {\n-        yield MenuItem::linkToDashboard('Ho', 'fa fa-home');\n+        yield MenuItem::linkToDashboard('Home', 'fa fa-home');\n         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user',User::class);\n         yield MenuItem::linkToCrud('Tâches', 'fa-solid fa-list-check',Task::class);\n         yield MenuItem::linkToCrud('Categories', \"fa-thin fa-list\",Category::class);\n     }\n"
+                },
+                {
+                    "date": 1689150703449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n {\n     #[Route('/admin', name: 'admin')]\n     public function index(): Response\n     {\n-        /admin\n+        \n          return $this->render('admin/dashboard.html.twig');\n     }\n \n     public function configureDashboard(): Dashboard\n"
+                }
+            ],
+            "date": 1689148562716,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Controller\\Admin;\n\nuse EasyCorp\\Bundle\\EasyAdminBundle\\Config\\Dashboard;\nuse EasyCorp\\Bundle\\EasyAdminBundle\\Config\\MenuItem;\nuse EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AbstractDashboardController;\nuse Symfony\\Component\\HttpFoundation\\Response;\nuse Symfony\\Component\\Routing\\Annotation\\Route;\n\nclass DashboardController extends AbstractDashboardController\n{\n    #[Route('/admin', name: 'admin')]\n    public function index(): Response\n    {\n        \n        // return $this->render('some/path/my-dashboard.html.twig');\n    }\n\n    public function configureDashboard(): Dashboard\n    {\n        return Dashboard::new()\n            ->setTitle('TaskApp');\n    }\n\n    public function configureMenuItems(): iterable\n    {\n        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');\n        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);\n    }\n}\n"
+        }
+    ]
+}

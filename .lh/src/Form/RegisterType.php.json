@@ -1,0 +1,146 @@
+{
+    "sourceFile": "src/Form/RegisterType.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 32,
+            "patches": [
+                {
+                    "date": 1688744831006,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688744837708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,11 +13,8 @@\n     {\n         $builder\n             ->add('email')\n            \n-            ->add('password')\n-            ->add('nom')\n-            ->add('prenom')\n         ;\n     }\n \n     public function configureOptions(OptionsResolver $resolver): void\n"
+                },
+                {
+                    "date": 1688744845247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,12 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n+        ->add('prenom')\n+        ->add('password')\n+        ->add('nom')\n+        ->add('prenom')\n             ->add('email')\n            \n         ;\n     }\n"
+                },
+                {
+                    "date": 1688744854512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,12 +11,12 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n+        ->add('nom')\n         ->add('prenom')\n         ->add('password')\n-        ->add('nom')\n-        ->add('prenom')\n+        \n             ->add('email')\n            \n         ;\n     }\n"
+                },
+                {
+                    "date": 1688744866523,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,11 +13,11 @@\n     {\n         $builder\n         ->add('nom')\n         ->add('prenom')\n+        ->add('email')\n         ->add('password')\n         \n-            ->add('email')\n            \n         ;\n     }\n \n"
+                },
+                {
+                    "date": 1688744872072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,9 @@\n         $builder\n         ->add('nom')\n         ->add('prenom')\n         ->add('email')\n-        ->add('password')\n-        \n-           \n+        ->add('password')    \n         ;\n     }\n \n     public function configureOptions(OptionsResolver $resolver): void\n"
+                },
+                {
+                    "date": 1688755751440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,18 +5,57 @@\n use App\\Entity\\User;\n use Symfony\\Component\\Form\\AbstractType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType;\n \n class RegisterType extends AbstractType\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-        ->add('nom')\n-        ->add('prenom')\n-        ->add('email')\n-        ->add('password')    \n+        ->add('nom',TextType::class,[\n+            'label' => false\n+        ])\n+        ->add('prenom',TextType::class,[\n+            'label' => false,\n+        ])\n+        ->add('email',EmailType::class,[\n+\n+            ])\n+       \n+\n+            ->add('password', RepeatedType::class, [\n+                'type' => PasswordType::class,\n+                'invalid_message' => 'Le mot de passe et la confirmation doivent être identique.',\n+                'label' => 'Votre mot de passe',\n+                'required' => true,\n+                'first_options' => [\n+                    'label' => 'Mot de passe',\n+                    'attr' => [\n+                        'class'=>'form-control',\n+\n+                    ]\n+                ],\n+                'second_options' => [\n+                    'label' => 'Confirmez votre mot de passe',\n+                    'attr' => [\n+\n+                        'class'=>'form-control',\n+\n+                    ]\n+                ]\n+            ])\n+\n+            \n+            ->add('submit', SubmitType::class, [\n+                'label' => \"S'inscrire\",\n+                'attr' => [\n+                    'class' => 'btn btn-primary'\n+                ] \n+            ])\n+\n         ;\n     }\n \n     public function configureOptions(OptionsResolver $resolver): void\n"
+                },
+                {
+                    "date": 1688755769288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType;\n \n class RegisterType extends AbstractType\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n"
+                },
+                {
+                    "date": 1688755778702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType;\n \n class RegisterType extends AbstractType\n {\n"
+                },
+                {
+                    "date": 1688755786307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\PasswordType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType;\n \n class RegisterType extends AbstractType\n {\n"
+                },
+                {
+                    "date": 1688755975905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         ->add('prenom',TextType::class,[\n             'label' => false,\n         ])\n         ->add('email',EmailType::class,[\n-\n+              'label' => false,\n             ])\n        \n \n             ->add('password', RepeatedType::class, [\n"
+                },
+                {
+                    "date": 1688756481419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n        \n \n             ->add('password', RepeatedType::class, [\n                 'type' => PasswordType::class,\n-                'invalid_message' => 'Le mot de passe et la confirmation doivent être identique.',\n+                'invalid_message' => 'The password and the confirmation must be identical.',\n                 'label' => 'Votre mot de passe',\n                 'required' => true,\n                 'first_options' => [\n                     'label' => 'Mot de passe',\n"
+                },
+                {
+                    "date": 1688756501560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n                 'invalid_message' => 'The password and the confirmation must be identical.',\n                 'label' => 'Votre mot de passe',\n                 'required' => true,\n                 'first_options' => [\n-                    'label' => 'Mot de passe',\n+                    'label' => 'Password',\n                     'attr' => [\n                         'class'=>'form-control',\n \n                     ]\n"
+                },
+                {
+                    "date": 1688756509966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n \n                     ]\n                 ],\n                 'second_options' => [\n-                    'label' => 'Confirmez votre mot de passe',\n+                    'label' => 'Confirm your password',\n                     'attr' => [\n \n                         'class'=>'form-control',\n \n"
+                },
+                {
+                    "date": 1688756577357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,9 @@\n                 ],\n                 'second_options' => [\n                     'label' => 'Confirm your password',\n                     'attr' => [\n+                        \n \n                         'class'=>'form-control',\n \n                     ]\n"
+                },
+                {
+                    "date": 1688756587573,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n                 ],\n                 'second_options' => [\n                     'label' => 'Confirm your password',\n                     'attr' => [\n-                        \n+                        'placeho'\n \n                         'class'=>'form-control',\n \n                     ]\n"
+                },
+                {
+                    "date": 1688756594642,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n                 ],\n                 'second_options' => [\n                     'label' => 'Confirm your password',\n                     'attr' => [\n-                        'placeho'\n+                        'placeholder'=>''\n \n                         'class'=>'form-control',\n \n                     ]\n"
+                },
+                {
+                    "date": 1688756605576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n                 ],\n                 'second_options' => [\n                     'label' => 'Confirm your password',\n                     'attr' => [\n-                        'placeholder'=>''\n+                        'placeholder'=>'Please '\n \n                         'class'=>'form-control',\n \n                     ]\n"
+                },
+                {
+                    "date": 1688756612803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n                 ],\n                 'second_options' => [\n                     'label' => 'Confirm your password',\n                     'attr' => [\n-                        'placeholder'=>'Please '\n+                        'placeholder'=>'Please con'\n \n                         'class'=>'form-control',\n \n                     ]\n"
+                },
+                {
+                    "date": 1688756620438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n                 ],\n                 'second_options' => [\n                     'label' => 'Confirm your password',\n                     'attr' => [\n-                        'placeholder'=>'Please con'\n+                        'placeholder'=>'Please confirm your password'\n \n                         'class'=>'form-control',\n \n                     ]\n"
+                },
+                {
+                    "date": 1688756642488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,16 +35,17 @@\n                 'required' => true,\n                 'first_options' => [\n                     'label' => 'Password',\n                     'attr' => [\n-                        'class'=>'form-control',\n+                        'class'=>'form-control'\n+                        '',\n \n                     ]\n                 ],\n                 'second_options' => [\n                     'label' => 'Confirm your password',\n                     'attr' => [\n-                        'placeholder'=>'Please confirm your password'\n+                        'placeholder'=>'Please confirm your password',\n \n                         'class'=>'form-control',\n \n                     ]\n"
+                },
+                {
+                    "date": 1688756653721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,11 +35,12 @@\n                 'required' => true,\n                 'first_options' => [\n                     'label' => 'Password',\n                     'attr' => [\n-                        'class'=>'form-control'\n-                        '',\n+                        'class'=>'form-control',\n \n+                        'Placeholder' =>,\n+\n                     ]\n                 ],\n                 'second_options' => [\n                     'label' => 'Confirm your password',\n"
+                },
+                {
+                    "date": 1688756684088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n                     'label' => 'Password',\n                     'attr' => [\n                         'class'=>'form-control',\n \n-                        'Placeholder' =>,\n+                        'Placeholder' =>'Please confirm your password',\n \n                     ]\n                 ],\n                 'second_options' => [\n"
+                },
+                {
+                    "date": 1688756782603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,11 +36,10 @@\n                 'first_options' => [\n                     'label' => 'Password',\n                     'attr' => [\n                         'class'=>'form-control',\n+,\n \n-                        'Placeholder' =>'Please confirm your password',\n-\n                     ]\n                 ],\n                 'second_options' => [\n                     'label' => 'Confirm your password',\n"
+                },
+                {
+                    "date": 1688756788050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n                 ],\n                 'second_options' => [\n                     'label' => 'Confirm your password',\n                     'attr' => [\n-                        'placeholder'=>'Please confirm your password',\n+                        \n \n                         'class'=>'form-control',\n \n                     ]\n"
+                },
+                {
+                    "date": 1688756810180,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,16 +36,17 @@\n                 'first_options' => [\n                     'label' => 'Password',\n                     'attr' => [\n                         'class'=>'form-control',\n-,\n \n+                        'placeholder' =>'Please confirm your password',\n+\n                     ]\n                 ],\n                 'second_options' => [\n                     'label' => 'Confirm your password',\n                     'attr' => [\n-                        \n+                        'placeholder'=>'Please confirm your password',\n \n                         'class'=>'form-control',\n \n                     ]\n"
+                },
+                {
+                    "date": 1688756816700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n                     'label' => 'Password',\n                     'attr' => [\n                         'class'=>'form-control',\n \n-                        'placeholder' =>'Please confirm your password',\n+                       \n \n                     ]\n                 ],\n                 'second_options' => [\n"
+                },
+                {
+                    "date": 1688756822329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 ],\n                 'second_options' => [\n                     'label' => 'Confirm your password',\n                     'attr' => [\n-                        'placeholder'=>'Please confirm your password',\n+                       \n \n                         'class'=>'form-control',\n \n                     ]\n"
+                },
+                {
+                    "date": 1688756870098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n                 'required' => true,\n                 'first_options' => [\n                     'label' => 'Password',\n                     'attr' => [\n-                        'class'=>'form-control',\n+                        'class'=>'form-control'\n \n                        \n \n                     ]\n@@ -46,9 +46,9 @@\n                     'label' => 'Confirm your password',\n                     'attr' => [\n                        \n \n-                        'class'=>'form-control',\n+                        'class'=>'form-control'\n \n                     ]\n                 ]\n             ])\n@@ -56,9 +56,9 @@\n             \n             ->add('submit', SubmitType::class, [\n                 'label' => \"S'inscrire\",\n                 'attr' => [\n-                    'class' => 'btn btn-primary'\n+                    'class' => 'btn btn-'\n                 ] \n             ])\n \n         ;\n"
+                },
+                {
+                    "date": 1688756875166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n             \n             ->add('submit', SubmitType::class, [\n                 'label' => \"S'inscrire\",\n                 'attr' => [\n-                    'class' => 'btn btn-'\n+                    'class' => 'btn b'\n                 ] \n             ])\n \n         ;\n"
+                },
+                {
+                    "date": 1688756880593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n             \n             ->add('submit', SubmitType::class, [\n                 'label' => \"S'inscrire\",\n                 'attr' => [\n-                    'class' => 'btn b'\n+                    'class' => 'btn w-'\n                 ] \n             ])\n \n         ;\n"
+                },
+                {
+                    "date": 1688756887197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n             \n             ->add('submit', SubmitType::class, [\n                 'label' => \"S'inscrire\",\n                 'attr' => [\n-                    'class' => 'btn w-100 text-'\n+                    'class' => 'btn w-100 text-W'\n                 ] \n             ])\n \n         ;\n"
+                },
+                {
+                    "date": 1688760311990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n                     'attr' => [\n                         'class'=>'form-control',\n                     'constraints' => [\n                         new Rejex('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{14,}$/',\n-                         \"il faut un mot de passe de 14 caractères avec 1 majuscules\"\n+                         \"il faut un mot de passe de 14 caractères avec 1 majuscule\"\n \n \n \n                        \n"
+                }
+            ],
+            "date": 1688744831006,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Form;\n\nuse App\\Entity\\User;\nuse Symfony\\Component\\Form\\AbstractType;\nuse Symfony\\Component\\Form\\FormBuilderInterface;\nuse Symfony\\Component\\OptionsResolver\\OptionsResolver;\n\nclass RegisterType extends AbstractType\n{\n    public function buildForm(FormBuilderInterface $builder, array $options): void\n    {\n        $builder\n            ->add('email')\n           \n            ->add('password')\n            ->add('nom')\n            ->add('prenom')\n        ;\n    }\n\n    public function configureOptions(OptionsResolver $resolver): void\n    {\n        $resolver->setDefaults([\n            'data_class' => User::class,\n        ]);\n    }\n}\n"
+        }
+    ]
+}

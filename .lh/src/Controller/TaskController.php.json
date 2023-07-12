@@ -1,0 +1,414 @@
+{
+    "sourceFile": "src/Controller/TaskController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 99,
+            "patches": [
+                {
+                    "date": 1688741697171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688741706394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,8 @@\n         return $this->render('task/index.html.twig', [\n             'controller_name' => 'TaskController',\n         ]);\n     }\n+\n+    #[Route('/task', name: 'task')]\n+\n }\n"
+                },
+                {
+                    "date": 1688741712972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,7 @@\n             'controller_name' => 'TaskController',\n         ]);\n     }\n \n-    #[Route('/task', name: 'task')]\n+    #[Route('/', name: 'home')]\n \n }\n"
+                },
+                {
+                    "date": 1688741720633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,5 +17,7 @@\n     }\n \n     #[Route('/', name: 'home')]\n \n+    public fun\n+\n }\n"
+                },
+                {
+                    "date": 1688741728836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,7 +17,7 @@\n     }\n \n     #[Route('/', name: 'home')]\n \n-    public fun\n+    public function ho\n \n }\n"
+                },
+                {
+                    "date": 1688741734373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,7 +17,12 @@\n     }\n \n     #[Route('/', name: 'home')]\n \n-    public function ho\n+    public function home(\n+        {\n \n+            \n+        }\n+    )\n+\n }\n"
+                },
+                {
+                    "date": 1688741742363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,12 +17,12 @@\n     }\n \n     #[Route('/', name: 'home')]\n \n-    public function home(\n+    public function home()\n         {\n \n-            \n+  \n         }\n     )\n \n }\n"
+                },
+                {
+                    "date": 1688741747924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,11 @@\n     #[Route('/', name: 'home')]\n \n     public function home()\n         {\n+           \n \n   \n         }\n-    )\n+    \n \n }\n"
+                },
+                {
+                    "date": 1688741753631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n     public function home()\n         {\n            \n-\n+            return \n   \n         }\n     \n \n"
+                },
+                {
+                    "date": 1688741758935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n     public function home()\n         {\n            \n-            return \n+            return $this->render('task/home.html.twig);\n   \n         }\n     \n \n"
+                },
+                {
+                    "date": 1688771884766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,18 +11,18 @@\n     #[Route('/task', name: 'task')]\n     public function index(): Response\n     {\n         return $this->render('task/index.html.twig', [\n-            'controller_name' => 'TaskController',\n+            \n         ]);\n     }\n \n     #[Route('/', name: 'home')]\n \n     public function home()\n         {\n            \n-            return $this->render('task/home.html.twig);\n+            return $this->render('task/home.html.twig');\n   \n         }\n     \n \n"
+                },
+                {
+                    "date": 1688974799861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,5 +25,6 @@\n   \n         }\n     \n \n+        \n }\n"
+                },
+                {
+                    "date": 1688974848218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n {\n     #[Route('/task', name: 'task')]\n     public function index(): Response\n     {\n+        \n         return $this->render('task/index.html.twig', [\n             \n         ]);\n     }\n@@ -25,6 +26,6 @@\n   \n         }\n     \n \n-        \n+\n }\n"
+                },
+                {
+                    "date": 1688974854568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,12 @@\n {\n     #[Route('/task', name: 'task')]\n     public function index(): Response\n     {\n+        $articles = $repo->findAll();\n+        return $this->render('blog/index.html.twig', [\n+            'controller_name' => 'BlogController',\n+            'articles' => $articles\n         \n         return $this->render('task/index.html.twig', [\n             \n         ]);\n"
+                },
+                {
+                    "date": 1688974866218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,17 @@\n <?php\n \n namespace App\\Controller;\n \n+use App\\Repository\\TaskRepository;\n use Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\n use Symfony\\Component\\HttpFoundation\\Response;\n use Symfony\\Component\\Routing\\Annotation\\Route;\n \n class TaskController extends AbstractController\n {\n     #[Route('/task', name: 'task')]\n-    public function index(): Response\n+    public function index(TaskRepository ): Response\n     {\n         $articles = $repo->findAll();\n         return $this->render('blog/index.html.twig', [\n             'controller_name' => 'BlogController',\n"
+                },
+                {
+                    "date": 1688974875582,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,13 +9,12 @@\n \n class TaskController extends AbstractController\n {\n     #[Route('/task', name: 'task')]\n-    public function index(TaskRepository ): Response\n+    public function index(TaskRepository $repo): Response\n     {\n         $articles = $repo->findAll();\n-        return $this->render('blog/index.html.twig', [\n-            'controller_name' => 'BlogController',\n+      \n             'articles' => $articles\n         \n         return $this->render('task/index.html.twig', [\n             \n"
+                },
+                {
+                    "date": 1688974882228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,12 +13,12 @@\n     public function index(TaskRepository $repo): Response\n     {\n         $articles = $repo->findAll();\n       \n-            'articles' => $articles\n+      \n         \n         return $this->render('task/index.html.twig', [\n-            \n+            'articles' => $articles\n         ]);\n     }\n \n     #[Route('/', name: 'home')]\n"
+                },
+                {
+                    "date": 1688974889023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,8 @@\n     #[Route('/task', name: 'task')]\n     public function index(TaskRepository $repo): Response\n     {\n         $articles = $repo->findAll();\n-      \n-      \n-        \n         return $this->render('task/index.html.twig', [\n             'articles' => $articles\n         ]);\n     }\n"
+                },
+                {
+                    "date": 1688975096449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     public function index(TaskRepository $repo): Response\n     {\n         $articles = $repo->findAll();\n         return $this->render('task/index.html.twig', [\n-            'articles' => $articles\n+            'tasks' => $articles\n         ]);\n     }\n \n     #[Route('/', name: 'home')]\n"
+                },
+                {
+                    "date": 1688975104670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,11 @@\n {\n     #[Route('/task', name: 'task')]\n     public function index(TaskRepository $repo): Response\n     {\n-        $articles = $repo->findAll();\n+        $tasks = $repo->findAll();\n         return $this->render('task/index.html.twig', [\n-            'tasks' => $articles\n+            'tasks' => $tasks\n         ]);\n     }\n \n     #[Route('/', name: 'home')]\n"
+                },
+                {
+                    "date": 1688980369165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n             'tasks' => $tasks\n         ]);\n     }\n \n+    \n     #[Route('/', name: 'home')]\n \n     public function home()\n         {\n"
+                },
+                {
+                    "date": 1688980377293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,10 +16,36 @@\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks\n         ]);\n     }\n+    \n+    public function create(Article $article = null, Request $request, EntityManagerInterface $entityManager)\n+    {\n+        if (!$article) {\n+            $article = new Article();\n+        }\n+       \n+        $form= $this->createForm(ArticleType::class,$article);\n+        $form->handleRequest($request);\n \n-    \n+        if ($form->isSubmitted() && $form->isValid()) {\n+            if(!$article->getId()) {\n+            $article->setCreatedAt(new \\Datetime());\n+            }\n+            $entityManager->persist($article);\n+            $entityManager->flush();\n+\n+            return $this->redirectToRoute('blog_show', ['id' => $article->getId()]);\n+        }\n+\n+\n+        return $this->render('blog/create.html.twig', [\n+            'formArticle' => $form->createView(),\n+            'editMode'   => $article->getId() !== null\n+        ]);\n+    }\n+\n+\n     #[Route('/', name: 'home')]\n \n     public function home()\n         {\n"
+                },
+                {
+                    "date": 1688980383719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks\n         ]);\n     }\n-    \n+    #[Route('/task', name: 'task')]\n     public function create(Article $article = null, Request $request, EntityManagerInterface $entityManager)\n     {\n         if (!$article) {\n             $article = new Article();\n"
+                },
+                {
+                    "date": 1688980393402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,17 +8,17 @@\n use Symfony\\Component\\Routing\\Annotation\\Route;\n \n class TaskController extends AbstractController\n {\n-    #[Route('/task', name: 'task')]\n+    #[Route('/task/newtask', name: 'task')]\n     public function index(TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks\n         ]);\n     }\n-    #[Route('/task', name: 'task')]\n+    #[Route('/task', name: '')]\n     public function create(Article $article = null, Request $request, EntityManagerInterface $entityManager)\n     {\n         if (!$article) {\n             $article = new Article();\n"
+                },
+                {
+                    "date": 1688980403717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,17 +8,17 @@\n use Symfony\\Component\\Routing\\Annotation\\Route;\n \n class TaskController extends AbstractController\n {\n-    #[Route('/task/newtask', name: 'task')]\n+    #[Route('/task', name: 'task')]\n     public function index(TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks\n         ]);\n     }\n-    #[Route('/task', name: '')]\n+    #[Route('/task/new', name: '')]\n     public function create(Article $article = null, Request $request, EntityManagerInterface $entityManager)\n     {\n         if (!$article) {\n             $article = new Article();\n"
+                },
+                {
+                    "date": 1688980409735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks\n         ]);\n     }\n-    #[Route('/task/new', name: '')]\n+    #[Route('/task/newTask', name: '')]\n     public function create(Article $article = null, Request $request, EntityManagerInterface $entityManager)\n     {\n         if (!$article) {\n             $article = new Article();\n"
+                },
+                {
+                    "date": 1688980439644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks\n         ]);\n     }\n-    #[Route('/task/newTask', name: '')]\n+    #[Route('/task/newTask', name: 'create')]\n     public function create(Article $article = null, Request $request, EntityManagerInterface $entityManager)\n     {\n         if (!$article) {\n             $article = new Article();\n"
+                },
+                {
+                    "date": 1688980448102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             'tasks' => $tasks\n         ]);\n     }\n     #[Route('/task/newTask', name: 'create')]\n-    public function create(Article $article = null, Request $request, EntityManagerInterface $entityManager)\n+    public function create(Task $task = null, Request $request, EntityManagerInterface $entityManager)\n     {\n         if (!$article) {\n             $article = new Article();\n         }\n"
+                },
+                {
+                    "date": 1688980461057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,13 @@\n <?php\n \n namespace App\\Controller;\n \n+use App\\Entity\\Task;\n use App\\Repository\\TaskRepository;\n-use Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\n use Symfony\\Component\\HttpFoundation\\Response;\n use Symfony\\Component\\Routing\\Annotation\\Route;\n+use Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\n \n class TaskController extends AbstractController\n {\n     #[Route('/task', name: 'task')]\n@@ -19,9 +20,9 @@\n     }\n     #[Route('/task/newTask', name: 'create')]\n     public function create(Task $task = null, Request $request, EntityManagerInterface $entityManager)\n     {\n-        if (!$article) {\n+        if (!task) {\n             $article = new Article();\n         }\n        \n         $form= $this->createForm(ArticleType::class,$article);\n"
+                },
+                {
+                    "date": 1688980467593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     }\n     #[Route('/task/newTask', name: 'create')]\n     public function create(Task $task = null, Request $request, EntityManagerInterface $entityManager)\n     {\n-        if (!task) {\n+        if (!$task) {\n             $article = new Article();\n         }\n        \n         $form= $this->createForm(ArticleType::class,$article);\n"
+                },
+                {
+                    "date": 1688980474691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n     #[Route('/task/newTask', name: 'create')]\n     public function create(Task $task = null, Request $request, EntityManagerInterface $entityManager)\n     {\n         if (!$task) {\n-            $article = new Article();\n+            $article = new task();\n         }\n        \n         $form= $this->createForm(ArticleType::class,$article);\n         $form->handleRequest($request);\n"
+                },
+                {
+                    "date": 1688980484185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,12 +21,12 @@\n     #[Route('/task/newTask', name: 'create')]\n     public function create(Task $task = null, Request $request, EntityManagerInterface $entityManager)\n     {\n         if (!$task) {\n-            $article = new task();\n+            $task = new task();\n         }\n        \n-        $form= $this->createForm(ArticleType::class,$article);\n+        $form= $this->createForm(ArticleType::classtask);\n         $form->handleRequest($request);\n \n         if ($form->isSubmitted() && $form->isValid()) {\n             if(!$article->getId()) {\n"
+                },
+                {
+                    "date": 1688980491629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         if (!$task) {\n             $task = new task();\n         }\n        \n-        $form= $this->createForm(ArticleType::classtask);\n+        $form= $this->createForm(ArticleType::class,$article);\n         $form->handleRequest($request);\n \n         if ($form->isSubmitted() && $form->isValid()) {\n             if(!$article->getId()) {\n"
+                },
+                {
+                    "date": 1688980605394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,13 +24,13 @@\n         if (!$task) {\n             $task = new task();\n         }\n        \n-        $form= $this->createForm(ArticleType::class,$article);\n+        $form= $this->createForm(ArticleType::class,$task);\n         $form->handleRequest($request);\n \n         if ($form->isSubmitted() && $form->isValid()) {\n-            if(!$article->getId()) {\n+            if(!->getId()) {\n             $article->setCreatedAt(new \\Datetime());\n             }\n             $entityManager->persist($article);\n             $entityManager->flush();\n"
+                },
+                {
+                    "date": 1688980613293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         $form= $this->createForm(ArticleType::class,$task);\n         $form->handleRequest($request);\n \n         if ($form->isSubmitted() && $form->isValid()) {\n-            if(!->getId()) {\n+            if($task->getId()) {\n             $article->setCreatedAt(new \\Datetime());\n             }\n             $entityManager->persist($article);\n             $entityManager->flush();\n"
+                },
+                {
+                    "date": 1688980626450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         $form->handleRequest($request);\n \n         if ($form->isSubmitted() && $form->isValid()) {\n             if($task->getId()) {\n-            $article->setCreatedAt(new \\Datetime());\n+            $task->setCreatedAt(new \\Datetime());\n             }\n             $entityManager->persist($article);\n             $entityManager->flush();\n \n"
+                },
+                {
+                    "date": 1688980678417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         $form= $this->createForm(ArticleType::class,$task);\n         $form->handleRequest($request);\n \n         if ($form->isSubmitted() && $form->isValid()) {\n-            if($task->getId()) {\n+            \n             $task->setCreatedAt(new \\Datetime());\n             }\n             $entityManager->persist($article);\n             $entityManager->flush();\n"
+                },
+                {
+                    "date": 1688980685190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,11 +29,10 @@\n         $form->handleRequest($request);\n \n         if ($form->isSubmitted() && $form->isValid()) {\n             \n-            $task->setCreatedAt(new \\Datetime());\n-            }\n-            $entityManager->persist($article);\n+            \n+            $entityManager->persist($);\n             $entityManager->flush();\n \n             return $this->redirectToRoute('blog_show', ['id' => $article->getId()]);\n         }\n"
+                },
+                {
+                    "date": 1688980693660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,12 +30,12 @@\n \n         if ($form->isSubmitted() && $form->isValid()) {\n             \n             \n-            $entityManager->persist($);\n+            $entityManager->persist($task);\n             $entityManager->flush();\n \n-            return $this->redirectToRoute('blog_show', ['id' => $article->getId()]);\n+            return $this->redirectToRoute('blog_show', ['id' => ->getId()]);\n         }\n \n \n         return $this->render('blog/create.html.twig', [\n"
+                },
+                {
+                    "date": 1688980700621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,15 +33,15 @@\n             \n             $entityManager->persist($task);\n             $entityManager->flush();\n \n-            return $this->redirectToRoute('blog_show', ['id' => ->getId()]);\n+            return $this->redirectToRoute('blog_show', ['id' => $task->getId()]);\n         }\n \n \n         return $this->render('blog/create.html.twig', [\n             'formArticle' => $form->createView(),\n-            'editMode'   => $article->getId() !== null\n+            'editMode'   => $articl->getId() !== null\n         ]);\n     }\n \n \n"
+                },
+                {
+                    "date": 1688980713757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         if (!$task) {\n             $task = new task();\n         }\n        \n-        $form= $this->createForm(ArticleType::class,$task);\n+        $form= $this->createForm(Type::class,$task);\n         $form->handleRequest($request);\n \n         if ($form->isSubmitted() && $form->isValid()) {\n             \n@@ -39,9 +39,9 @@\n \n \n         return $this->render('blog/create.html.twig', [\n             'formArticle' => $form->createView(),\n-            'editMode'   => $articl->getId() !== null\n+           \n         ]);\n     }\n \n \n"
+                },
+                {
+                    "date": 1688980719929,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         if (!$task) {\n             $task = new task();\n         }\n        \n-        $form= $this->createForm(Type::class,$task);\n+        $form= $this->createForm(taType::class,$task);\n         $form->handleRequest($request);\n \n         if ($form->isSubmitted() && $form->isValid()) {\n             \n"
+                },
+                {
+                    "date": 1688980726311,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         if (!$task) {\n             $task = new task();\n         }\n        \n-        $form= $this->createForm(taType::class,$task);\n+        $form= $this->createForm(TaskType::class,$task);\n         $form->handleRequest($request);\n \n         if ($form->isSubmitted() && $form->isValid()) {\n             \n"
+                },
+                {
+                    "date": 1688980732410,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n namespace App\\Controller;\n \n use App\\Entity\\Task;\n use App\\Repository\\TaskRepository;\n+use Symfony\\Component\\HttpFoundation\\Request;\n use Symfony\\Component\\HttpFoundation\\Response;\n use Symfony\\Component\\Routing\\Annotation\\Route;\n use Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\n \n"
+                },
+                {
+                    "date": 1688980834802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n namespace App\\Controller;\n \n use App\\Entity\\Task;\n+use App\\Form\\TaskType;\n use App\\Repository\\TaskRepository;\n use Symfony\\Component\\HttpFoundation\\Request;\n use Symfony\\Component\\HttpFoundation\\Response;\n use Symfony\\Component\\Routing\\Annotation\\Route;\n@@ -34,9 +35,9 @@\n             \n             $entityManager->persist($task);\n             $entityManager->flush();\n \n-            return $this->redirectToRoute('blog_show', ['id' => $task->getId()]);\n+            return $this->redirectToRoute('', ['id' => $task->getId()]);\n         }\n \n \n         return $this->render('blog/create.html.twig', [\n"
+                },
+                {
+                    "date": 1688980842236,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n             \n             $entityManager->persist($task);\n             $entityManager->flush();\n \n-            return $this->redirectToRoute('', ['id' => $task->getId()]);\n+          \n         }\n \n \n         return $this->render('blog/create.html.twig', [\n"
+                },
+                {
+                    "date": 1688980871196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n use App\\Entity\\Task;\n use App\\Form\\TaskType;\n use App\\Repository\\TaskRepository;\n+use Doctrine\\ORM\\EntityManagerInterface;\n use Symfony\\Component\\HttpFoundation\\Request;\n use Symfony\\Component\\HttpFoundation\\Response;\n use Symfony\\Component\\Routing\\Annotation\\Route;\n use Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\n@@ -39,9 +40,9 @@\n           \n         }\n \n \n-        return $this->render('blog/create.html.twig', [\n+        return $this->render('b/create.html.twig', [\n             'formArticle' => $form->createView(),\n            \n         ]);\n     }\n"
+                },
+                {
+                    "date": 1688980877610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n           \n         }\n \n \n-        return $this->render('b/create.html.twig', [\n+        return $this->render('task/create.html.twig', [\n             'formArticle' => $form->createView(),\n            \n         ]);\n     }\n"
+                },
+                {
+                    "date": 1688981626086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n         }\n \n \n         return $this->render('task/create.html.twig', [\n-            'formArticle' => $form->createView(),\n+            'form' => $form->createView(),\n            \n         ]);\n     }\n \n"
+                },
+                {
+                    "date": 1688982973902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,14 +41,16 @@\n         }\n \n \n         return $this->render('task/create.html.twig', [\n-            'form' => $form->createView(),\n+            'formTask' => $form->createView(),\n            \n         ]);\n     }\n \n \n+    \n+\n     #[Route('/', name: 'home')]\n \n     public function home()\n         {\n"
+                },
+                {
+                    "date": 1688982980082,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,10 +47,10 @@\n         ]);\n     }\n \n \n-    \n \n+\n     #[Route('/', name: 'home')]\n \n     public function home()\n         {\n@@ -59,6 +59,14 @@\n   \n         }\n     \n \n+    #[Route(\"/task/{id}\", name: \"blog_show\")]\n+    public function show(Article $article)\n+    {\n+        return $this->render('blog/show.html.twig', [\n+            'article' => $article\n+        ]);\n+    }\n \n+\n }\n"
+                },
+                {
+                    "date": 1688982985358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n   \n         }\n     \n \n-    #[Route(\"/task/{id}\", name: \"blog_show\")]\n+    #[Route(\"/task/{id}\", name: \"show\")]\n     public function show(Article $article)\n     {\n         return $this->render('blog/show.html.twig', [\n             'article' => $article\n"
+                },
+                {
+                    "date": 1688982991436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n   \n         }\n     \n \n-    #[Route(\"/task/{id}\", name: \"show\")]\n+    #[Route(\"/task/{id}\", name: \"showTask\")]\n     public function show(Article $article)\n     {\n         return $this->render('blog/show.html.twig', [\n             'article' => $article\n"
+                },
+                {
+                    "date": 1688982997180,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n         }\n     \n \n     #[Route(\"/task/{id}\", name: \"showTask\")]\n-    public function show(Article $article)\n+    public function show(Aricle $article)\n     {\n         return $this->render('blog/show.html.twig', [\n             'article' => $article\n         ]);\n"
+                },
+                {
+                    "date": 1688983005060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n         }\n     \n \n     #[Route(\"/task/{id}\", name: \"showTask\")]\n-    public function show(Aricle $article)\n+    public function show(task $article)\n     {\n         return $this->render('blog/show.html.twig', [\n             'article' => $article\n         ]);\n"
+                },
+                {
+                    "date": 1688983011300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n         }\n     \n \n     #[Route(\"/task/{id}\", name: \"showTask\")]\n-    public function show(task $article)\n+    public function show(Task $tasl)\n     {\n         return $this->render('blog/show.html.twig', [\n             'article' => $article\n         ]);\n"
+                },
+                {
+                    "date": 1688983017582,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,12 +60,12 @@\n         }\n     \n \n     #[Route(\"/task/{id}\", name: \"showTask\")]\n-    public function show(Task $tasl)\n+    public function show(Task $task)\n     {\n         return $this->render('blog/show.html.twig', [\n-            'article' => $article\n+            'article' => $ta\n         ]);\n     }\n \n \n"
+                },
+                {
+                    "date": 1688983022932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,9 +63,9 @@\n     #[Route(\"/task/{id}\", name: \"showTask\")]\n     public function show(Task $task)\n     {\n         return $this->render('blog/show.html.twig', [\n-            'article' => $ta\n+            'task' => $task\n         ]);\n     }\n \n \n"
+                },
+                {
+                    "date": 1688983028933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n \n     #[Route(\"/task/{id}\", name: \"showTask\")]\n     public function show(Task $task)\n     {\n-        return $this->render('blog/show.html.twig', [\n+        return $this->render('/show.html.twig', [\n             'task' => $task\n         ]);\n     }\n \n"
+                },
+                {
+                    "date": 1688983088728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         }\n        \n         $form= $this->createForm(TaskType::class,$task);\n         $form->handleRequest($request);\n-\n+       \n         if ($form->isSubmitted() && $form->isValid()) {\n             \n             \n             $entityManager->persist($task);\n@@ -62,9 +62,9 @@\n \n     #[Route(\"/task/{id}\", name: \"showTask\")]\n     public function show(Task $task)\n     {\n-        return $this->render('/show.html.twig', [\n+        return $this->render('task/show.html.twig', [\n             'task' => $task\n         ]);\n     }\n \n"
+                },
+                {
+                    "date": 1688983095870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,10 +31,12 @@\n         $form= $this->createForm(TaskType::class,$task);\n         $form->handleRequest($request);\n        \n         if ($form->isSubmitted() && $form->isValid()) {\n+            if(!$t->getId()) {\n+                $article->setCreatedAt(new \\Datetime());\n+                }  \n             \n-            \n             $entityManager->persist($task);\n             $entityManager->flush();\n \n           \n"
+                },
+                {
+                    "date": 1688983103704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,10 +31,10 @@\n         $form= $this->createForm(TaskType::class,$task);\n         $form->handleRequest($request);\n        \n         if ($form->isSubmitted() && $form->isValid()) {\n-            if(!$t->getId()) {\n-                $article->setCreatedAt(new \\Datetime());\n+            if(!$task->getId()) {\n+                $task->setCreatedAt(new \\Datetime());\n                 }  \n             \n             $entityManager->persist($task);\n             $entityManager->flush();\n"
+                },
+                {
+                    "date": 1688983108985,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n         $form->handleRequest($request);\n        \n         if ($form->isSubmitted() && $form->isValid()) {\n             if(!$task->getId()) {\n-                $task->setCreatedAt(new \\Datetime());\n+                $task->setDeadline(new \\Datetime());\n                 }  \n             \n             $entityManager->persist($task);\n             $entityManager->flush();\n"
+                },
+                {
+                    "date": 1688983120379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n                 }  \n             \n             $entityManager->persist($task);\n             $entityManager->flush();\n-\n+            return $this->redirectToRoute('blog_show', ['id' => $article->getId()]);\n           \n         }\n \n \n"
+                },
+                {
+                    "date": 1688983125872,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,10 @@\n                 }  \n             \n             $entityManager->persist($task);\n             $entityManager->flush();\n-            return $this->redirectToRoute('blog_show', ['id' => $article->getId()]);\n+\n+            return $this->redirectToRoute('blog_show', ['id' => $task->getId()]);\n           \n         }\n \n \n"
+                },
+                {
+                    "date": 1688983132833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n             \n             $entityManager->persist($task);\n             $entityManager->flush();\n \n-            return $this->redirectToRoute('blog_show', ['id' => $task->getId()]);\n+            return $this->redirectToRoute('show', ['id' => $task->getId()]);\n           \n         }\n \n \n"
+                },
+                {
+                    "date": 1688983308688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n             \n             $entityManager->persist($task);\n             $entityManager->flush();\n \n-            return $this->redirectToRoute('show', ['id' => $task->getId()]);\n+            return $this->redirectToRoute('showTask', ['id' => $task->getId()]);\n           \n         }\n \n \n"
+                },
+                {
+                    "date": 1688983319114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,8 @@\n                 }  \n             \n             $entityManager->persist($task);\n             $entityManager->flush();\n-\n             return $this->redirectToRoute('showTask', ['id' => $task->getId()]);\n           \n         }\n \n"
+                },
+                {
+                    "date": 1688983457605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,8 +37,9 @@\n                 }  \n             \n             $entityManager->persist($task);\n             $entityManager->flush();\n+\n             return $this->redirectToRoute('showTask', ['id' => $task->getId()]);\n           \n         }\n \n@@ -63,9 +64,10 @@\n     \n \n     #[Route(\"/task/{id}\", name: \"showTask\")]\n     public function show(Task $task)\n-    {\n+    {    \n+        \n         return $this->render('task/show.html.twig', [\n             'task' => $task\n         ]);\n     }\n"
+                },
+                {
+                    "date": 1688983585420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,12 +62,12 @@\n   \n         }\n     \n \n-    #[Route(\"/task/{id}\", name: \"showTask\")]\n+    #[Route(\"/task/{id}\", name:\"showTask\")]\n     public function show(Task $task)\n     {    \n-        \n+\n         return $this->render('task/show.html.twig', [\n             'task' => $task\n         ]);\n     }\n"
+                },
+                {
+                    "date": 1688983595299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n     #[Route('/', name: 'home')]\n \n     public function home()\n         {\n-           \n+\n             return $this->render('task/home.html.twig');\n   \n         }\n     \n"
+                },
+                {
+                    "date": 1688989880326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n     #[Route('/task', name: 'task')]\n     public function index(TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n+        \n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks\n         ]);\n     }\n@@ -53,9 +54,8 @@\n \n \n \n     #[Route('/', name: 'home')]\n-\n     public function home()\n         {\n \n             return $this->render('task/home.html.twig');\n@@ -65,9 +65,8 @@\n \n     #[Route(\"/task/{id}\", name:\"showTask\")]\n     public function show(Task $task)\n     {    \n-\n         return $this->render('task/show.html.twig', [\n             'task' => $task\n         ]);\n     }\n"
+                },
+                {
+                    "date": 1688989889378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,12 +13,12 @@\n \n class TaskController extends AbstractController\n {\n     #[Route('/task', name: 'task')]\n-    public function index(TaskRepository $repo): Response\n+    public function index( TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n-        \n+        $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks\n         ]);\n     }\n"
+                },
+                {
+                    "date": 1688989900725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \n class TaskController extends AbstractController\n {\n     #[Route('/task', name: 'task')]\n-    public function index( TaskRepository $repo): Response\n+    public function index( UserTaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n         $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n"
+                },
+                {
+                    "date": 1688989907122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \n class TaskController extends AbstractController\n {\n     #[Route('/task', name: 'task')]\n-    public function index( UserTaskRepository $repo): Response\n+    public function index( UserRepository TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n         $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n"
+                },
+                {
+                    "date": 1688989920930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \n class TaskController extends AbstractController\n {\n     #[Route('/task', name: 'task')]\n-    public function index( UserRepository TaskRepository $repo): Response\n+    public function index( UserRepository $userTaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n         $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n"
+                },
+                {
+                    "date": 1688989928124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n use App\\Entity\\Task;\n use App\\Form\\TaskType;\n use App\\Repository\\TaskRepository;\n+use App\\Repository\\UserRepository;\n use Doctrine\\ORM\\EntityManagerInterface;\n use Symfony\\Component\\HttpFoundation\\Request;\n use Symfony\\Component\\HttpFoundation\\Response;\n use Symfony\\Component\\Routing\\Annotation\\Route;\n@@ -13,9 +14,9 @@\n \n class TaskController extends AbstractController\n {\n     #[Route('/task', name: 'task')]\n-    public function index( UserRepository $userTaskRepository $repo): Response\n+    public function index( UserRepository $userRepository ,TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n         $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n"
+                },
+                {
+                    "date": 1688989936780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,10 @@\n     {\n         $tasks = $repo->findAll();\n         $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n-            'tasks' => $tasks\n+            'tasks' => $tasks,\n+            \n         ]);\n     }\n     #[Route('/task/newTask', name: 'create')]\n     public function create(Task $task = null, Request $request, EntityManagerInterface $entityManager)\n"
+                },
+                {
+                    "date": 1688989942655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n         $tasks = $repo->findAll();\n         $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n-            \n+\n         ]);\n     }\n     #[Route('/task/newTask', name: 'create')]\n     public function create(Task $task = null, Request $request, EntityManagerInterface $entityManager)\n"
+                },
+                {
+                    "date": 1688989948849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n         $tasks = $repo->findAll();\n         $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n+            $users\n \n         ]);\n     }\n     #[Route('/task/newTask', name: 'create')]\n"
+                },
+                {
+                    "date": 1688989968569,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,12 +17,12 @@\n     #[Route('/task', name: 'task')]\n     public function index( UserRepository $userRepository ,TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n-        $users = $userRepository->findByTasks($tasks);\n+        $users = $userRepository->findByTasks();\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n-            $users\n+            'users' => $users\n \n         ]);\n     }\n     #[Route('/task/newTask', name: 'create')]\n"
+                },
+                {
+                    "date": 1688989975189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     #[Route('/task', name: 'task')]\n     public function index( UserRepository $userRepository ,TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n-        $users = $userRepository->findByTasks();\n+        $users = $userRepository->findByTasks($);\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n             'users' => $users\n \n"
+                },
+                {
+                    "date": 1688989985304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     #[Route('/task', name: 'task')]\n     public function index( UserRepository $userRepository ,TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n-        $users = $userRepository->findByTasks($);\n+        $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n             'users' => $users\n \n"
+                },
+                {
+                    "date": 1688990029919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     #[Route('/task', name: 'task')]\n     public function index( UserRepository $userRepository ,TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n-        $users = $userRepository->findByTasks($tasks);\n+        \n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n             'users' => $users\n \n"
+                },
+                {
+                    "date": 1688990036962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     #[Route('/task', name: 'task')]\n     public function index( UserRepository $userRepository ,TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n-        \n+        $users= $repo\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n             'users' => $users\n \n"
+                },
+                {
+                    "date": 1688990043413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     #[Route('/task', name: 'task')]\n     public function index( UserRepository $userRepository ,TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n-        $users= $repo\n+        $users= $repo->find\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n             'users' => $users\n \n"
+                },
+                {
+                    "date": 1688990048462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     #[Route('/task', name: 'task')]\n     public function index( UserRepository $userRepository ,TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n-        $users= $repo->find\n+        $users= $repo->findBYUser($tasks)\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n             'users' => $users\n \n"
+                },
+                {
+                    "date": 1688990061643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     #[Route('/task', name: 'task')]\n     public function index( UserRepository $userRepository ,TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n-        $users= $repo->findBYUser($tasks)\n+        $users= $repo->findOneBYUser($tasks);\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n             'users' => $users\n \n"
+                },
+                {
+                    "date": 1688990068460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     #[Route('/task', name: 'task')]\n     public function index( UserRepository $userRepository ,TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n-        $users= $repo->findOneBYUser($tasks);\n+        $users= $repo->findOneByUser($tasks);\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n             'users' => $users\n \n"
+                },
+                {
+                    "date": 1688990123076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n \n class TaskController extends AbstractController\n {\n     #[Route('/task', name: 'task')]\n-    public function index( UserRepository $userRepository ,TaskRepository $repo): Response\n+    public function index( TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n         $users= $repo->findOneByUser($tasks);\n         return $this->render('task/index.html.twig', [\n"
+                },
+                {
+                    "date": 1688990128514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     #[Route('/task', name: 'task')]\n     public function index( TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n-        $users= $repo->findOneByUser($tasks);\n+        $users= $repo->findOnByUser($tasks);\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n             'users' => $users\n \n"
+                },
+                {
+                    "date": 1688990142300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     #[Route('/task', name: 'task')]\n     public function index( TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n-        $users= $repo->findOnByUser($tasks);\n+        $users= $repo->findByUser($tasks);\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n             'users' => $users\n \n"
+                },
+                {
+                    "date": 1688992541332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     #[Route('/task', name: 'task')]\n     public function index( TaskRepository $repo): Response\n     {\n         $tasks = $repo->findAll();\n-        $users= $repo->findByUser($tasks);\n+        $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n             'users' => $users\n \n"
+                },
+                {
+                    "date": 1688992547581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n \n class TaskController extends AbstractController\n {\n     #[Route('/task', name: 'task')]\n-    public function index( TaskRepository $repo): Response\n+    public function index( TaskRepository $repo,): Response\n     {\n         $tasks = $repo->findAll();\n         $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n"
+                },
+                {
+                    "date": 1688992552910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n \n class TaskController extends AbstractController\n {\n     #[Route('/task', name: 'task')]\n-    public function index( TaskRepository $repo,): Response\n+    public function index( TaskRepository $repo, UserRepository): Response\n     {\n         $tasks = $repo->findAll();\n         $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n"
+                },
+                {
+                    "date": 1688992587172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,11 @@\n \n class TaskController extends AbstractController\n {\n     #[Route('/task', name: 'task')]\n-    public function index( TaskRepository $repo, UserRepository): Response\n+    public function index( TaskRepository $repo, UserRepository $userRepository): Response\n     {\n-        $tasks = $repo->findAll();\n+        \n         $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n             'users' => $users\n"
+                },
+                {
+                    "date": 1688992611612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,13 +16,13 @@\n {\n     #[Route('/task', name: 'task')]\n     public function index( TaskRepository $repo, UserRepository $userRepository): Response\n     {\n-        \n+        $tasks = $repo->findAll();\n         $users = $userRepository->findByTasks($tasks);\n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n-            'users' => $users\n+            \n \n         ]);\n     }\n     #[Route('/task/newTask', name: 'create')]\n"
+                },
+                {
+                    "date": 1688992693790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     #[Route('/task', name: 'task')]\n     public function index( TaskRepository $repo, UserRepository $userRepository): Response\n     {\n         $tasks = $repo->findAll();\n-        $users = $userRepository->findByTasks($tasks);\n+      \n         return $this->render('task/index.html.twig', [\n             'tasks' => $tasks,\n             \n \n"
+                },
+                {
+                    "date": 1688994198791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n        \n         if ($form->isSubmitted() && $form->isValid()) {\n             if(!$task->getId()) {\n                 $task->setDeadline(new \\Datetime());\n-                \n+                $\n                 }  \n             \n             $entityManager->persist($task);\n             $entityManager->flush();\n"
+                },
+                {
+                    "date": 1688996655102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n          \n         if ($form->isSubmitted() && $form->isValid()) {\n             if(!$task->getId()) {\n \n-                $task->setDeadline(Date(''));\n+                $task->setDeadline(Date('H'));\n                 $task->setUser($this->getUser());\n                 $task->setIsDone(False);\n                 }  \n             \n"
+                }
+            ],
+            "date": 1688741697171,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Controller;\n\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\nuse Symfony\\Component\\HttpFoundation\\Response;\nuse Symfony\\Component\\Routing\\Annotation\\Route;\n\nclass TaskController extends AbstractController\n{\n    #[Route('/task', name: 'task')]\n    public function index(): Response\n    {\n        return $this->render('task/index.html.twig', [\n            'controller_name' => 'TaskController',\n        ]);\n    }\n}\n"
+        }
+    ]
+}

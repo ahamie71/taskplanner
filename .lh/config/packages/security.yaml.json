@@ -1,0 +1,38 @@
+{
+    "sourceFile": "config/packages/security.yaml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1689151029451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1689151248298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,11 +31,12 @@\n     # Easy way to control access for large sections of your site\n     # Note: Only the *first* access control that matches will be used\n     access_control:\n          - { path: ^/admin, roles: ROLE_ADMIN }\n-        # - { path: ^/profile, roles: ROLE_USER }\n+         - { path: ^/profile, roles: ROLE_USER }\n \n when@test:\n+\n     security:\n         password_hashers:\n             # By default, password hashers are resource intensive and take time. This is\n             # important to generate secure password hashes. In tests however, secure hashes\n"
+                },
+                {
+                    "date": 1689151596385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n \n     # Easy way to control access for large sections of your site\n     # Note: Only the *first* access control that matches will be used\n     access_control:\n-         - { path: ^/admin, roles: ROLE_ADMIN }\n+        # - { path: ^/admin, roles: ROLE_ADMIN }\n          - { path: ^/profile, roles: ROLE_USER }\n \n when@test:\n \n"
+                },
+                {
+                    "date": 1689151622881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n \n     # Easy way to control access for large sections of your site\n     # Note: Only the *first* access control that matches will be used\n     access_control:\n-        # - { path: ^/admin, roles: ROLE_ADMIN }\n+        - { path: ^/admin, roles: ROLE_ADMIN }\n          - { path: ^/profile, roles: ROLE_USER }\n \n when@test:\n \n"
+                },
+                {
+                    "date": 1689151704846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n \n     # Easy way to control access for large sections of your site\n     # Note: Only the *first* access control that matches will be used\n     access_control:\n-        - { path: ^/admin, roles: ROLE_ADMIN }\n+        # - { path: ^/admin, roles: ROLE_ADMIN }\n          - { path: ^/profile, roles: ROLE_USER }\n \n when@test:\n \n"
+                },
+                {
+                    "date": 1689151730206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n \n     # Easy way to control access for large sections of your site\n     # Note: Only the *first* access control that matches will be used\n     access_control:\n-        # - { path: ^/admin, roles: ROLE_ADMIN }\n+         - { path: ^/admin, roles: ROLE_ADMIN }\n          - { path: ^/profile, roles: ROLE_USER }\n \n when@test:\n \n"
+                }
+            ],
+            "date": 1689151029451,
+            "name": "Commit-0",
+            "content": "security:\n    # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords\n    password_hashers:\n        Symfony\\Component\\Security\\Core\\User\\PasswordAuthenticatedUserInterface: 'auto'\n    # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider\n    providers:\n        # used to reload user from session & other features (e.g. switch_user)\n        app_user_provider:\n            entity:\n                class: App\\Entity\\User\n                property: email\n    firewalls:\n        dev:\n            pattern: ^/(_(profiler|wdt)|css|images|js)/\n            security: false\n        main:\n            lazy: true\n            provider: app_user_provider\n            custom_authenticator: App\\Security\\LoginFormAuthenticator\n            logout:\n                path: app_logout\n                # where to redirect after logout\n                # target: app_any_route\n\n            # activate different ways to authenticate\n            # https://symfony.com/doc/current/security.html#the-firewall\n\n            # https://symfony.com/doc/current/security/impersonating_user.html\n            # switch_user: true\n\n    # Easy way to control access for large sections of your site\n    # Note: Only the *first* access control that matches will be used\n    access_control:\n         - { path: ^/admin, roles: ROLE_ADMIN }\n        # - { path: ^/profile, roles: ROLE_USER }\n\nwhen@test:\n    security:\n        password_hashers:\n            # By default, password hashers are resource intensive and take time. This is\n            # important to generate secure password hashes. In tests however, secure hashes\n            # are not important, waste resources and increase test times. The following\n            # reduces the work factor to the lowest possible values.\n            Symfony\\Component\\Security\\Core\\User\\PasswordAuthenticatedUserInterface:\n                algorithm: auto\n                cost: 4 # Lowest possible value for bcrypt\n                time_cost: 3 # Lowest possible value for argon\n                memory_cost: 10 # Lowest possible value for argon\n"
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "sourceFile": "templates/task/resultsOfSearch.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1689077398694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1689077404659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n {% block body %}\n \n {{form(form)}}\n \n-{% if articles | length == 0 %}\n+{% if tasks | length == 0 %}\n             <h4>Aucun résulat pour votre recherche.</h4>\n \n             {% else %}\n                <h3 class=\"mt-3\">Vos résulats de recherche :</h3>\n"
+                },
+                {
+                    "date": 1689077411936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n             {% else %}\n                <h3 class=\"mt-3\">Vos résulats de recherche :</h3>\n                  \n-                 {% for article in articles %}\n+                 {% for task in tasks %}\n                   <article>\n \n                  \n   \n"
+                },
+                {
+                    "date": 1689077422919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,18 +16,9 @@\n                   <article>\n \n                  \n   \n-      <div class=\"card \" style=\"background-color:yellow\">\n-              <img src=\"{{article.image}}\" alt=\"\"style=\"width: 150px;\">\n-      <h2>{{article.title}}  </h2>\n-      <div class=\"metadata\">Ecrit le {{article.createdAT | date('d/m/Y') }} à {{article.createdAt | date('H:i')}}  dans la  catégorie {{article.category.title}}</div>\n-       <div class=\"centent\">\n-\n-         {{article.content | raw}}\n-           \n-     <a href=\"{{path('prog_show',{'id':article.id}) }}\" class=\"btn btn-primary\">les commentaires</a>\n-     </div>\n+      \n                       {% endfor %}\n                {% endif %}\n \n \n"
+                },
+                {
+                    "date": 1689077442995,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,22 @@\n                  \n                  {% for task in tasks %}\n                   <article>\n \n-                 \n+                    {% extends 'base.html.twig' %}\n+\n+                    {% block body %}\n+                        <article>\n+                            <h2 style=\"color: #333;\">{{ task.title }}</h2>\n+                    \n+                            <div class=\"metadata\">To be returned for <strong>{{ task.deadline|date('d/m/y') }}</strong></div>\n+                            <div class=\"metadata\">In category: <strong>{{ task.category.nom }}</strong></div>\n+                    \n+                            <div class=\"content\" style=\"margin-top: 20px;\">\n+                                {{ task.description|raw }}\n+                            </div>\n+                        </article>\n+                    {% endblock %}\n   \n       \n                       {% endfor %}\n                {% endif %}\n"
+                },
+                {
+                    "date": 1689077456701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,9 @@\n                  \n                  {% for task in tasks %}\n                   <article>\n \n-                    {% extends 'base.html.twig' %}\n-\n-                    {% block body %}\n+                   \n                         <article>\n                             <h2 style=\"color: #333;\">{{ task.title }}</h2>\n                     \n                             <div class=\"metadata\">To be returned for <strong>{{ task.deadline|date('d/m/y') }}</strong></div>\n@@ -27,9 +25,9 @@\n                             <div class=\"content\" style=\"margin-top: 20px;\">\n                                 {{ task.description|raw }}\n                             </div>\n                         </article>\n-                    {% endblock %}\n+                   \n   \n       \n                       {% endfor %}\n                {% endif %}\n"
+                },
+                {
+                    "date": 1689077463258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,20 +14,9 @@\n                  \n                  {% for task in tasks %}\n                   <article>\n \n-                   \n-                        <article>\n-                            <h2 style=\"color: #333;\">{{ task.title }}</h2>\n-                    \n-                            <div class=\"metadata\">To be returned for <strong>{{ task.deadline|date('d/m/y') }}</strong></div>\n-                            <div class=\"metadata\">In category: <strong>{{ task.category.nom }}</strong></div>\n-                    \n-                            <div class=\"content\" style=\"margin-top: 20px;\">\n-                                {{ task.description|raw }}\n-                            </div>\n-                        </article>\n-                   \n+                 \n   \n       \n                       {% endfor %}\n                {% endif %}\n"
+                },
+                {
+                    "date": 1689077473137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,22 @@\n                  \n                  {% for task in tasks %}\n                   <article>\n \n-                 \n+                    {% extends 'base.html.twig' %}\n+\n+                    {% block body %}\n+                        <article>\n+                            <h2 style=\"color: #333;\">{{ task.title }}</h2>\n+                    \n+                            <div class=\"metadata\">To be returned for <strong>{{ task.deadline|date('d/m/y') }}</strong></div>\n+                            <div class=\"metadata\">In category: <strong>{{ task.category.nom }}</strong></div>\n+                    \n+                            <div class=\"content\" style=\"margin-top: 20px;\">\n+                                {{ task.description|raw }}\n+                            </div>\n+                        </article>\n+                    {% endblock %}\n   \n       \n                       {% endfor %}\n                {% endif %}\n"
+                },
+                {
+                    "date": 1689077482075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n {% extends 'base.html.twig' %}\n \n-{% block title %}Hello SearchController!{% endblock %}\n+{% block title %}{% endblock %}\n \n {% block body %}\n \n {{form(form)}}\n"
+                },
+                {
+                    "date": 1689077490957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,9 @@\n                  \n                  {% for task in tasks %}\n                   <article>\n \n-                    {% extends 'base.html.twig' %}\n-\n-                    {% block body %}\n+                   \n                         <article>\n                             <h2 style=\"color: #333;\">{{ task.title }}</h2>\n                     \n                             <div class=\"metadata\">To be returned for <strong>{{ task.deadline|date('d/m/y') }}</strong></div>\n"
+                },
+                {
+                    "date": 1689077501724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,9 @@\n                  \n                  {% for task in tasks %}\n                   <article>\n \n-                   \n-                        <article>\n+                        \n                             <h2 style=\"color: #333;\">{{ task.title }}</h2>\n                     \n                             <div class=\"metadata\">To be returned for <strong>{{ task.deadline|date('d/m/y') }}</strong></div>\n                             <div class=\"metadata\">In category: <strong>{{ task.category.nom }}</strong></div>\n@@ -25,9 +24,9 @@\n                             <div class=\"content\" style=\"margin-top: 20px;\">\n                                 {{ task.description|raw }}\n                             </div>\n                         </article>\n-                    {% endblock %}\n+            \n   \n       \n                       {% endfor %}\n                {% endif %}\n"
+                }
+            ],
+            "date": 1689077398694,
+            "name": "Commit-0",
+            "content": "{% extends 'base.html.twig' %}\n\n{% block title %}Hello SearchController!{% endblock %}\n\n{% block body %}\n\n{{form(form)}}\n\n{% if articles | length == 0 %}\n            <h4>Aucun résulat pour votre recherche.</h4>\n\n            {% else %}\n               <h3 class=\"mt-3\">Vos résulats de recherche :</h3>\n                 \n                 {% for article in articles %}\n                  <article>\n\n                 \n  \n      <div class=\"card \" style=\"background-color:yellow\">\n              <img src=\"{{article.image}}\" alt=\"\"style=\"width: 150px;\">\n      <h2>{{article.title}}  </h2>\n      <div class=\"metadata\">Ecrit le {{article.createdAT | date('d/m/Y') }} à {{article.createdAt | date('H:i')}}  dans la  catégorie {{article.category.title}}</div>\n       <div class=\"centent\">\n\n         {{article.content | raw}}\n           \n     <a href=\"{{path('prog_show',{'id':article.id}) }}\" class=\"btn btn-primary\">les commentaires</a>\n     </div>\n                      {% endfor %}\n               {% endif %}\n\n\n{% endblock %}\n"
+        }
+    ]
+}

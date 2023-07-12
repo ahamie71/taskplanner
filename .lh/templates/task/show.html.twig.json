@@ -1,0 +1,106 @@
+{
+    "sourceFile": "templates/task/show.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 22,
+            "patches": [
+                {
+                    "date": 1688988235210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688988241258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n {% block body %}\n \n   <article>\n     \n-    <h2>{{ article.title }}</h2>\n+    <h2>{{ task.title }}</h2>\n     \n     <div class=\"metadata\">Ecrit le {{ article.createdAt|date('d/m/y') }}\n    \n       à {{ article.createdAt|date('H:i') }} dans la categorie{{ article.category.title }}</div>\n"
+                },
+                {
+                    "date": 1688988247470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   <article>\n     \n     <h2>{{ task.title }}</h2>\n     \n-    <div class=\"metadata\">Ecrit le {{ article.createdAt|date('d/m/y') }}\n+    <div class=\"metadata\">{{ article.createdAt|date('d/m/y') }}\n    \n       à {{ article.createdAt|date('H:i') }} dans la categorie{{ article.category.title }}</div>\n     <div class=\"content\">\n       <img src=\"{{ article.image }}\" alt=\"\" />\n"
+                },
+                {
+                    "date": 1688988254931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   <article>\n     \n     <h2>{{ task.title }}</h2>\n     \n-    <div class=\"metadata\">{{ article.createdAt|date('d/m/y') }}\n+    <div class=\"metadata\">{{ task.de|date('d/m/y') }}\n    \n       à {{ article.createdAt|date('H:i') }} dans la categorie{{ article.category.title }}</div>\n     <div class=\"content\">\n       <img src=\"{{ article.image }}\" alt=\"\" />\n"
+                },
+                {
+                    "date": 1688988261723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   <article>\n     \n     <h2>{{ task.title }}</h2>\n     \n-    <div class=\"metadata\">{{ task.de|date('d/m/y') }}\n+    <div class=\"metadata\">{{ task.deadline|date('d/m/y') }}\n    \n       à {{ article.createdAt|date('H:i') }} dans la categorie{{ article.category.title }}</div>\n     <div class=\"content\">\n       <img src=\"{{ article.image }}\" alt=\"\" />\n"
+                },
+                {
+                    "date": 1688988267341,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     <h2>{{ task.title }}</h2>\n     \n     <div class=\"metadata\">{{ task.deadline|date('d/m/y') }}\n    \n-      à {{ article.createdAt|date('H:i') }} dans la categorie{{ article.category.title }}</div>\n+       dans la categorie{{ article.category.title }}</div>\n     <div class=\"content\">\n       <img src=\"{{ article.image }}\" alt=\"\" />\n       {{ article.content|raw }}\n     </div>\n"
+                },
+                {
+                    "date": 1688988276334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     <h2>{{ task.title }}</h2>\n     \n     <div class=\"metadata\">{{ task.deadline|date('d/m/y') }}\n    \n-       dans la categorie{{ article.category.title }}</div>\n+       dans la categorie {{ task.category.title }}</div>\n     <div class=\"content\">\n       <img src=\"{{ article.image }}\" alt=\"\" />\n       {{ article.content|raw }}\n     </div>\n"
+                },
+                {
+                    "date": 1688988282303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,11 @@\n     <h2>{{ task.title }}</h2>\n     \n     <div class=\"metadata\">{{ task.deadline|date('d/m/y') }}\n    \n-       dans la categorie {{ task.category.title }}</div>\n+       dans la categorie {{ task.category.nom }}</div>\n     <div class=\"content\">\n-      <img src=\"{{ article.image }}\" alt=\"\" />\n+ \n       {{ article.content|raw }}\n     </div>\n   </article>\n   <section id=\"commentaires\">\n"
+                },
+                {
+                    "date": 1688988290436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n    \n        dans la categorie {{ task.category.nom }}</div>\n     <div class=\"content\">\n  \n-      {{ article.content|raw }}\n+      {{ task.des|raw }}\n     </div>\n   </article>\n   <section id=\"commentaires\">\n      {% for comment in article.comments %}\n"
+                },
+                {
+                    "date": 1688988296600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n    \n        dans la categorie {{ task.category.nom }}</div>\n     <div class=\"content\">\n  \n-      {{ task.des|raw }}\n+      {{ task.descritp|raw }}\n     </div>\n   </article>\n   <section id=\"commentaires\">\n      {% for comment in article.comments %}\n"
+                },
+                {
+                    "date": 1688988312515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,24 +9,12 @@\n    \n        dans la categorie {{ task.category.nom }}</div>\n     <div class=\"content\">\n  \n-      {{ task.descritp|raw }}\n+      {{ task.description|raw }}\n     </div>\n   </article>\n-  <section id=\"commentaires\">\n-     {% for comment in article.comments %}\n-       <div class=\"comment\">\n-            <div class=\"row\">\n-                  <div class=\"col-3\">\n-                      {{comment.author}} (<small>{{comment.createdAt |\n-                       date('d/m/Y à H:i')}}</small)\n-                  </div>\n-                  <div class=\"col\">\n-                       {{comment.content| raw }} \n-                   </div>\n-               </div>\n-           </div>\n+ \n \n           {% endfor %}\n           \n           </section>\n"
+                },
+                {
+                    "date": 1688988332157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,9 @@\n       {{ task.description|raw }}\n     </div>\n   </article>\n  \n-\n-          {% endfor %}\n+      \n           \n           </section>\n         \n {% endblock %}\n"
+                },
+                {
+                    "date": 1688988357101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n {% extends 'base.html.twig' %}\n {% block body %}\n-\n   <article>\n     \n     <h2>{{ task.title }}</h2>\n     \n"
+                },
+                {
+                    "date": 1688988371333,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,17 +5,15 @@\n     <h2>{{ task.title }}</h2>\n     \n     <div class=\"metadata\">{{ task.deadline|date('d/m/y') }}\n    \n-       dans la categorie {{ task.category.nom }}</div>\n+       in category {{ task.category.nom }}</div>\n     <div class=\"content\">\n  \n       {{ task.description|raw }}\n     </div>\n   </article>\n- \n-      \n-          \n+    \n           </section>\n         \n {% endblock %}\n \n"
+                },
+                {
+                    "date": 1688988376708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,12 @@\n {% extends 'base.html.twig' %}\n {% block body %}\n   <article>\n     \n+\n     <h2>{{ task.title }}</h2>\n     \n-    <div class=\"metadata\">{{ task.deadline|date('d/m/y') }}\n+    <div class=\"metadata\">{{ task.deadline|date('d/m/y')}}\n    \n        in category {{ task.category.nom }}</div>\n     <div class=\"content\">\n  \n"
+                },
+                {
+                    "date": 1688988416270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     \n \n     <h2>{{ task.title }}</h2>\n     \n-    <div class=\"metadata\">{{ task.deadline|date('d/m/y')}}\n+    <div class=\"metadata\"> {{ task.deadline|date('d/m/y')}}\n    \n        in category {{ task.category.nom }}</div>\n     <div class=\"content\">\n  \n"
+                },
+                {
+                    "date": 1688988433715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     \n \n     <h2>{{ task.title }}</h2>\n     \n-    <div class=\"metadata\"> {{ task.deadline|date('d/m/y')}}\n+    <div class=\"metadata\"> to be returned for <strong>{{ task.deadline|date('d/m/y')}}\n    \n        in category {{ task.category.nom }}</div>\n     <div class=\"content\">\n  \n"
+                },
+                {
+                    "date": 1688988440600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     \n \n     <h2>{{ task.title }}</h2>\n     \n-    <div class=\"metadata\"> to be returned for <strong>{{ task.deadline|date('d/m/y')}}\n+    <div class=\"metadata\"> to be returned for <strong>{{ task.deadline|date('d/m/y')}}</\n    \n        in category {{ task.category.nom }}</div>\n     <div class=\"content\">\n  \n"
+                },
+                {
+                    "date": 1688988454356,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,10 @@\n     \n \n     <h2>{{ task.title }}</h2>\n     \n-    <div class=\"metadata\"> to be returned for <strong>{{ task.deadline|date('d/m/y')}}</\n+    <div class=\"metadata\"> to be returned for <strong>{{ task.deadline|date('d/m/y')}}</strong>\n+        /br\n    \n        in category {{ task.category.nom }}</div>\n     <div class=\"content\">\n  \n"
+                },
+                {
+                    "date": 1688988460469,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,11 @@\n \n     <h2>{{ task.title }}</h2>\n     \n     <div class=\"metadata\"> to be returned for <strong>{{ task.deadline|date('d/m/y')}}</strong>\n-        /br\n+    </br>\n    \n-       in category {{ task.category.nom }}</div>\n+    in category {{ task.category.nom }}</div>\n     <div class=\"content\">\n  \n       {{ task.description|raw }}\n     </div>\n"
+                },
+                {
+                    "date": 1688988469778,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     \n     <div class=\"metadata\"> to be returned for <strong>{{ task.deadline|date('d/m/y')}}</strong>\n     </br>\n    \n-    in category {{ task.category.nom }}</div>\n+     in category  <strong>{{ task.category.nom }}</div>\n     <div class=\"content\">\n  \n       {{ task.description|raw }}\n     </div>\n"
+                },
+                {
+                    "date": 1688988480785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     \n     <div class=\"metadata\"> to be returned for <strong>{{ task.deadline|date('d/m/y')}}</strong>\n     </br>\n    \n-     in category  <strong>{{ task.category.nom }}</div>\n+     In category  <strong>{{ task.category.nom }}</strong></div>\n     <div class=\"content\">\n  \n       {{ task.description|raw }}\n     </div>\n"
+                },
+                {
+                    "date": 1688988570962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,21 +1,14 @@\n {% extends 'base.html.twig' %}\n+\n {% block body %}\n-  <article>\n-    \n+    <article>\n+        <h2 style=\"color: #333;\">{{ task.title }}</h2>\n \n-    <h2>{{ task.title }}</h2>\n-    \n-    <div class=\"metadata\"> to be returned for <strong>{{ task.deadline|date('d/m/y')}}</strong>\n-    </br>\n-   \n-     In category  <strong>{{ task.category.nom }}</strong></div>\n-    <div class=\"content\">\n- \n-      {{ task.description|raw }}\n-    </div>\n-  </article>\n-    \n-          </section>\n-        \n-{% endblock %}\n+        <div class=\"metadata\">To be returned for <strong>{{ task.deadline|date('d/m/y') }}</strong></div>\n+        <div class=\"metadata\">In category: <strong>{{ task.category.nom }}</strong></div>\n \n+        <div class=\"content\" style=\"margin-top: 20px;\">\n+            {{ task.description|raw }}\n+        </div>\n+    </article>\n+{% endblock %}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1688988235210,
+            "name": "Commit-0",
+            "content": "{% extends 'base.html.twig' %}\n{% block body %}\n\n  <article>\n    \n    <h2>{{ article.title }}</h2>\n    \n    <div class=\"metadata\">Ecrit le {{ article.createdAt|date('d/m/y') }}\n   \n      à {{ article.createdAt|date('H:i') }} dans la categorie{{ article.category.title }}</div>\n    <div class=\"content\">\n      <img src=\"{{ article.image }}\" alt=\"\" />\n      {{ article.content|raw }}\n    </div>\n  </article>\n  <section id=\"commentaires\">\n     {% for comment in article.comments %}\n       <div class=\"comment\">\n            <div class=\"row\">\n                  <div class=\"col-3\">\n                      {{comment.author}} (<small>{{comment.createdAt |\n                       date('d/m/Y à H:i')}}</small)\n                  </div>\n                  <div class=\"col\">\n                       {{comment.content| raw }} \n                   </div>\n               </div>\n           </div>\n\n          {% endfor %}\n          \n          </section>\n        \n{% endblock %}\n\n"
+        }
+    ]
+}

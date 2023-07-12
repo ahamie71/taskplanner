@@ -1,0 +1,146 @@
+{
+    "sourceFile": "templates/register/index.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 32,
+            "patches": [
+                {
+                    "date": 1688747143838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688755743069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,20 +1,7 @@\n {% extends 'base.html.twig' %}\n \n-{% block title %}Hello RegisterController!{% endblock %}\n+{% block title %}Registration!{% endblock %}\n \n {% block body %}\n-<style>\n-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\n-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\n-</style>\n \n-<div class=\"example-wrapper\">\n-    <h1>Hello! ✅</h1>\n-\n-    This friendly message is coming from:\n-    <ul>\n-        <li>Your controller at <code><a href=\"{{ '/Users/ahmadhamieh/TaskApp/src/Controller/RegisterController.php'|file_link(0) }}\">src/Controller/RegisterController.php</a></code></li>\n-        <li>Your template at <code><a href=\"{{ '/Users/ahmadhamieh/TaskApp/templates/register/index.html.twig'|file_link(0) }}\">templates/register/index.html.twig</a></code></li>\n-    </ul>\n-</div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1688755810023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,6 @@\n {% block title %}Registration!{% endblock %}\n \n {% block body %}\n \n+\n {% endblock %}\n"
+                },
+                {
+                    "date": 1688755821771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,6 +3,7 @@\n {% block title %}Registration!{% endblock %}\n \n {% block body %}\n \n+    \n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1688755827402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n {% block title %}Registration!{% endblock %}\n \n {% block body %}\n \n-    \n+    {{ form}}\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1688755833670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n {% block title %}Registration!{% endblock %}\n \n {% block body %}\n \n-    {{ form}}\n+    {{ form(form) }}\n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1688756384687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,42 @@\n {% extends 'base.html.twig' %}\n \n-{% block title %}Registration!{% endblock %}\n+{% block title %}Inscription{% endblock %}\n \n {% block body %}\n \n-    {{ form(form) }}\n \n+\n+    <section class=\"form\">\n+        <div class=\"container\">\n+\n+{% if notification %}\n+                <div class=\"alert alert-success\">\n+                    {{ notification }}\n+                </div>\n+            {% endif %}\n+            <div class=\"row\">\n+                <div class=\"col\"></div>\n+                <div class=\"col-6\">\n+                    {{ form_start(form) }}\n+\n+                    <div class=\"mb-3\">\n+                    {{ form_label(form.nom, 'Nom', {'label_attr': {'class': 'form-label'}}) }}\n+                    {{ form_row(form.nom , {'attr' : {'class' : 'form-control'}}) }}\n+                    </div>\n+\n+                    {{ form_label(form.prenom, 'Prenom', {'label_attr': {'class': 'form-label'}}) }}\n+                    {{ form_row(form.prenom  , {'attr' : {'class' : 'form-control'}}) }}\n+\n+                    {{ form_label(form.email , 'Email', {'label_attr': {'class': 'form-label'}}) }}\n+                    {{ form_row(form.email , {'attr' : {'class' : 'form-control'}}) }}\n+\n+\n+                    {{ form_row(form.password) }}\n+\n+                    {{ form_end(form) }}\n+                </div>\n+                <div class=\"col\"></div>\n+            </div>\n+        </div>\n+    </section>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1688756706207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,12 +8,9 @@\n \n     <section class=\"form\">\n         <div class=\"container\">\n \n-{% if notification %}\n-                <div class=\"alert alert-success\">\n-                    {{ notification }}\n-                </div>\n+\n             {% endif %}\n             <div class=\"row\">\n                 <div class=\"col\"></div>\n                 <div class=\"col-6\">\n"
+                },
+                {
+                    "date": 1688756965495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,10 @@\n \n     <section class=\"form\">\n         <div class=\"container\">\n \n-\n-            {% endif %}\n+{{}}\n+           \n             <div class=\"row\">\n                 <div class=\"col\"></div>\n                 <div class=\"col-6\">\n                     {{ form_start(form) }}\n"
+                },
+                {
+                    "date": 1688756974671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \n     <section class=\"form\">\n         <div class=\"container\">\n \n-{{}}\n+{% if %}}\n            \n             <div class=\"row\">\n                 <div class=\"col\"></div>\n                 <div class=\"col-6\">\n"
+                },
+                {
+                    "date": 1688756980154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \n     <section class=\"form\">\n         <div class=\"container\">\n \n-{% if %}}\n+{% if notification %}}\n            \n             <div class=\"row\">\n                 <div class=\"col\"></div>\n                 <div class=\"col-6\">\n"
+                },
+                {
+                    "date": 1688756992488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,12 @@\n \n     <section class=\"form\">\n         <div class=\"container\">\n \n-{% if notification %}}\n+{% if notification %}\n+       \n+   <dii\n+\n            \n             <div class=\"row\">\n                 <div class=\"col\"></div>\n                 <div class=\"col-6\">\n"
+                },
+                {
+                    "date": 1688757001693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         <div class=\"container\">\n \n {% if notification %}\n        \n-   <dii\n+   <div class >\n \n            \n             <div class=\"row\">\n                 <div class=\"col\"></div>\n"
+                },
+                {
+                    "date": 1688757007598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         <div class=\"container\">\n \n {% if notification %}\n        \n-   <div class >\n+   <div class ='\">\n \n            \n             <div class=\"row\">\n                 <div class=\"col\"></div>\n"
+                },
+                {
+                    "date": 1688757012871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         <div class=\"container\">\n \n {% if notification %}\n        \n-   <div class ='\">\n+   <div class =\"Alret>\n \n            \n             <div class=\"row\">\n                 <div class=\"col\"></div>\n"
+                },
+                {
+                    "date": 1688757019519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         <div class=\"container\">\n \n {% if notification %}\n        \n-   <div class =\"Alret>\n+   <div class =\"alert alert >\n \n            \n             <div class=\"row\">\n                 <div class=\"col\"></div>\n"
+                },
+                {
+                    "date": 1688757029534,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,12 @@\n         <div class=\"container\">\n \n {% if notification %}\n        \n-   <div class =\"alert alert >\n+   <div class =\"alert alert-sucess\">\n+       {{\n+        \n+       }}\n \n            \n             <div class=\"row\">\n                 <div class=\"col\"></div>\n"
+                },
+                {
+                    "date": 1688757037116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,9 @@\n \n {% if notification %}\n        \n    <div class =\"alert alert-sucess\">\n-       {{\n-        \n+       {{  notfication\n        }}\n \n            \n             <div class=\"row\">\n"
+                },
+                {
+                    "date": 1688757046299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,10 @@\n \n {% if notification %}\n        \n    <div class =\"alert alert-sucess\">\n-       {{  notfication\n-       }}\n-\n+       {{  notfication  }}\n+   </div>\n            \n             <div class=\"row\">\n                 <div class=\"col\"></div>\n                 <div class=\"col-6\">\n"
+                },
+                {
+                    "date": 1688757055701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n        \n    <div class =\"alert alert-sucess\">\n        {{  notfication  }}\n    </div>\n-           \n+           {% %}\n             <div class=\"row\">\n                 <div class=\"col\"></div>\n                 <div class=\"col-6\">\n                     {{ form_start(form) }}\n"
+                },
+                {
+                    "date": 1688757077483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n        \n    <div class =\"alert alert-sucess\">\n        {{  notfication  }}\n    </div>\n-           {% %}\n+           {%%}\n             <div class=\"row\">\n                 <div class=\"col\"></div>\n                 <div class=\"col-6\">\n                     {{ form_start(form) }}\n"
+                },
+                {
+                    "date": 1688757082861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n        \n    <div class =\"alert alert-sucess\">\n        {{  notfication  }}\n    </div>\n-           {%%}\n+           {% end%}\n             <div class=\"row\">\n                 <div class=\"col\"></div>\n                 <div class=\"col-6\">\n                     {{ form_start(form) }}\n"
+                },
+                {
+                    "date": 1688757102428,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,16 +13,16 @@\n        \n    <div class =\"alert alert-sucess\">\n        {{  notfication  }}\n    </div>\n-           {% end%}\n+{% endidf %}\n             <div class=\"row\">\n                 <div class=\"col\"></div>\n                 <div class=\"col-6\">\n                     {{ form_start(form) }}\n \n                     <div class=\"mb-3\">\n-                    {{ form_label(form.nom, 'Nom', {'label_attr': {'class': 'form-label'}}) }}\n+                    {{ form_label(form.nom, 'Nom', {'label_attr': {'class': 'form-label'}})}}\n                     {{ form_row(form.nom , {'attr' : {'class' : 'form-control'}}) }}\n                     </div>\n \n                     {{ form_label(form.prenom, 'Prenom', {'label_attr': {'class': 'form-label'}}) }}\n"
+                },
+                {
+                    "date": 1688757126291,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,17 +13,17 @@\n        \n    <div class =\"alert alert-sucess\">\n        {{  notfication  }}\n    </div>\n-{% endidf %}\n+{% endif %}\n             <div class=\"row\">\n                 <div class=\"col\"></div>\n                 <div class=\"col-6\">\n                     {{ form_start(form) }}\n \n                     <div class=\"mb-3\">\n                     {{ form_label(form.nom, 'Nom', {'label_attr': {'class': 'form-label'}})}}\n-                    {{ form_row(form.nom , {'attr' : {'class' : 'form-control'}}) }}\n+                    {{ form_row(form.nom , {'attr' : {'class' : 'form-control'}})}}\n                     </div>\n \n                     {{ form_label(form.prenom, 'Prenom', {'label_attr': {'class': 'form-label'}}) }}\n                     {{ form_row(form.prenom  , {'attr' : {'class' : 'form-control'}}) }}\n"
+                },
+                {
+                    "date": 1688757134749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n {% if notification %}\n        \n    <div class =\"alert alert-sucess\">\n-       {{  notfication  }}\n+       {{  notification  }}\n    </div>\n {% endif %}\n             <div class=\"row\">\n                 <div class=\"col\"></div>\n"
+                },
+                {
+                    "date": 1688758084469,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,8 @@\n {% block title %}Inscription{% endblock %}\n \n {% block body %}\n \n-\n-\n     <section class=\"form\">\n         <div class=\"container\">\n \n {% if notification %}\n"
+                },
+                {
+                    "date": 1688758363370,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <div class=\"container\">\n \n {% if notification %}\n        \n-   <div class =\"alert alert-sucess\">\n+   <div class =\"alert alert-sucess\" style=\"\">\n        {{  notification  }}\n    </div>\n {% endif %}\n             <div class=\"row\">\n"
+                },
+                {
+                    "date": 1688758369681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <div class=\"container\">\n \n {% if notification %}\n        \n-   <div class =\"alert alert-sucess\" style=\"\">\n+   <div class =\"alert alert-sucess\" style=\"background\">\n        {{  notification  }}\n    </div>\n {% endif %}\n             <div class=\"row\">\n"
+                },
+                {
+                    "date": 1688758378560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <div class=\"container\">\n \n {% if notification %}\n        \n-   <div class =\"alert alert-sucess\" style=\"background\">\n+   <div class =\"alert alert-sucess\" style=\"background-color:blue\">\n        {{  notification  }}\n    </div>\n {% endif %}\n             <div class=\"row\">\n"
+                },
+                {
+                    "date": 1688758461560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <div class=\"container\">\n \n {% if notification %}\n        \n-   <div class =\"alert alert-sucess\" style=\"background-color:blue\">\n+   <div class =\"alert alert-sucess\" style=\"background-color:\">\n        {{  notification  }}\n    </div>\n {% endif %}\n             <div class=\"row\">\n"
+                },
+                {
+                    "date": 1688758468732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <div class=\"container\">\n \n {% if notification %}\n        \n-   <div class =\"alert alert-sucess\" style=\"background-color:\">\n+   <div class =\"alert alert-sucess\" style=\"background-color:crimson\">\n        {{  notification  }}\n    </div>\n {% endif %}\n             <div class=\"row\">\n"
+                },
+                {
+                    "date": 1688758482682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <div class=\"container\">\n \n {% if notification %}\n        \n-   <div class =\"alert alert-sucess\" style=\"background-color:crimson\">\n+   <div class =\"alert alert-sucess\" style=\"background-color:\">\n        {{  notification  }}\n    </div>\n {% endif %}\n             <div class=\"row\">\n"
+                },
+                {
+                    "date": 1688758494518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <div class=\"container\">\n \n {% if notification %}\n        \n-   <div class =\"alert alert-sucess\" style=\"background-color:c\">\n+   <div class =\"alert alert-sucess\" style=\"background-color:\">\n        {{  notification  }}\n    </div>\n {% endif %}\n             <div class=\"row\">\n"
+                }
+            ],
+            "date": 1688747143838,
+            "name": "Commit-0",
+            "content": "{% extends 'base.html.twig' %}\n\n{% block title %}Hello RegisterController!{% endblock %}\n\n{% block body %}\n<style>\n    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\n    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\n</style>\n\n<div class=\"example-wrapper\">\n    <h1>Hello! ✅</h1>\n\n    This friendly message is coming from:\n    <ul>\n        <li>Your controller at <code><a href=\"{{ '/Users/ahmadhamieh/TaskApp/src/Controller/RegisterController.php'|file_link(0) }}\">src/Controller/RegisterController.php</a></code></li>\n        <li>Your template at <code><a href=\"{{ '/Users/ahmadhamieh/TaskApp/templates/register/index.html.twig'|file_link(0) }}\">templates/register/index.html.twig</a></code></li>\n    </ul>\n</div>\n{% endblock %}\n"
+        }
+    ]
+}

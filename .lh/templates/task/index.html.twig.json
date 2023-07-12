@@ -1,0 +1,138 @@
+{
+    "sourceFile": "templates/task/index.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 30,
+            "patches": [
+                {
+                    "date": 1688747067748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688747082999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,19 +2,6 @@\n \n {% block title %}Hello TaskController!{% endblock %}\n \n {% block body %}\n-<style>\n-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\n-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\n-</style>\n \n-<div class=\"example-wrapper\">\n-    <h1>Hello</h1>\n-\n-    This friendly message is coming from:\n-    <ul>\n-        <li>Your controller at <code><a href=\"{{ '/Users/ahmadhamieh/TaskApp/src/Controller/TaskController.php'|file_link(0) }}\">src/Controller/TaskController.php</a></code></li>\n-        <li>Your template at <code><a href=\"{{ '/Users/ahmadhamieh/TaskApp/templates/task/index.html.twig'|file_link(0) }}\">templates/task/index.html.twig</a></code></li>\n-    </ul>\n-</div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1688747102796,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n {% extends 'base.html.twig' %}\n \n-{% block title %}Hello TaskController!{% endblock %}\n+{% block title %}{% endblock %}\n \n {% block body %}\n-\n+ hello\n {% endblock %}\n"
+                },
+                {
+                    "date": 1688755751439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,20 @@\n {% extends 'base.html.twig' %}\n \n-{% block title %}{% endblock %}\n+{% block title %}Hello TaskController!{% endblock %}\n \n {% block body %}\n- hello\n+<style>\n+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\n+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\n+</style>\n+\n+<div class=\"example-wrapper\">\n+    <h1>Hello</h1>\n+\n+    This friendly message is coming from:\n+    <ul>\n+        <li>Your controller at <code><a href=\"{{ '/Users/ahmadhamieh/TaskApp/src/Controller/TaskController.php'|file_link(0) }}\">src/Controller/TaskController.php</a></code></li>\n+        <li>Your template at <code><a href=\"{{ '/Users/ahmadhamieh/TaskApp/templates/task/index.html.twig'|file_link(0) }}\">templates/task/index.html.twig</a></code></li>\n+    </ul>\n+</div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1688772764275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,19 +2,6 @@\n \n {% block title %}Hello TaskController!{% endblock %}\n \n {% block body %}\n-<style>\n-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\n-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\n-</style>\n \n-<div class=\"example-wrapper\">\n-    <h1>Hello</h1>\n-\n-    This friendly message is coming from:\n-    <ul>\n-        <li>Your controller at <code><a href=\"{{ '/Users/ahmadhamieh/TaskApp/src/Controller/TaskController.php'|file_link(0) }}\">src/Controller/TaskController.php</a></code></li>\n-        <li>Your template at <code><a href=\"{{ '/Users/ahmadhamieh/TaskApp/templates/task/index.html.twig'|file_link(0) }}\">templates/task/index.html.twig</a></code></li>\n-    </ul>\n-</div>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1688974981708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,6 @@\n {% block title %}Hello TaskController!{% endblock %}\n \n {% block body %}\n \n+\n {% endblock %}\n"
+                },
+                {
+                    "date": 1688974992188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,33 @@\n \n {% block body %}\n \n \n+<section class=\"article\">\n+{% for article in articles %}\n+    <article>\n+        <h2>\n+            {{ article.title }}\n+        </h2>\n+        <div class=\"metadata\">\n+            Ecrit le \n+                                \n+            {{ article.createdAt | date('d/m/Y') }}\n+            à \n+                                \n+            {{ article.createdAt | date('H:i') }}\n+            dans la catégorie Politique                    \n+                                                \n+                            \n+        </div>\n+        <div class=\"contents\">\n+            <img src=\"{{ article.image }}\" alt\"\">\n+                {{ article.content | raw }}\n+                <a href=\"{{ path('blog_show',{'id' : article.id}) }}\" class=\"btn btn-primary\">\n+                    Lire la suite                            \n+                                                                        \n+                                            \n+                </a>\n+            </div>\n+        </article>\n+    {% endfor %}\n {% endblock %}\n"
+                },
+                {
+                    "date": 1688974999025,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n {% block body %}\n \n \n <section class=\"article\">\n-{% for article in articles %}\n+{% for task in articles %}\n     <article>\n         <h2>\n             {{ article.title }}\n         </h2>\n"
+                },
+                {
+                    "date": 1688975006523,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n {% block body %}\n \n \n <section class=\"article\">\n-{% for task in articles %}\n+{% for task in tasks %}\n     <article>\n         <h2>\n-            {{ article.title }}\n+            {{ task.title }}\n         </h2>\n         <div class=\"metadata\">\n             Ecrit le \n                                 \n"
+                },
+                {
+                    "date": 1688975011631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         </h2>\n         <div class=\"metadata\">\n             Ecrit le \n                                 \n-            {{ article.createdAt | date('d/m/Y') }}\n+            {{ article.D | date('d/m/Y') }}\n             à \n                                 \n             {{ article.createdAt | date('H:i') }}\n             dans la catégorie Politique                    \n"
+                },
+                {
+                    "date": 1688975037179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,11 @@\n         <h2>\n             {{ task.title }}\n         </h2>\n         <div class=\"metadata\">\n-            Ecrit le \n+          \n                                 \n-            {{ article.D | date('d/m/Y') }}\n+            {{ article.deadline | date('d/m/Y') }}\n             à \n                                 \n             {{ article.createdAt | date('H:i') }}\n             dans la catégorie Politique                    \n"
+                },
+                {
+                    "date": 1688975045384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,15 +16,12 @@\n                                 \n             {{ article.deadline | date('d/m/Y') }}\n             à \n                                 \n-            {{ article.createdAt | date('H:i') }}\n-            dans la catégorie Politique                    \n-                                                \n-                            \n+      \n         </div>\n         <div class=\"contents\">\n-            <img src=\"{{ article.image }}\" alt\"\">\n+         \n                 {{ article.content | raw }}\n                 <a href=\"{{ path('blog_show',{'id' : article.id}) }}\" class=\"btn btn-primary\">\n                     Lire la suite                            \n                                                                         \n"
+                },
+                {
+                    "date": 1688975052322,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n       \n         </div>\n         <div class=\"contents\">\n          \n-                {{ article.content | raw }}\n+                {{ article.description | raw }}\n                 <a href=\"{{ path('blog_show',{'id' : article.id}) }}\" class=\"btn btn-primary\">\n                     Lire la suite                            \n                                                                         \n                                             \n"
+                },
+                {
+                    "date": 1688975062779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n         </div>\n         <div class=\"contents\">\n          \n                 {{ article.description | raw }}\n-                <a href=\"{{ path('blog_show',{'id' : article.id}) }}\" class=\"btn btn-primary\">\n+                <a href=\"\" class=\"btn btn-primary\">\n                     Lire la suite                            \n                                                                         \n                                             \n                 </a>\n"
+                },
+                {
+                    "date": 1688975880299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         </h2>\n         <div class=\"metadata\">\n           \n                                 \n-            {{ article.deadline | date('d/m/Y') }}\n+            {{ Task.deadline | date('d/m/Y') }}\n             à \n                                 \n       \n         </div>\n"
+                },
+                {
+                    "date": 1688975896153,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,16 +13,16 @@\n         </h2>\n         <div class=\"metadata\">\n           \n                                 \n-            {{ Task.deadline | date('d/m/Y') }}\n+            {{ ask.deadline | date('d/m/Y') }}\n             à \n                                 \n       \n         </div>\n         <div class=\"contents\">\n          \n-                {{ article.description | raw }}\n+                {{ task.description | raw }}\n                 <a href=\"\" class=\"btn btn-primary\">\n                     Lire la suite                            \n                                                                         \n                                             \n"
+                },
+                {
+                    "date": 1688975919910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,12 @@\n         <h2>\n             {{ task.title }}\n         </h2>\n         <div class=\"metadata\">\n-          \n+           \n+        a rendre pour le \n                                 \n-            {{ ask.deadline | date('d/m/Y') }}\n+            {{ task.deadline | date('d/m/Y') }}\n             à \n                                 \n       \n         </div>\n"
+                },
+                {
+                    "date": 1688975933160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,10 @@\n            \n         a rendre pour le \n                                 \n             {{ task.deadline | date('d/m/Y') }}\n-            à \n-                                \n+        \n+                           \n       \n         </div>\n         <div class=\"contents\">\n          \n"
+                },
+                {
+                    "date": 1688975975688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n \n <section class=\"article\">\n {% for task in tasks %}\n     <article>\n+        \n         <h2>\n             {{ task.title }}\n         </h2>\n         <div class=\"metadata\">\n"
+                },
+                {
+                    "date": 1688975982901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,12 +7,12 @@\n \n <section class=\"article\">\n {% for task in tasks %}\n     <article>\n-        \n+\n         <h2>\n             {{ task.title }}\n-        </h2>\n+        </h2>Cate\n         <div class=\"metadata\">\n            \n         a rendre pour le \n                                 \n"
+                },
+                {
+                    "date": 1688975991281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     <article>\n \n         <h2>\n             {{ task.title }}\n-        </h2>Cate\n+        </h2>Categorie\n         <div class=\"metadata\">\n            \n         a rendre pour le \n                                 \n"
+                },
+                {
+                    "date": 1688975997498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     <article>\n \n         <h2>\n             {{ task.title }}\n-        </h2>Categorie\n+        </h2>Categorie{task.ca}}\n         <div class=\"metadata\">\n            \n         a rendre pour le \n                                 \n"
+                },
+                {
+                    "date": 1688976009140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     <article>\n \n         <h2>\n             {{ task.title }}\n-        </h2>Categorie{task.ca}}\n+        </h2>Categorie{{task.Category}}\n         <div class=\"metadata\">\n            \n         a rendre pour le \n                                 \n"
+                },
+                {
+                    "date": 1688976019128,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     <article>\n \n         <h2>\n             {{ task.title }}\n-        </h2>Categorie{{task.Category}}\n+        </h2>Categorie{{task.Category.}}\n         <div class=\"metadata\">\n            \n         a rendre pour le \n                                 \n"
+                },
+                {
+                    "date": 1688976035858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,10 @@\n     <article>\n \n         <h2>\n             {{ task.title }}\n-        </h2>Categorie{{task.Category.}}\n+        </h2>\n+        {{task.Category.nom}}\n         <div class=\"metadata\">\n            \n         a rendre pour le \n                                 \n"
+                },
+                {
+                    "date": 1688976042105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,10 @@\n \n         <h2>\n             {{ task.title }}\n         </h2>\n-        {{task.Category.nom}}\n+        \n+        <h1>{{task.Category.nom}}<\n         <div class=\"metadata\">\n            \n         a rendre pour le \n                                 \n"
+                },
+                {
+                    "date": 1688976056712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n         <h2>\n             {{ task.title }}\n         </h2>\n         \n-        <h1>{{task.Category.nom}}<\n+        <h1>Categro{{task.Category.nom}}</h1>\n         <div class=\"metadata\">\n            \n         a rendre pour le \n                                 \n"
+                },
+                {
+                    "date": 1688976061828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n         <h2>\n             {{ task.title }}\n         </h2>\n         \n-        <h1>Categro{{task.Category.nom}}</h1>\n+        <h1>Category: {{task.Category.nom}}</h1>\n         <div class=\"metadata\">\n            \n         a rendre pour le \n                                 \n"
+                },
+                {
+                    "date": 1688976440749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,37 +1,21 @@\n {% extends 'base.html.twig' %}\n \n-{% block title %}Hello TaskController!{% endblock %}\n+{% block title %}Task List{% endblock %}\n \n {% block body %}\n-\n-\n-<section class=\"article\">\n-{% for task in tasks %}\n-    <article>\n-\n-        <h2>\n-            {{ task.title }}\n-        </h2>\n-        \n-        <h1>Category: {{task.Category.nom}}</h1>\n-        <div class=\"metadata\">\n-           \n-        a rendre pour le \n-                                \n-            {{ task.deadline | date('d/m/Y') }}\n-        \n-                           \n-      \n-        </div>\n-        <div class=\"contents\">\n-         \n-                {{ task.description | raw }}\n-                <a href=\"\" class=\"btn btn-primary\">\n-                    Lire la suite                            \n-                                                                        \n-                                            \n-                </a>\n-            </div>\n-        </article>\n-    {% endfor %}\n+    <section class=\"task-list\">\n+        {% for task in tasks %}\n+            <article class=\"task\">\n+                <h2 class=\"task-title\">{{ task.title }}</h2>\n+                <div class=\"task-meta\">\n+                    <span class=\"category\">Category: {{ task.Category.nom }}</span>\n+                    <span class=\"deadline\">Due: {{ task.deadline|date('d/m/Y') }}</span>\n+                </div>\n+                <div class=\"task-description\">\n+                    {{ task.description | raw }}\n+                </div>\n+                <a href=\"#\" class=\"btn btn-primary\">Read More</a>\n+            </article>\n+        {% endfor %}\n+    </section>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1688976557777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,6 +17,51 @@\n                 <a href=\"#\" class=\"btn btn-primary\">Read More</a>\n             </article>\n         {% endfor %}\n     </section>\n-    \n+    <style>\n+        .task-list {\n+            margin: 20px;\n+        }\n+\n+        .task {\n+            background-color: #f5f5f5;\n+            padding: 20px;\n+            margin-bottom: 20px;\n+        }\n+\n+        .task-title {\n+            font-size: 24px;\n+            margin-bottom: 10px;\n+        }\n+\n+        .task-meta {\n+            margin-bottom: 10px;\n+        }\n+\n+        .category {\n+            font-weight: bold;\n+            margin-right: 10px;\n+        }\n+\n+        .deadline {\n+            color: #888;\n+        }\n+\n+        .task-description {\n+            margin-bottom: 20px;\n+        }\n+\n+        .btn {\n+            background-color: #007bff;\n+            color: #fff;\n+            padding: 10px 20px;\n+            text-decoration: none;\n+            border-radius: 5px;\n+        }\n+\n+        .btn:hover {\n+            background-color: #0056b3;\n+        }\n+    </style>\n {% endblock %}\n+{% endblock %}\n"
+                },
+                {
+                    "date": 1688990617233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n                 </div>\n                 <div class=\"task-meta\">\n                     <span class=\"task-category\">Category: {{ task.category.nom}}</span>\n                     <span class=\"task-deadline\">Due: {{ task.deadline | date('d/m/Y') }}</span>\n-                <span class=\"task-user\"> User: {{task-> }}</span> <!-- Ajout du nom de l'utilisateur -->\n+                <span class=\"task-user\"> User: {{task->g }}</span> <!-- Ajout du nom de l'utilisateur -->\n \n                 </div>\n                 <div class=\"task-description\">\n                     {{ task.description }}\n"
+                }
+            ],
+            "date": 1688747067748,
+            "name": "Commit-0",
+            "content": "{% extends 'base.html.twig' %}\n\n{% block title %}Hello TaskController!{% endblock %}\n\n{% block body %}\n<style>\n    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }\n    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }\n</style>\n\n<div class=\"example-wrapper\">\n    <h1>Hello</h1>\n\n    This friendly message is coming from:\n    <ul>\n        <li>Your controller at <code><a href=\"{{ '/Users/ahmadhamieh/TaskApp/src/Controller/TaskController.php'|file_link(0) }}\">src/Controller/TaskController.php</a></code></li>\n        <li>Your template at <code><a href=\"{{ '/Users/ahmadhamieh/TaskApp/templates/task/index.html.twig'|file_link(0) }}\">templates/task/index.html.twig</a></code></li>\n    </ul>\n</div>\n{% endblock %}\n"
+        }
+    ]
+}

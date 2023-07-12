@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Task List{% endblock %}
+
+{% block body %}
+    <section class="task-list">
+        {% for task in tasks %}
+            <article class="task">
+                <div class="task-header">
+                    <h2 class="task-title">{{ task.title }}</h2>
+                 
+                </div>
+                <div class="task-meta">
+                    <span class="category">Category: {{ task.Category.nom }}</span>
+                    <span class="deadline">Due: {{ task.deadline|date('d/m/Y') }}</span>
+                </div>
+                <div class="task-description">
+                    {{ task.description | raw }}
+                </div>
+            <a href="#" class="btn btn-primary">Read More</a>
+                <div class="task-checkbox">
+                    <input type="checkbox" id="task-{{ task.id }}" class="task-checkbox-input" {% if task.isDone %}checked{% endif %}>
+                    <label for="task-{{ task.id }}" class="task-checkbox-label"></label>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .task {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .task-title {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .task-urgency {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 12px;
+            color: #fff;
+        }
+
+        .task-urgency.low {
+            background-color: green;
+        }
+
+        .task-urgency.medium {
+            background-color: orange;
+        }
+
+        .task-urgency.high {
+            background-color: red;
+        }
+
+        .task-meta {
+            margin-bottom: 10px;
+        }
+
+        .task-category {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .task-deadline {
+            color: #888;
+        }
+
+        .task-description {
+            margin-bottom: 10px;
+        }
+
+        .task-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Task List{% endblock %}
+
+{% block body %}
+    <section class="task-list">
+        {% for task in tasks %}
+            <article class="task">
+                <h2 class="task-title">{{ task.title }}</h2>
+                <div class="task-meta">
+                    <span class="category">Category: {{ task.Category.nom }}</span>
+                    <span class="deadline">Due: {{ task.deadline|date('d/m/Y') }}</span>
+                </div>
+                <div class="task-description">
+                    {{ task.description | raw }}
+                </div>
+                <a href="#" class="btn btn-primary">Read More</a>
+            </article>
+        {% endfor %}
+    </section>
+    
+{% endblock %}

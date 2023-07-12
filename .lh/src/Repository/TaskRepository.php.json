@@ -1,0 +1,550 @@
+{
+    "sourceFile": "src/Repository/TaskRepository.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 133,
+            "patches": [
+                {
+                    "date": 1688997799365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688997807192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,22 +38,22 @@\n             $this->getEntityManager()->flush();\n         }\n     }\n \n-//   \n-//     * @return Task[] Returns an array of Task objects\n-//     */\n-//    public function findByExampleField($value): array\n-//    {\n-//        return $this->createQueryBuilder('t')\n-//            ->andWhere('t.exampleField = :val')\n-//            ->setParameter('val', $value)\n-//            ->orderBy('t.id', 'ASC')\n-//            ->setMaxResults(10)\n-//            ->getQuery()\n-//            ->getResult()\n-//        ;\n-//    }\n+  \n+     @return Task[] Returns an array of Task objects\n+    \n+   public function findByExampleField($value): array\n+   {\n+       return $this->createQueryBuilder('t')\n+           ->andWhere('t.exampleField = :val')\n+           ->setParameter('val', $value)\n+           ->orderBy('t.id', 'ASC')\n+           ->setMaxResults(10)\n+           ->getQuery()\n+           ->getResult()\n+       ;\n+   }\n \n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n"
+                },
+                {
+                    "date": 1688997867443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,11 +39,11 @@\n         }\n     }\n \n   \n-     @return Task[] Returns an array of Task objects\n+    //  @return Task[] Returns an array of Task objects\n     \n-   public function findByExampleField($value): array\n+   public function findByE($value): array\n    {\n        return $this->createQueryBuilder('t')\n            ->andWhere('t.exampleField = :val')\n            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1688997874539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function findByE($value): array\n+   public function findO($value): array\n    {\n        return $this->createQueryBuilder('t')\n            ->andWhere('t.exampleField = :val')\n            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1688997881068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function findO($value): array\n+   public function findOneByCategorie($value): array\n    {\n        return $this->createQueryBuilder('t')\n            ->andWhere('t.exampleField = :val')\n            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1688997896508,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function findOneByCategorie($value): array\n+   public function findOneByCategor($value): array\n    {\n        return $this->createQueryBuilder('t')\n            ->andWhere('t.exampleField = :val')\n            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1688998029750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,19 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function findOneByCategor($value): array\n-   {\n-       return $this->createQueryBuilder('t')\n-           ->andWhere('t.exampleField = :val')\n-           ->setParameter('val', $value)\n-           ->orderBy('t.id', 'ASC')\n-           ->setMaxResults(10)\n-           ->getQuery()\n-           ->getResult()\n-       ;\n-   }\n+    $task->setDeadline($form->get('deadline')->getData());\n \n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n"
+                },
+                {
+                    "date": 1688998059098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,10 +41,20 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-    $task->setDeadline($form->get('deadline')->getData());\n+    public function findAllArticleBysearch($search):array\n+    {\n+        return $this->createQueryBuilder('a')\n+            ->andWhere('a.title LIKE :toto')\n+            ->setParameter('toto',\"%$search%\")\n+            ->getQuery()\n+            ->getResult();\n+    }\n \n+\n+   \n+\n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n"
+                },
+                {
+                    "date": 1688998064695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-    public function findAllArticleBysearch($search):array\n+    public function findAll($search):array\n     {\n         return $this->createQueryBuilder('a')\n             ->andWhere('a.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n"
+                },
+                {
+                    "date": 1688998072918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-    public function findAll($search):array\n+    public function findAllTasksByCategory($search):array\n     {\n         return $this->createQueryBuilder('a')\n             ->andWhere('a.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n"
+                },
+                {
+                    "date": 1688998080550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-    public function findAllTasksByCategory($search):array\n+    public function findAllTasksByCategory():array\n     {\n         return $this->createQueryBuilder('a')\n             ->andWhere('a.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n"
+                },
+                {
+                    "date": 1688998153698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,20 +41,20 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-    public function findAllTasksByCategory():array\n-    {\n-        return $this->createQueryBuilder('a')\n-            ->andWhere('a.title LIKE :toto')\n-            ->setParameter('toto',\"%$search%\")\n-            ->getQuery()\n-            ->getResult();\n-    }\n+   public function findOneByCategories($value): array\n+   {\n+       return $this->createQueryBuilder('t')\n+           ->andWhere('t.exampleField = :val')\n+           ->setParameter('val', $value)\n+           ->orderBy('t.id', 'ASC')\n+           ->setMaxResults(10)\n+           ->getQuery()\n+           ->getResult()\n+       ;\n+   }\n \n-\n-   \n-\n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n"
+                },
+                {
+                    "date": 1688998160893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function findOneByCategories($value): array\n+   public function findAllByCategories($value): array\n    {\n        return $this->createQueryBuilder('t')\n            ->andWhere('t.exampleField = :val')\n            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1688998178130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function findAllByCategories($value): array\n+   public function findAllTaskByCategories($value): array\n    {\n        return $this->createQueryBuilder('t')\n            ->andWhere('t.exampleField = :val')\n            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1688998196418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function findAllTaskByCategories($value): array\n+   public function findAlltaskByCategory() ($value): array\n    {\n        return $this->createQueryBuilder('t')\n            ->andWhere('t.exampleField = :val')\n            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1688999371194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,18 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function findAlltaskByCategory() ($value): array\n-   {\n-       return $this->createQueryBuilder('t')\n-           ->andWhere('t.exampleField = :val')\n-           ->setParameter('val', $value)\n-           ->orderBy('t.id', 'ASC')\n-           ->setMaxResults(10)\n-           ->getQuery()\n-           ->getResult()\n-       ;\n+   \n    }\n \n //    public function findOneBySomeField($value): ?Task\n //    {\n"
+                },
+                {
+                    "date": 1688999379004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,10 +42,19 @@\n   \n     //  @return Task[] Returns an array of Task objects\n     \n    \n-   }\n+     \n+    public function findAllArticleBysearch($search):array\n+    {\n+        return $this->createQueryBuilder('a')\n+            ->andWhere('a.title LIKE :toto')\n+            ->setParameter('toto',\"%$search%\")\n+            ->getQuery()\n+            ->getResult();\n+    }\n \n+\n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n"
+                },
+                {
+                    "date": 1688999384481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n     //  @return Task[] Returns an array of Task objects\n     \n    \n      \n-    public function findAllArticleBysearch($search):array\n+    public function findAlltasksBysearch($search):array\n     {\n         return $this->createQueryBuilder('a')\n             ->andWhere('a.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n"
+                },
+                {
+                    "date": 1688999390709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n     //  @return Task[] Returns an array of Task objects\n     \n    \n      \n-    public function findAlltasksBysearch($search):array\n+    public function findAlltasksBycategory():array\n     {\n         return $this->createQueryBuilder('a')\n             ->andWhere('a.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n"
+                },
+                {
+                    "date": 1688999398640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,10 +46,10 @@\n      \n     public function findAlltasksBycategory():array\n     {\n         return $this->createQueryBuilder('a')\n-            ->andWhere('a.title LIKE :toto')\n-            ->setParameter('toto',\"%$search%\")\n+            ->andWhere('T.title LIKE :toto')\n+            ->setParameter('toto',\"%$%\")\n             ->getQuery()\n             ->getResult();\n     }\n \n"
+                },
+                {
+                    "date": 1688999404803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n      \n     public function findAlltasksBycategory():array\n     {\n         return $this->createQueryBuilder('a')\n-            ->andWhere('T.title LIKE :toto')\n+            ->andWhere('T.Cae LIKE :toto')\n             ->setParameter('toto',\"%$%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1688999411665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n      \n     public function findAlltasksBycategory():array\n     {\n         return $this->createQueryBuilder('a')\n-            ->andWhere('T.Cae LIKE :toto')\n+            ->andWhere('T.Category LIKE :toto')\n             ->setParameter('toto',\"%$%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1688999417402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n      \n     public function findAlltasksBycategory():array\n     {\n         return $this->createQueryBuilder('a')\n-            ->andWhere('T.Category LIKE :toto')\n+            ->andWhere('T.Categorie LIKE :toto')\n             ->setParameter('toto',\"%$%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1688999423016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n      \n     public function findAlltasksBycategory():array\n     {\n         return $this->createQueryBuilder('a')\n-            ->andWhere('T.Categorie LIKE :toto')\n+            ->andWhere('T.Categorie.nom LIKE :toto')\n             ->setParameter('toto',\"%$%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1688999428851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n     public function findAlltasksBycategory():array\n     {\n         return $this->createQueryBuilder('a')\n             ->andWhere('T.Categorie.nom LIKE :toto')\n-            ->setParameter('toto',\"%$%\")\n+            ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n \n"
+                },
+                {
+                    "date": 1688999442474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n     //  @return Task[] Returns an array of Task objects\n     \n    \n      \n-    public function findAlltasksBycategory():array\n+    public function findAlltasksBycategory($sch):array\n     {\n         return $this->createQueryBuilder('a')\n             ->andWhere('T.Categorie.nom LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n"
+                },
+                {
+                    "date": 1689000212408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,18 +43,18 @@\n     //  @return Task[] Returns an array of Task objects\n     \n    \n      \n-    public function findAlltasksBycategory($sch):array\n+    public function findByCategoryName(string $categoryName): array\n     {\n-        return $this->createQueryBuilder('a')\n-            ->andWhere('T.Categorie.nom LIKE :toto')\n-            ->setParameter('toto',\"%$search%\")\n+        return $this->createQueryBuilder('t')\n+            ->join('t.category', 'c')\n+            ->where('c.name = :categoryName')\n+            ->setParameter('categoryName', $categoryName)\n             ->getQuery()\n             ->getResult();\n     }\n \n-\n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n"
+                },
+                {
+                    "date": 1689000218783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n     public function findByCategoryName(string $categoryName): array\n     {\n         return $this->createQueryBuilder('t')\n             ->join('t.category', 'c')\n-            ->where('c.name = :categoryName')\n+            ->where('c. = :categoryName')\n             ->setParameter('categoryName', $categoryName)\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689008995981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n     public function findByCategoryName(string $categoryName): array\n     {\n         return $this->createQueryBuilder('t')\n             ->join('t.category', 'c')\n-            ->where('c. = :categoryName')\n+            ->where('c.name = :categoryName')\n             ->setParameter('categoryName', $categoryName)\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689009005509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,18 +43,18 @@\n     //  @return Task[] Returns an array of Task objects\n     \n    \n      \n-    public function findByCategoryName(string $categoryName): array\n+    public function findAlltasksBycategory($search):array\n     {\n-        return $this->createQueryBuilder('t')\n-            ->join('t.category', 'c')\n-            ->where('c.name = :categoryName')\n-            ->setParameter('categoryName', $categoryName)\n+        return $this->createQueryBuilder('a')\n+            ->andWhere('T.Category.nom LIKE :toto')\n+            ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n \n+\n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n"
+                },
+                {
+                    "date": 1689009013949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,12 +43,12 @@\n     //  @return Task[] Returns an array of Task objects\n     \n    \n      \n-    public function findAlltasksBycategory($search):array\n+    public function findAlltasksBycategory($serach):array\n     {\n         return $this->createQueryBuilder('a')\n-            ->andWhere('T.Category.nom LIKE :toto')\n+            ->andWhere('T.Categorie.nom LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689009028826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,19 +43,12 @@\n     //  @return Task[] Returns an array of Task objects\n     \n    \n      \n-    public function findAlltasksBycategory($serach):array\n-    {\n-        return $this->createQueryBuilder('a')\n-            ->andWhere('T.Categorie.nom LIKE :toto')\n-            ->setParameter('toto',\"%$search%\")\n-            ->getQuery()\n-            ->getResult();\n-    }\n+    \n \n \n-//    public function findOneBySomeField($value): ?Task\n+//    public function findAllBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n //            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1689009039143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n      \n     \n \n \n-//    public function findAllBySomeField($value): ?Task\n+//    public function findAllTasksBycate($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n //            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1689009046429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n      \n     \n \n \n-//    public function findAllTasksBycate($value): ?Task\n+//    public function findAllTasksByCategory($v): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n //            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1689009052230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n      \n     \n \n \n-//    public function findAllTasksByCategory($v): ?Task\n+//    public function findAllTasksByCategory($v):\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n //            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1689009063290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n \n //    public function findAllTasksByCategory($v):\n //    {\n //        return $this->createQueryBuilder('t')\n-//            ->andWhere('t.exampleField = :val')\n+//            ->andWhere('t. = :val')\n //            ->setParameter('val', $value)\n //            ->getQuery()\n //            ->getOneOrNullResult()\n //        ;\n"
+                },
+                {
+                    "date": 1689009068431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n \n //    public function findAllTasksByCategory($v):\n //    {\n //        return $this->createQueryBuilder('t')\n-//            ->andWhere('t. = :val')\n+//            ->andWhere('t.category = :val')\n //            ->setParameter('val', $value)\n //            ->getQuery()\n //            ->getOneOrNullResult()\n //        ;\n"
+                },
+                {
+                    "date": 1689009087365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,17 +41,24 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   \n-     \n-    \n+   public function findAlltaskByCategory() ($value): array\n+   {\n+       return $this->createQueryBuilder('t')\n+           ->andWhere('t.exampleField = :val')\n+           ->setParameter('val', $value)\n+           ->orderBy('t.id', 'ASC')\n+           ->setMaxResults(10)\n+           ->getQuery()\n+           ->getResult()\n+       ;\n+   }\n \n-\n-//    public function findAllTasksByCategory($v):\n+//    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n-//            ->andWhere('t.category = :val')\n+//            ->andWhere('t.exampleField = :val')\n //            ->setParameter('val', $value)\n //            ->getQuery()\n //            ->getOneOrNullResult()\n //        ;\n"
+                },
+                {
+                    "date": 1689009092650,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function findAlltaskByCategory() ($value): array\n+   public function Search($value): array\n    {\n        return $this->createQueryBuilder('t')\n            ->andWhere('t.exampleField = :val')\n            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1689009432500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function Search($value): array\n+   public function getAll($value): array\n    {\n        return $this->createQueryBuilder('t')\n            ->andWhere('t.exampleField = :val')\n            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1689009438871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function getAll($value): array\n+   public function getA($value): array\n    {\n        return $this->createQueryBuilder('t')\n            ->andWhere('t.exampleField = :val')\n            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1689009445831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function getA($value): array\n+   public function getAlLTasksBy($value): array\n    {\n        return $this->createQueryBuilder('t')\n            ->andWhere('t.exampleField = :val')\n            ->setParameter('val', $value)\n"
+                },
+                {
+                    "date": 1689009468505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,12 +41,12 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function getAlLTasksBy($value): array\n+   public function getAlLTasksByCatetgory(): array\n    {\n        return $this->createQueryBuilder('t')\n-           ->andWhere('t.exampleField = :val')\n+           ->andWhere('t. = :val')\n            ->setParameter('val', $value)\n            ->orderBy('t.id', 'ASC')\n            ->setMaxResults(10)\n            ->getQuery()\n"
+                },
+                {
+                    "date": 1689009475361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     \n    public function getAlLTasksByCatetgory(): array\n    {\n        return $this->createQueryBuilder('t')\n-           ->andWhere('t. = :val')\n+           ->andWhere('t.category = :')\n            ->setParameter('val', $value)\n            ->orderBy('t.id', 'ASC')\n            ->setMaxResults(10)\n            ->getQuery()\n"
+                },
+                {
+                    "date": 1689009480651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     \n    public function getAlLTasksByCatetgory(): array\n    {\n        return $this->createQueryBuilder('t')\n-           ->andWhere('t.category = :')\n+           ->andWhere('t.category = :category')\n            ->setParameter('val', $value)\n            ->orderBy('t.id', 'ASC')\n            ->setMaxResults(10)\n            ->getQuery()\n"
+                },
+                {
+                    "date": 1689009485693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n    public function getAlLTasksByCatetgory(): array\n    {\n        return $this->createQueryBuilder('t')\n            ->andWhere('t.category = :category')\n-           ->setParameter('val', $value)\n+           ->setParameter('val', $v)\n            ->orderBy('t.id', 'ASC')\n            ->setMaxResults(10)\n            ->getQuery()\n            ->getResult()\n"
+                },
+                {
+                    "date": 1689009500503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,10 +44,10 @@\n     \n    public function getAlLTasksByCatetgory(): array\n    {\n        return $this->createQueryBuilder('t')\n-           ->andWhere('t.category = :category')\n-           ->setParameter('val', $v)\n+           ->andWhere('t.category = :cat')\n+           ->setParameter('val', $value)\n            ->orderBy('t.id', 'ASC')\n            ->setMaxResults(10)\n            ->getQuery()\n            ->getResult()\n"
+                },
+                {
+                    "date": 1689009519887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,19 +41,16 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-   public function getAlLTasksByCatetgory(): array\n-   {\n-       return $this->createQueryBuilder('t')\n-           ->andWhere('t.category = :cat')\n-           ->setParameter('val', $value)\n-           ->orderBy('t.id', 'ASC')\n-           ->setMaxResults(10)\n-           ->getQuery()\n-           ->getResult()\n-       ;\n-   }\n+    public function findByCategory(Category $category)\n+    {\n+        return $this->createQueryBuilder('a')\n+            ->andWhere('a.category = :category')\n+            ->setParameter('category', $category)\n+            ->getQuery()\n+            ->getResult();\n+   \n \n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n"
+                },
+                {
+                    "date": 1689009525902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n             ->andWhere('a.category = :category')\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n-   \n+    }\n \n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n"
+                },
+                {
+                    "date": 1689009530946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,5 +59,5 @@\n //            ->getQuery()\n //            ->getOneOrNullResult()\n //        ;\n //    }\n-}\n+}\\\n"
+                },
+                {
+                    "date": 1689009538199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,5 +59,6 @@\n //            ->getQuery()\n //            ->getOneOrNullResult()\n //        ;\n //    }\n-}\\\n+// }\n+\n"
+                },
+                {
+                    "date": 1689009545228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,11 @@\n \n namespace App\\Repository;\n \n use App\\Entity\\Task;\n+use App\\Entity\\Category;\n+use Doctrine\\Persistence\\ManagerRegistry;\n use Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository;\n-use Doctrine\\Persistence\\ManagerRegistry;\n \n /**\n  * @extends ServiceEntityRepository<Task>\n  *\n@@ -60,5 +61,5 @@\n //            ->getOneOrNullResult()\n //        ;\n //    }\n // }\n-\n+}\n"
+                },
+                {
+                    "date": 1689009573063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,9 @@\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n     }\n+    dd\n \n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n"
+                },
+                {
+                    "date": 1689009581208,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n     }\n-    dd\n+    dd(get)\n \n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n"
+                },
+                {
+                    "date": 1689009587367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n     }\n-    dd(get)\n+    dd(getResult());\n \n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n"
+                },
+                {
+                    "date": 1689009593353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,10 @@\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n     }\n+    \n+\n     dd(getResult());\n \n //    public function findOneBySomeField($value): ?Task\n //    {\n"
+                },
+                {
+                    "date": 1689009611362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n     }\n-    \n+}\n \n     dd(getResult());\n \n //    public function findOneBySomeField($value): ?Task\n@@ -62,7 +62,7 @@\n //            ->setParameter('val', $value)\n //            ->getQuery()\n //            ->getOneOrNullResult()\n //        ;\n-//    }\n+   \n // }\n }\n"
+                },
+                {
+                    "date": 1689009640301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,10 +50,10 @@\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n     }\n-}\n \n+\n     dd(getResult());\n \n //    public function findOneBySomeField($value): ?Task\n //    {\n"
+                },
+                {
+                    "date": 1689009646104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n             ->getResult();\n     }\n \n \n-    dd(getResult());\n+   \n \n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n@@ -64,5 +64,5 @@\n //            ->getOneOrNullResult()\n //        ;\n    \n // }\n-}\n+\n"
+                },
+                {
+                    "date": 1689009657080,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,4 +65,5 @@\n //        ;\n    \n // }\n \n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1689009664407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,12 +49,14 @@\n             ->andWhere('a.category = :category')\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n+\n+            dd()\n     }\n \n \n-   \n+    \n \n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n"
+                },
+                {
+                    "date": 1689009671793,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n \n-            dd()\n+            dd($category)\n     }\n \n \n     \n"
+                },
+                {
+                    "date": 1689009704545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n \n-            dd($category)\n+            \n     }\n \n \n     \n"
+                },
+                {
+                    "date": 1689010012326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-    public function findByCategory(Category $category)\n+    public function findByCategory( $category)\n     {\n         return $this->createQueryBuilder('a')\n             ->andWhere('a.category = :category')\n             ->setParameter('category', $category)\n"
+                },
+                {
+                    "date": 1689010017442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-    public function findByCategory( $category)\n+    public function findByCategory(Category $category)\n     {\n         return $this->createQueryBuilder('a')\n             ->andWhere('a.category = :category')\n             ->setParameter('category', $category)\n"
+                },
+                {
+                    "date": 1689010056795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     //  @return Task[] Returns an array of Task objects\n     \n     public function findByCategory(Category $category)\n     {\n-        return $this->createQueryBuilder('a')\n+        return $this->createQueryBuilder('')\n             ->andWhere('a.category = :category')\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n"
+                },
+                {
+                    "date": 1689011979085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,17 +42,17 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-    public function findByCategory(Category $category)\n+                public function findByCategory(Category $category)\n     {\n-        return $this->createQueryBuilder('')\n+        return $this->createQueryBuilder('t')\n             ->andWhere('a.category = :category')\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n \n-            \n+\n     }\n \n \n     \n"
+                },
+                {
+                    "date": 1689012137903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,17 +42,17 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-                public function findByCategory(Category $category)\n+    public function findByCategory(Category $category)\n     {\n         return $this->createQueryBuilder('t')\n-            ->andWhere('a.category = :category')\n+            ->andWhere('t.category = :category')\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n \n-\n+            \n     }\n \n \n     \n"
+                },
+                {
+                    "date": 1689064380398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     \n     public function findByCategory(Category $category)\n     {\n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category = :category')\n+            ->andWhere('t.category LIKE = :category')\n             ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n \n"
+                },
+                {
+                    "date": 1689064399689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,10 +45,10 @@\n     \n     public function findByCategory(Category $category)\n     {\n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category LIKE = :category')\n-            ->setParameter('category', $category)\n+            ->andWhere('t.category LIKE  :category')\n+            ->setParameter('category', %$category)\n             ->getQuery()\n             ->getResult();\n \n             \n"
+                },
+                {
+                    "date": 1689064406321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n     public function findByCategory(Category $category)\n     {\n         return $this->createQueryBuilder('t')\n             ->andWhere('t.category LIKE  :category')\n-            ->setParameter('category', %$category)\n+            ->setParameter('category', '%$category%)\n             ->getQuery()\n             ->getResult();\n \n             \n"
+                },
+                {
+                    "date": 1689064449737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n     public function findByCategory(Category $category)\n     {\n         return $this->createQueryBuilder('t')\n             ->andWhere('t.category LIKE  :category')\n-            ->setParameter('category', '%$category%)\n+            ->setParameter('category', ''%$category%')\n             ->getQuery()\n             ->getResult();\n \n             \n"
+                },
+                {
+                    "date": 1689064463441,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n     public function findByCategory(Category $category)\n     {\n         return $this->createQueryBuilder('t')\n             ->andWhere('t.category LIKE  :category')\n-            ->setParameter('category', ''%$category%')\n+            ->setParameter('category', '%$category%'')\n             ->getQuery()\n             ->getResult();\n \n             \n"
+                },
+                {
+                    "date": 1689064943462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n     public function findByCategory(Category $category)\n     {\n         return $this->createQueryBuilder('t')\n             ->andWhere('t.category LIKE  :category')\n-            ->setParameter('category', '%$category%'')\n+            ->setParameter('category', \"%category%\")\n             ->getQuery()\n             ->getResult();\n \n             \n"
+                },
+                {
+                    "date": 1689064952033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n     public function findByCategory(Category $category)\n     {\n         return $this->createQueryBuilder('t')\n             ->andWhere('t.category LIKE  :category')\n-            ->setParameter('category', \"%category%\")\n+            ->setParameter('category', \"%$category%\")\n             ->getQuery()\n             ->getResult();\n \n             \n"
+                },
+                {
+                    "date": 1689065490852,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     \n     public function findByCategory(Category $category)\n     {\n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category LIKE  :category')\n+            ->andWhere('t.category.namz LIKE  :category')\n             ->setParameter('category', \"%$category%\")\n             ->getQuery()\n             ->getResult();\n \n"
+                },
+                {
+                    "date": 1689065531550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,10 +45,10 @@\n     \n     public function findByCategory(Category $category)\n     {\n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category.namz LIKE  :category')\n-            ->setParameter('category', \"%$category%\")\n+            ->andWhere('t.category.nom LIKE  :category')\n+            ->setParameter('category', \"$category%\")\n             ->getQuery()\n             ->getResult();\n \n             \n"
+                },
+                {
+                    "date": 1689065537717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n     public function findByCategory(Category $category)\n     {\n         return $this->createQueryBuilder('t')\n             ->andWhere('t.category.nom LIKE  :category')\n-            ->setParameter('category', \"$category%\")\n+            ->setParameter('category', \"%category%\")\n             ->getQuery()\n             ->getResult();\n \n             \n"
+                },
+                {
+                    "date": 1689065615890,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,15 +45,14 @@\n     \n     public function findByCategory(Category $category)\n     {\n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category.nom LIKE  :category')\n-            ->setParameter('category', \"%category%\")\n+            ->andWhere('t.category = :category')\n+            ->setParameter('category', $category)\n             ->getQuery()\n             ->getResult();\n-\n-            \n     }\n+    \n \n \n     \n \n"
+                },
+                {
+                    "date": 1689066393406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-    public function findByCategory(Category $category)\n+    public function findByCategory( $category)\n     {\n         return $this->createQueryBuilder('t')\n             ->andWhere('t.category = :category')\n             ->setParameter('category', $category)\n"
+                },
+                {
+                    "date": 1689066402931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,16 +42,9 @@\n \n   \n     //  @return Task[] Returns an array of Task objects\n     \n-    public function findByCategory( $category)\n-    {\n-        return $this->createQueryBuilder('t')\n-            ->andWhere('t.category = :category')\n-            ->setParameter('category', $category)\n-            ->getQuery()\n-            ->getResult();\n-    }\n+   \n     \n \n \n     \n"
+                },
+                {
+                    "date": 1689077329393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,8 +43,19 @@\n   \n     //  @return Task[] Returns an array of Task objects\n     \n    \n+     \n+    public function findAllArticleBysearch($search):array\n+    {\n+        return $this->createQueryBuilder('a')\n+            ->andWhere('a.title LIKE :toto')\n+            ->setParameter('toto',\"%$search%\")\n+            ->getQuery()\n+            ->getResult();\n+    }\n+\n+\n     \n \n \n     \n"
+                },
+                {
+                    "date": 1689077692129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,10 +46,10 @@\n    \n      \n     public function findAllArticleBysearch($search):array\n     {\n-        return $this->createQueryBuilder('a')\n-            ->andWhere('a.title LIKE :toto')\n+        return $this->createQueryBuilder('t')\n+            ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689077843441,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n      \n     public function findAllArticleBysearch($search):array\n     {\n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.title LIKE :toto')\n+            ->andWhere('t. LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689077850873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n      \n     public function findAllArticleBysearch($search):array\n     {\n         return $this->createQueryBuilder('t')\n-            ->andWhere('t. LIKE :toto')\n+            ->andWhere('t.category LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689077864969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n      \n     public function findAllArticleBysearch($search):array\n     {\n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category LIKE :toto')\n+            ->andWhere('t. LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689077895551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n      \n     public function findAllArticleBysearch($search):array\n     {\n         return $this->createQueryBuilder('t')\n-            ->andWhere('t. LIKE :toto')\n+            ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689078157351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     //  @return Task[] Returns an array of Task objects\n     \n    \n      \n-    public function findAllArticleBysearch($search):array\n+    public function findAllTasksBysearch($search):array\n     {\n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n"
+                },
+                {
+                    "date": 1689078283085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n      \n     public function findAllTasksBysearch($search):array\n     {\n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.title LIKE :toto')\n+            ->andWhere('t.title LIKE :')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689078288736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n      \n     public function findAllTasksBysearch($search):array\n     {\n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.title LIKE :')\n+            ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689078330786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,9 @@\n    \n      \n     public function findAllTasksBysearch($search):array\n     {\n+        // \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n"
+                },
+                {
+                    "date": 1689078368652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n    \n      \n     public function findAllTasksBysearch($search):array\n     {\n-        // \n+       \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n"
+                },
+                {
+                    "date": 1689078538845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,8 +49,9 @@\n     {\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n+            \n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689078545579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,8 @@\n     {\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n-            \n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689078683836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,9 @@\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n+            \n             ->getQuery()\n             ->getResult();\n     }\n \n"
+                },
+                {
+                    "date": 1689078692019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,15 +44,16 @@\n     //  @return Task[] Returns an array of Task objects\n     \n    \n      \n-    public function findAllTasksBysearch($search):array\n+    public function findAllTasksBysearch($search,$term):array\n     {\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n-            \n+            ->andWhere('category.name LIKE :searchTerm')\n+            ->setParameter('searchTerm', '%'.$term.'%')\n             ->getQuery()\n             ->getResult();\n     }\n \n"
+                },
+                {
+                    "date": 1689078704511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n-            ->andWhere('category.name LIKE :searchTerm')\n+            ->andWhere('category.nom LIKE :searchTerm')\n             ->setParameter('searchTerm', '%'.$term.'%')\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689078889093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,16 +44,15 @@\n     //  @return Task[] Returns an array of Task objects\n     \n    \n      \n-    public function findAllTasksBysearch($search,$term):array\n+    public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n-            ->andWhere('category.nom LIKE :searchTerm')\n-            ->setParameter('searchTerm', '%'.$term.'%')\n+            \n             ->getQuery()\n             ->getResult();\n     }\n \n"
+                },
+                {
+                    "date": 1689079185047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,8 +44,13 @@\n     //  @return Task[] Returns an array of Task objects\n     \n    \n      \n+\n+\n+\n+\n+    \n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('t')\n"
+                },
+                {
+                    "date": 1689079190147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,24 +43,38 @@\n   \n     //  @return Task[] Returns an array of Task objects\n     \n    \n-     \n+    public function findAllTasksBysearch(string $keyword, Category $category = null): array\n+    {\n+        $queryBuilder = $this->createQueryBuilder('t')\n+            ->andWhere('t.title LIKE :keyword')\n+            ->setParameter('keyword', \"%{$keyword}%\");\n+    \n+        if ($category) {\n+            $queryBuilder->andWhere('t.category = :category')\n+                ->setParameter('category', $category);\n+        }\n+    \n+        return $queryBuilder->getQuery()\n+            ->getResult();\n+    }\n+    \n \n \n \n \n-    \n-    public function findAllTasksBysearch($search):array\n-    {\n+\n+    // public function findAllTasksBysearch($search):array\n+    // {\n        \n-        return $this->createQueryBuilder('t')\n-            ->andWhere('t.title LIKE :toto')\n-            ->setParameter('toto',\"%$search%\")\n+    //     return $this->createQueryBuilder('t')\n+    //         ->andWhere('t.title LIKE :toto')\n+    //         ->setParameter('toto',\"%$search%\")\n             \n-            ->getQuery()\n-            ->getResult();\n-    }\n+    //         ->getQuery()\n+    //         ->getResult();\n+    // }\n \n \n     \n \n"
+                },
+                {
+                    "date": 1689079427640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,28 +43,12 @@\n   \n     //  @return Task[] Returns an array of Task objects\n     \n    \n-    public function findAllTasksBysearch(string $keyword, Category $category = null): array\n-    {\n-        $queryBuilder = $this->createQueryBuilder('t')\n-            ->andWhere('t.title LIKE :keyword')\n-            ->setParameter('keyword', \"%{$keyword}%\");\n-    \n-        if ($category) {\n-            $queryBuilder->andWhere('t.category = :category')\n-                ->setParameter('category', $category);\n-        }\n-    \n-        return $queryBuilder->getQuery()\n-            ->getResult();\n-    }\n-    \n+   \n \n \n \n-\n-\n     // public function findAllTasksBysearch($search):array\n     // {\n        \n     //     return $this->createQueryBuilder('t')\n"
+                },
+                {
+                    "date": 1689079433001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,22 +43,24 @@\n   \n     //  @return Task[] Returns an array of Task objects\n     \n    \n-   \n+     \n \n \n \n-    // public function findAllTasksBysearch($search):array\n-    // {\n+\n+    \n+    public function findAllTasksBysearch($search):array\n+    {\n        \n-    //     return $this->createQueryBuilder('t')\n-    //         ->andWhere('t.title LIKE :toto')\n-    //         ->setParameter('toto',\"%$search%\")\n+        return $this->createQueryBuilder('t')\n+            ->andWhere('t.title LIKE :toto')\n+            ->setParameter('toto',\"%$search%\")\n             \n-    //         ->getQuery()\n-    //         ->getResult();\n-    // }\n+            ->getQuery()\n+            ->getResult();\n+    }\n \n \n     \n \n"
+                },
+                {
+                    "date": 1689079438224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,17 +47,16 @@\n      \n \n \n \n-\n     \n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n-            \n+\n             ->getQuery()\n             ->getResult();\n     }\n \n"
+                },
+                {
+                    "date": 1689079445342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,19 +54,11 @@\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n-\n             ->getQuery()\n             ->getResult();\n     }\n-\n-\n-    \n-\n-\n-    \n-\n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n"
+                },
+                {
+                    "date": 1689079502730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,20 +41,13 @@\n     }\n \n   \n     //  @return Task[] Returns an array of Task objects\n-    \n-   \n-     \n-\n-\n-\n-    \n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.title LIKE :toto')\n+            ->andWhere('t.category LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689079513896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category LIKE :toto')\n+            ->andWhere('t.category. LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689079525266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category. LIKE :toto')\n+            ->andWhere('t.category.nom  :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689079530407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category.nom  :toto')\n+            ->andWhere('t.category.nom = toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689079539836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category.nom = toto')\n+            ->andWhere('t.category.nom =')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689079555809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category.nom =')\n+            ->andWhere('t.category.nom = category ')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689079561287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category.nom = category ')\n+            ->andWhere('t.category.nom = 'category ')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689079571895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,10 +45,10 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category.nom = 'category ')\n-            ->setParameter('toto',\"%$search%\")\n+            ->andWhere('t.category.nom = category ')\n+            ->setParameter('category',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n //    public function findOneBySomeField($value): ?Task\n"
+                },
+                {
+                    "date": 1689079581089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n     {\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.category.nom = category ')\n-            ->setParameter('category',\"%$search%\")\n+            ->setParameter('category.nom',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n //    public function findOneBySomeField($value): ?Task\n"
+                },
+                {
+                    "date": 1689079592809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,10 +45,10 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category.nom = category ')\n-            ->setParameter('category.nom',\"%$search%\")\n+            ->andWhere('t.category.nom = category')\n+            ->setParameter('ca.nom',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n //    public function findOneBySomeField($value): ?Task\n"
+                },
+                {
+                    "date": 1689079607260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,10 +45,10 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('t')\n-            ->andWhere('t.category.nom = category')\n-            ->setParameter('ca.nom',\"%$search%\")\n+            ->andWhere('t.category LIKE :toto')\n+            ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n //    public function findOneBySomeField($value): ?Task\n"
+                },
+                {
+                    "date": 1689079623401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     //  @return Task[] Returns an array of Task objects\n     public function findAllTasksBysearch($search):array\n     {\n        \n-        return $this->createQueryBuilder('t')\n+        return $this->createQueryBuilder('c')\n             ->andWhere('t.category LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n"
+                },
+                {
+                    "date": 1689079632147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('c')\n-            ->andWhere('t.category LIKE :toto')\n+            ->andWhere('ccaegory LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689079638622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('c')\n-            ->andWhere('ccaegory LIKE :toto')\n+            ->andWhere('c.nom LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689079647292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('c')\n-            ->andWhere('c.nom LIKE :toto')\n+            ->andWhere('c.nom LIKE:toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689079659291,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('c')\n-            ->andWhere('c.nom LIKE:toto')\n+            ->andWhere('c.nom =: toto')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689079670253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('c')\n-            ->andWhere('c.nom =: toto')\n+            ->andWhere('c.nom = ')\n             ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689079676046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,10 +45,10 @@\n     public function findAllTasksBysearch($search):array\n     {\n        \n         return $this->createQueryBuilder('c')\n-            ->andWhere('c.nom = ')\n-            ->setParameter('toto',\"%$search%\")\n+            ->andWhere('c.nom = sport')\n+            ->setParameter('sport',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n //    public function findOneBySomeField($value): ?Task\n"
+                },
+                {
+                    "date": 1689079687813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,11 +44,11 @@\n     //  @return Task[] Returns an array of Task objects\n     public function findAllTasksBysearch($search):array\n     {\n        \n-        return $this->createQueryBuilder('c')\n-            ->andWhere('c.nom = sport')\n-            ->setParameter('sport',\"%$search%\")\n+        return $this->createQueryBuilder('t')\n+            ->andWhere('t.title LIKE :toto')\n+            ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n //    public function findOneBySomeField($value): ?Task\n"
+                },
+                {
+                    "date": 1689080083439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,8 +47,9 @@\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"%$search%\")\n+        \n             ->getQuery()\n             ->getResult();\n     }\n //    public function findOneBySomeField($value): ?Task\n"
+                },
+                {
+                    "date": 1689080096908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n     {\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n-            ->setParameter('toto',\"%$search%\")\n+            ->setParameter('toto',\"$search%\")\n         \n             ->getQuery()\n             ->getResult();\n     }\n"
+                },
+                {
+                    "date": 1689080449179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,10 +46,12 @@\n     {\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n-            ->setParameter('toto',\"$search%\")\n+            ->setParameter('toto',\"$search\")\n         \n+\n+            \n             ->getQuery()\n             ->getResult();\n     }\n //    public function findOneBySomeField($value): ?Task\n"
+                },
+                {
+                    "date": 1689080721922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,11 +47,9 @@\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n             ->setParameter('toto',\"$search\")\n-        \n \n-            \n             ->getQuery()\n             ->getResult();\n     }\n //    public function findOneBySomeField($value): ?Task\n"
+                },
+                {
+                    "date": 1689080729752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,10 +46,9 @@\n     {\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n-            ->setParameter('toto',\"$search\")\n-\n+            ->setParameter('toto',\"%$search\")\n             ->getQuery()\n             ->getResult();\n     }\n //    public function findOneBySomeField($value): ?Task\n"
+                },
+                {
+                    "date": 1689085874186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,12 +46,14 @@\n     {\n        \n         return $this->createQueryBuilder('t')\n             ->andWhere('t.title LIKE :toto')\n-            ->setParameter('toto',\"%$search\")\n+            ->setParameter('toto',\"%$search%\")\n             ->getQuery()\n             ->getResult();\n     }\n+\n+    \n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n"
+                },
+                {
+                    "date": 1689085882583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n             ->getQuery()\n             ->getResult();\n     }\n \n-    \n+    public function findAllTasksBy\n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n"
+                },
+                {
+                    "date": 1689085887945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n             ->getQuery()\n             ->getResult();\n     }\n \n-    public function findAllTasksBy\n+    public function findAllTasksByCategory()\n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n"
+                },
+                {
+                    "date": 1689085894036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,15 @@\n             ->getResult();\n     }\n \n     public function findAllTasksByCategory()\n+\n+    {\n+\n+      \n+\n+\n+    }\n //    public function findOneBySomeField($value): ?Task\n //    {\n //        return $this->createQueryBuilder('t')\n //            ->andWhere('t.exampleField = :val')\n"
+                },
+                {
+                    "date": 1689085901907,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,8 +54,9 @@\n \n     public function findAllTasksByCategory()\n \n     {\n+   \n \n       \n \n \n"
+                },
+                {
+                    "date": 1689085911392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,10 +55,10 @@\n     public function findAllTasksByCategory()\n \n     {\n    \n-\n       \n+      \n \n \n     }\n //    public function findOneBySomeField($value): ?Task\n"
+                }
+            ],
+            "date": 1688997799365,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Repository;\n\nuse App\\Entity\\Task;\nuse Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository;\nuse Doctrine\\Persistence\\ManagerRegistry;\n\n/**\n * @extends ServiceEntityRepository<Task>\n *\n * @method Task|null find($id, $lockMode = null, $lockVersion = null)\n * @method Task|null findOneBy(array $criteria, array $orderBy = null)\n * @method Task[]    findAll()\n * @method Task[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)\n */\nclass TaskRepository extends ServiceEntityRepository\n{\n    public function __construct(ManagerRegistry $registry)\n    {\n        parent::__construct($registry, Task::class);\n    }\n\n    public function save(Task $entity, bool $flush = false): void\n    {\n        $this->getEntityManager()->persist($entity);\n\n        if ($flush) {\n            $this->getEntityManager()->flush();\n        }\n    }\n\n    public function remove(Task $entity, bool $flush = false): void\n    {\n        $this->getEntityManager()->remove($entity);\n\n        if ($flush) {\n            $this->getEntityManager()->flush();\n        }\n    }\n\n//   \n//     * @return Task[] Returns an array of Task objects\n//     */\n//    public function findByExampleField($value): array\n//    {\n//        return $this->createQueryBuilder('t')\n//            ->andWhere('t.exampleField = :val')\n//            ->setParameter('val', $value)\n//            ->orderBy('t.id', 'ASC')\n//            ->setMaxResults(10)\n//            ->getQuery()\n//            ->getResult()\n//        ;\n//    }\n\n//    public function findOneBySomeField($value): ?Task\n//    {\n//        return $this->createQueryBuilder('t')\n//            ->andWhere('t.exampleField = :val')\n//            ->setParameter('val', $value)\n//            ->getQuery()\n//            ->getOneOrNullResult()\n//        ;\n//    }\n}\n"
+        }
+    ]
+}

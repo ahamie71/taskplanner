@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Task List{% endblock %}
+
+{% block body %}
+
+            <a href="#" class="btn btn-primary">Read More</a>
+                <div class="task-checkbox">
+                    <input type="checkbox" id="task-{{ task.id }}" class="task-checkbox-input" {% if task.isDone %}checked{% endif %}>
+                    <label for="task-{{ task.id }}" class="task-checkbox-label"></label>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+    
+
+{% endblock %}

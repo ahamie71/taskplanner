@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/Entity/Task.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1688982097972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688982113915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n use App\\Repository\\TaskRepository;\n use Doctrine\\DBAL\\Types\\Types;\n use Doctrine\\ORM\\Mapping as ORM;\n+use Symfony\\Component\\Validator\\Constraints as Assert;\n \n #[ORM\\Entity(repositoryClass: TaskRepository::class)]\n class Task\n {\n@@ -14,9 +15,12 @@\n     #[ORM\\Column]\n     private ?int $id = null;\n \n     #[ORM\\Column(length: 255)]\n-    \n+    #[Assert\\Length(\n+        min: 5,\n+        max: 15,\n+        minMessage: 'Your first name must be at least {{ limit }} characters long')]\n     private ?string $title = null;\n \n     #[ORM\\Column(type: Types::TEXT)]\n     private ?string $description = null;\n"
+                },
+                {
+                    "date": 1688982180081,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         minMessage: 'Your first name must be at least {{ limit }} characters long')]\n     private ?string $title = null;\n \n     #[ORM\\Column(type: Types::TEXT)]\n-    \n+    #[Assert\\Length(min:40,max:255,minMessage:'le contenu comporte 40 caractères minimum')]\n     private ?string $description = null;\n \n     #[ORM\\Column(type: Types::DATETIME_MUTABLE)]\n     private ?\\DateTimeInterface $deadline = null;\n"
+                }
+            ],
+            "date": 1688982097972,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Entity;\n\nuse App\\Repository\\TaskRepository;\nuse Doctrine\\DBAL\\Types\\Types;\nuse Doctrine\\ORM\\Mapping as ORM;\n\n#[ORM\\Entity(repositoryClass: TaskRepository::class)]\nclass Task\n{\n    #[ORM\\Id]\n    #[ORM\\GeneratedValue]\n    #[ORM\\Column]\n    private ?int $id = null;\n\n    #[ORM\\Column(length: 255)]\n    \n    private ?string $title = null;\n\n    #[ORM\\Column(type: Types::TEXT)]\n    private ?string $description = null;\n\n    #[ORM\\Column(type: Types::DATETIME_MUTABLE)]\n    private ?\\DateTimeInterface $deadline = null;\n\n    #[ORM\\ManyToOne(inversedBy: 'tasks')]\n    private ?User $user = null;\n\n    #[ORM\\Column]\n    private ?bool $isDone = null;\n\n    #[ORM\\ManyToOne(inversedBy: 'tasks')]\n    private ?Category $Category = null;\n\n    #[ORM\\Column(length: 255)]\n    private ?string $urgency = null;\n\n    public function getId(): ?int\n    {\n        return $this->id;\n    }\n\n    public function getTitle(): ?string\n    {\n        return $this->title;\n    }\n\n    public function setTitle(string $title): static\n    {\n        $this->title = $title;\n\n        return $this;\n    }\n\n    public function getDescription(): ?string\n    {\n        return $this->description;\n    }\n\n    public function setDescription(string $description): static\n    {\n        $this->description = $description;\n\n        return $this;\n    }\n\n    public function getDeadline(): ?\\DateTimeInterface\n    {\n        return $this->deadline;\n    }\n\n    public function setDeadline(\\DateTimeInterface $deadline): static\n    {\n        $this->deadline = $deadline;\n\n        return $this;\n    }\n\n    public function getUser(): ?User\n    {\n        return $this->user;\n    }\n\n    public function setUser(?User $user): static\n    {\n        $this->user = $user;\n\n        return $this;\n    }\n\n    public function isIsDone(): ?bool\n    {\n        return $this->isDone;\n    }\n\n    public function setIsDone(bool $isDone): static\n    {\n        $this->isDone = $isDone;\n\n        return $this;\n    }\n\n    public function getCategory(): ?Category\n    {\n        return $this->Category;\n    }\n\n    public function setCategory(?Category $Category): static\n    {\n        $this->Category = $Category;\n\n        return $this;\n    }\n\n    public function getUrgency(): ?string\n    {\n        return $this->urgency;\n    }\n\n    public function setUrgency(string $urgency): static\n    {\n        $this->urgency = $urgency;\n\n        return $this;\n    }\n}\n"
+        }
+    ]
+}

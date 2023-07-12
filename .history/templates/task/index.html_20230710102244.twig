@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Task List{% endblock %}
+
+{% block body %}
+    <section class="task-list">
+        {% for task in tasks %}
+            <article class="task">
+                <div class="task-header">
+                    <h2 class="task-title">{{ task.title }}</h2>
+                    <div class="task-urgency-badge {{ task.urgency }}">{{ task.urgency }}</div>
+                </div>
+                <div class="task-meta">
+                    <span class="category">Category: {{ task.Category.nom }}</span>
+                    <span class="deadline">Due: {{ task.deadline|date('d/m/Y') }}</span>
+                </div>
+                <div class="task-description">
+                    {{ task.description | raw }}
+                </div>
+                <div class="task-checkbox">
+                    <input type="checkbox" id="task-{{ task.id }}" class="task-checkbox-input" {% if task.isDone %}checked{% endif %}>
+                    <label for="task-{{ task.id }}" class="task-checkbox-label"></label>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+
+    <style>
+        .task-list {
+            margin: 20px;
+        }
+
+        .task {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .task-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .task-title {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .task-urgency-badge {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 12px;
+            color: #fff;
+        }
+
+        .task-urgency.low {
+            background-color: green;
+        }
+
+        .task-urgency.medium {
+            background-color: orange;
+        }
+
+        .task-urgency.high {
+            background-color: red;
+        }
+
+        .task-meta {
+            margin-bottom: 10px;
+        }
+
+        .category {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .deadline {
+            color: #888;
+        }
+
+        .task-checkbox {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .task-checkbox-input {
+            display: none;
+        }
+
+        .task-checkbox-label {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .task-checkbox-input:checked + .task-checkbox-label {
+            background-color: #007bff;
+        }
+    </style>
+{% endblock %}

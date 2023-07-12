@@ -1,0 +1,266 @@
+{
+    "sourceFile": "src/Form/TaskType.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 62,
+            "patches": [
+                {
+                    "date": 1688980544894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688980552259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,8 @@\n             ->add('title')\n             ->add('description')\n             ->add('deadline')\n             ->add('isDone')\n-          \n             ->add('user')\n             ->add('Category')\n         ;\n     }\n"
+                },
+                {
+                    "date": 1688980587145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             ->add('description')\n             ->add('deadline')\n             ->add('isDone')\n             ->add('user')\n-            ->add('Category')\n+           \n         ;\n     }\n \n     public function configureOptions(OptionsResolver $resolver): void\n"
+                },
+                {
+                    "date": 1688980592953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,9 @@\n         $builder\n             ->add('title')\n             ->add('description')\n             ->add('deadline')\n-            ->add('isDone')\n-            ->add('user')\n-           \n+            ->add('isDone')      \n         ;\n     }\n \n     public function configureOptions(OptionsResolver $resolver): void\n"
+                },
+                {
+                    "date": 1688980970581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('title')\n+            ->add('title',c)\n             ->add('description')\n             ->add('deadline')\n             ->add('isDone')      \n         ;\n"
+                },
+                {
+                    "date": 1688980977388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('title',c)\n+            ->add('title',)\n             ->add('description')\n             ->add('deadline')\n             ->add('isDone')      \n         ;\n"
+                },
+                {
+                    "date": 1688981051949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('title',)\n+            ->add('title',Text)\n             ->add('description')\n             ->add('deadline')\n             ->add('isDone')      \n         ;\n"
+                },
+                {
+                    "date": 1688981058289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,11 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('title',Text)\n+            ->add('title',TextType::class,{\n+                \n+            })\n             ->add('description')\n             ->add('deadline')\n             ->add('isDone')      \n         ;\n"
+                },
+                {
+                    "date": 1688981064948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,11 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('title',TextType::class,{\n-                \n-            })\n+            ->add('title',TextType::class,[\n+                'required'\n+            ])\n             ->add('description')\n             ->add('deadline')\n             ->add('isDone')      \n         ;\n"
+                },
+                {
+                    "date": 1688981186726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,14 +11,14 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('title',TextType::class,[\n-                'required'\n-            ])\n+            ->add('title')\n             ->add('description')\n             ->add('deadline')\n-            ->add('isDone')      \n+            ->add('isDone')\n+            ->add('user')\n+            ->add('Category')\n         ;\n     }\n \n     public function configureOptions(OptionsResolver $resolver): void\n"
+                },
+                {
+                    "date": 1688981327130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('title')\n+            ->add('title',TextType::class)\n             ->add('description')\n             ->add('deadline')\n             ->add('isDone')\n             ->add('user')\n"
+                },
+                {
+                    "date": 1688981336305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,11 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('title',TextType::class)\n+            ->add('title',TextType::class,[\n+                required\n+            ])\n             ->add('description')\n             ->add('deadline')\n             ->add('isDone')\n             ->add('user')\n"
+                },
+                {
+                    "date": 1688981341870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n             ->add('title',TextType::class,[\n-                required\n+                'requred'\n             ])\n             ->add('description')\n             ->add('deadline')\n             ->add('isDone')\n"
+                },
+                {
+                    "date": 1688981347404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n             ->add('title',TextType::class,[\n-                'requred'\n+                'required'\n             ])\n             ->add('description')\n             ->add('deadline')\n             ->add('isDone')\n"
+                },
+                {
+                    "date": 1688981353230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n             ->add('title',TextType::class,[\n-                'required'\n+                'required'=> ''\n             ])\n             ->add('description')\n             ->add('deadline')\n             ->add('isDone')\n"
+                },
+                {
+                    "date": 1688981362873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,14 +12,14 @@\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n             ->add('title',TextType::class,[\n-                'required'=> ''\n+                'required'=> 'required',\n             ])\n             ->add('description')\n             ->add('deadline')\n             ->add('isDone')\n-            ->add('user')\n+           \n             ->add('Category')\n         ;\n     }\n \n"
+                },
+                {
+                    "date": 1688981379491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         $builder\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n             ])\n-            ->add('description')\n+            ->add('description',)\n             ->add('deadline')\n             ->add('isDone')\n            \n             ->add('Category')\n"
+                },
+                {
+                    "date": 1688981384637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         $builder\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n             ])\n-            ->add('description',)\n+            ->add('description',TextType::class)\n             ->add('deadline')\n             ->add('isDone')\n            \n             ->add('Category')\n"
+                },
+                {
+                    "date": 1688981389922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,11 @@\n         $builder\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n             ])\n-            ->add('description',TextType::class)\n+            ->add('description',TextType::class,[\n+                ''\n+            ])\n             ->add('deadline')\n             ->add('isDone')\n            \n             ->add('Category')\n"
+                },
+                {
+                    "date": 1688981396497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n             ])\n             ->add('description',TextType::class,[\n-                ''\n+                'required' => 'required',\n             ])\n             ->add('deadline')\n             ->add('isDone')\n            \n"
+                },
+                {
+                    "date": 1688981416762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,10 @@\n             ])\n             ->add('description',TextType::class,[\n                 'required' => 'required',\n             ])\n-            ->add('deadline')\n+\n+            \n             ->add('isDone')\n            \n             ->add('Category')\n         ;\n"
+                },
+                {
+                    "date": 1688981485362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n                 'required' => 'required',\n             ])\n \n             \n-            ->add('isDone')\n+            ->add('isDone',cje)\n            \n             ->add('Category')\n         ;\n     }\n"
+                },
+                {
+                    "date": 1688981495248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n                 'required' => 'required',\n             ])\n \n             \n-            ->add('isDone',cje)\n+            ->add('isDone',Check)\n            \n             ->add('Category')\n         ;\n     }\n"
+                },
+                {
+                    "date": 1688981501232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n namespace App\\Form;\n \n use App\\Entity\\Task;\n use Symfony\\Component\\Form\\AbstractType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n \n class TaskType extends AbstractType\n@@ -19,9 +20,9 @@\n                 'required' => 'required',\n             ])\n \n             \n-            ->add('isDone',Check)\n+            ->add('isDone',CheckboxType::class)\n            \n             ->add('Category')\n         ;\n     }\n"
+                },
+                {
+                    "date": 1688981507805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,11 @@\n                 'required' => 'required',\n             ])\n \n             \n-            ->add('isDone',CheckboxType::class)\n+            ->add('isDone',CheckboxType::class,[\n+                required => 'required',\n+            ])\n            \n             ->add('Category')\n         ;\n     }\n"
+                },
+                {
+                    "date": 1688981515055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n             ])\n \n             \n             ->add('isDone',CheckboxType::class,[\n-                required => 'required',\n+               'required'=>\n             ])\n            \n             ->add('Category')\n         ;\n"
+                },
+                {
+                    "date": 1688981537092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,12 +21,15 @@\n             ])\n \n             \n             ->add('isDone',CheckboxType::class,[\n-               'required'=>\n+               'required'=> false,\n             ])\n            \n-            ->add('Category')\n+            ->add('category',EntityType::class,[\n+                'class' => Category::class,\n+                'choice_label'=> 'title'\n+            ])\n         ;\n     }\n \n     public function configureOptions(OptionsResolver $resolver): void\n"
+                },
+                {
+                    "date": 1688981546805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,12 +2,15 @@\n \n namespace App\\Form;\n \n use App\\Entity\\Task;\n+use App\\Entity\\Category;\n use Symfony\\Component\\Form\\AbstractType;\n-use Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n+use Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType;\n \n class TaskType extends AbstractType\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n@@ -26,9 +29,9 @@\n             ])\n            \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n-                'choice_label'=> 'title'\n+                'choice_label'=> 'nom'\n             ])\n         ;\n     }\n \n"
+                },
+                {
+                    "date": 1688981949760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,11 +23,9 @@\n                 'required' => 'required',\n             ])\n \n             \n-            ->add('isDone',CheckboxType::class,[\n-               'required'=> false,\n-            ])\n+          \n            \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n"
+                },
+                {
+                    "date": 1688981985252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         $builder\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n             ])\n-            ->add('description',TextType::class,[\n+            ->add('description',Type::class,[\n                 'required' => 'required',\n             ])\n \n             \n"
+                },
+                {
+                    "date": 1688981991393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         $builder\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n             ])\n-            ->add('description',Type::class,[\n+            ->add('description',   Type::class,[\n                 'required' => 'required',\n             ])\n \n             \n"
+                },
+                {
+                    "date": 1688981997815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         $builder\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n             ])\n-            ->add('description',   Type::class,[\n+            ->add('description',Type::class,[\n                 'required' => 'required',\n             ])\n \n             \n"
+                },
+                {
+                    "date": 1688982004581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         $builder\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n             ])\n-            ->add('description',Type::class,[\n+            ->add('description', TeType::class,[\n                 'required' => 'required',\n             ])\n \n             \n"
+                },
+                {
+                    "date": 1688982010225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         $builder\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n             ])\n-            ->add('description', TeType::class,[\n+            ->add('description',TextType::class,[\n                 'required' => 'required',\n             ])\n \n             \n"
+                },
+                {
+                    "date": 1688982032065,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         $builder\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n             ])\n-            ->add('description',TextType::class,[\n+            ->add('description',::class,[\n                 'required' => 'required',\n             ])\n \n             \n"
+                },
+                {
+                    "date": 1688982038415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         $builder\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n             ])\n-            ->add('description',::class,[\n+            ->add('description',Tex::class,[\n                 'required' => 'required',\n             ])\n \n             \n"
+                },
+                {
+                    "date": 1688982044143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n use App\\Entity\\Task;\n use App\\Entity\\Category;\n use Symfony\\Component\\Form\\AbstractType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n@@ -18,9 +19,9 @@\n         $builder\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n             ])\n-            ->add('description',Tex::class,[\n+            ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n             \n"
+                },
+                {
+                    "date": 1688982583990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n-            \n+            ->add('')\n           \n            \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n"
+                },
+                {
+                    "date": 1688982647169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n-            ->add('')\n+            ->add('deadline')\n           \n            \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n"
+                },
+                {
+                    "date": 1688982654385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n-            ->add('deadline')\n+            ->add('deadline'),{}\n           \n            \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n"
+                },
+                {
+                    "date": 1688982660404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n-            ->add('deadline'),{}\n+            ->add('deadline'),\n           \n            \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n"
+                },
+                {
+                    "date": 1688982666631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n-            ->add('deadline'),\n+            ->add('deadline'),DateTime::\n           \n            \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n"
+                },
+                {
+                    "date": 1688982673503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n-            ->add('deadline'),DateTime::\n+            ->add('deadline',DateTime::class\n           \n            \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n"
+                },
+                {
+                    "date": 1688982679683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,11 @@\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n-            ->add('deadline',DateTime::class\n+            ->add('deadline',DateTime::class,[\n+                \n+            ]\n           \n            \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n"
+                },
+                {
+                    "date": 1688982686034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,10 @@\n                 'required' => 'required',\n             ])\n \n             ->add('deadline',DateTime::class,[\n-                \n-            ]\n+\n+            ])\n           \n            \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n"
+                },
+                {
+                    "date": 1688982719419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n-            ->add('deadline',DateTime::class,[\n+            ->add('deadline',DateType::class,[\n \n             ])\n           \n            \n"
+                },
+                {
+                    "date": 1688982888439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n use App\\Entity\\Task;\n use App\\Entity\\Category;\n use Symfony\\Component\\Form\\AbstractType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n@@ -23,9 +24,9 @@\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n-            ->add('deadline',DateType::class,[\n+            ->add('deadline',Type::class,[\n \n             ])\n           \n            \n"
+                },
+                {
+                    "date": 1688982903977,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n-            ->add('deadline',Type::class,[\n+            ->add('deadline',Hid::class,[\n \n             ])\n           \n            \n"
+                },
+                {
+                    "date": 1688982928509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n use App\\Entity\\Task;\n use App\\Entity\\Category;\n use Symfony\\Component\\Form\\AbstractType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\HiddenType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n@@ -24,12 +25,11 @@\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n-            ->add('deadline',Hid::class,[\n+            ->add('deadline',HiddenType::class,[\n \n             ])\n-          \n            \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n"
+                },
+                {
+                    "date": 1688993567867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n \n             ->add('deadline',HiddenType::class,[\n \n             ])\n+            \n            \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n"
+                },
+                {
+                    "date": 1688993572991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,11 @@\n \n             ->add('deadline',HiddenType::class,[\n \n             ])\n-            \n+            ->add('isDone', ::class, [\n+                'required' => false,\n+            ])\n            \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n"
+                },
+                {
+                    "date": 1688993581543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n \n             ->add('deadline',HiddenType::class,[\n \n             ])\n-            ->add('isDone', ::class, [\n+            ->add('isDone', HiddenType::class, [\n                 'required' => false,\n             ])\n            \n             ->add('category',EntityType::class,[\n"
+                },
+                {
+                    "date": 1688993799825,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n \n             ->add('deadline',HiddenType::class,[\n \n             ])\n-            ->add('isDone', HiddenType::class, [\n+            ->add('isDone', hidd::class, [\n                 'required' => false,\n             ])\n            \n             ->add('category',EntityType::class,[\n"
+                },
+                {
+                    "date": 1688993892245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n \n             ->add('deadline',HiddenType::class,[\n \n             ])\n-            ->add('isDone', hidd::class, [\n+            ->add('isDone', CheckboxType::class, [\n                 'required' => false,\n             ])\n            \n             ->add('category',EntityType::class,[\n"
+                },
+                {
+                    "date": 1688994245452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,12 +28,9 @@\n \n             ->add('deadline',HiddenType::class,[\n \n             ])\n-            ->add('isDone', CheckboxType::class, [\n-                'required' => false,\n-            ])\n-           \n+          \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n             ])\n"
+                },
+                {
+                    "date": 1688996726063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n-            ->add('deadline',HiddenType::class,[\n+            ->add('deadline',::class,[\n \n             ])\n           \n             ->add('category',EntityType::class,[\n"
+                },
+                {
+                    "date": 1688996758241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,17 +25,18 @@\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n \n-            ->add('deadline',::class,[\n+            ->add('deadline',DateType::class,[\n \n             ])\n           \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n             ])\n         ;\n+        \n     }\n \n     public function configureOptions(OptionsResolver $resolver): void\n     {\n"
+                },
+                {
+                    "date": 1688996770947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,10 +33,11 @@\n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n             ])\n+            \n         ;\n-        \n+\n     }\n \n     public function configureOptions(OptionsResolver $resolver): void\n     {\n"
+                },
+                {
+                    "date": 1688996777279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,11 +33,18 @@\n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n             ])\n-            \n-        ;\n \n+\n+         ->add('submit', SubmitType::class, [\n+            'label' => \"\",\n+            'attr' => [\n+                'class' => 'btn btn-primary'\n+            ] \n+        ]);\n+        \n+\n     }\n \n     public function configureOptions(OptionsResolver $resolver): void\n     {\n"
+                },
+                {
+                    "date": 1688996783274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n             ])\n \n \n          ->add('submit', SubmitType::class, [\n-            'label' => \"\",\n+            'label' => \"ADD\",\n             'attr' => [\n                 'class' => 'btn btn-primary'\n             ] \n         ]);\n"
+                },
+                {
+                    "date": 1688996792199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,16 +4,17 @@\n \n use App\\Entity\\Task;\n use App\\Entity\\Category;\n use Symfony\\Component\\Form\\AbstractType;\n-use Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType;\n-use Symfony\\Component\\Form\\Extension\\Core\\Type\\HiddenType;\n-use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType;\n use Symfony\\Component\\Form\\FormBuilderInterface;\n use Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType;\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\HiddenType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType;\n use Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType;\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType;\n \n class TaskType extends AbstractType\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n"
+                },
+                {
+                    "date": 1688996892261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,14 +36,9 @@\n                 'choice_label'=> 'nom'\n             ])\n \n \n-         ->add('submit', SubmitType::class, [\n-            'label' => \"ADD\",\n-            'attr' => [\n-                'class' => 'btn btn-primary'\n-            ] \n-        ]);\n+         \n         \n \n     }\n \n"
+                },
+                {
+                    "date": 1688996963457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,14 @@\n                 'choice_label'=> 'nom'\n             ])\n \n \n-         \n+         ->add('submit', SubmitType::class, [\n+            'label' => \"ADD\",\n+            'attr' => [\n+                'class' => 'btn btn-primary'\n+            ] \n+        ]);\n         \n \n     }\n \n"
+                }
+            ],
+            "date": 1688980544894,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Form;\n\nuse App\\Entity\\Task;\nuse Symfony\\Component\\Form\\AbstractType;\nuse Symfony\\Component\\Form\\FormBuilderInterface;\nuse Symfony\\Component\\OptionsResolver\\OptionsResolver;\n\nclass TaskType extends AbstractType\n{\n    public function buildForm(FormBuilderInterface $builder, array $options): void\n    {\n        $builder\n            ->add('title')\n            ->add('description')\n            ->add('deadline')\n            ->add('isDone')\n          \n            ->add('user')\n            ->add('Category')\n        ;\n    }\n\n    public function configureOptions(OptionsResolver $resolver): void\n    {\n        $resolver->setDefaults([\n            'data_class' => Task::class,\n        ]);\n    }\n}\n"
+        }
+    ]
+}

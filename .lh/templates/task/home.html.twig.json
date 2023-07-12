@@ -1,0 +1,54 @@
+{
+    "sourceFile": "templates/task/home.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1688741861368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688741868236,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-hello\n\\ No newline at end of file\n+{{hello\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688742104568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +0,0 @@\n-{{hello\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688742243448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,2 @@\n+\n+}}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688742273040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,7 @@\n+{% extends 'base.html.twig' %}\n \n\\ No newline at end of file\n-}}\n+{% block body %}\n+<h1>Binevenue dans ce blog</h1>\n+<p>Lorem ipsum dolor sit amet, consect</p>\n+<P>Lorem ipsum dolor sit amet, consectet<p>\n+{% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688742390648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n {% extends 'base.html.twig' %}\n \n {% block body %}\n-<h1>Binevenue dans ce blog</h1>\n+<h1>Welcome to TaskPlanner</h1>\n <p>Lorem ipsum dolor sit amet, consect</p>\n <P>Lorem ipsum dolor sit amet, consectet<p>\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688742435444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n {% extends 'base.html.twig' %}\n \n {% block body %}\n <h1>Welcome to TaskPlanner</h1>\n-<p>Lorem ipsum dolor sit amet, consect</p>\n+<pTaskPlanner est une application de gestion de tâches permettant à un manager de suivre et gérer le travail de ses collaborateurs.\n+</p>\n <P>Lorem ipsum dolor sit amet, consectet<p>\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688742486551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n {% extends 'base.html.twig' %}\n \n {% block body %}\n <h1>Welcome to TaskPlanner</h1>\n-<pTaskPlanner est une application de gestion de tâches permettant à un manager de suivre et gérer le travail de ses collaborateurs.\n+<p><strong>TaskPlanner est une application de gestion de tâches permettant à un manager de suivre et gérer le travail de ses collaborateurs.\n </p>\n <P>Lorem ipsum dolor sit amet, consectet<p>\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688742493650,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n \n {% block body %}\n <h1>Welcome to TaskPlanner</h1>\n <p><strong>TaskPlanner est une application de gestion de tâches permettant à un manager de suivre et gérer le travail de ses collaborateurs.\n-</</p>\n+</s</p>\n <P>Lorem ipsum dolor sit amet, consectet<p>\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688742902750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,6 @@\n <p><strong>TaskPlanner is a task management application allowing a manager to follow and manage the work of his collaborators.\n </strong></p>\n <h1>Advantage of Taskplanner</h1>\n     <h2>Boosts Productivity</h2>\n+        \n {% endblock %}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1688741861368,
+            "name": "Commit-0",
+            "content": "hello"
+        }
+    ]
+}

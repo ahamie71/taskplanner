@@ -1,0 +1,23 @@
+{% extends 'base.html.twig'%}
+
+{% block body %}
+
+   <h1> Create a task </h1>
+
+    {{form_start(formTask) }}
+
+   {{form_row(formTask.title, {'attr':{'placeholder':"Title of the task"}})}}
+
+    {{form_row(formTask.category. {'attr':{'placeholder':"Category of the task"}})}}
+
+     {{form_row(formTwask.description, {'attr':{'placeholder':"Description of the task"}})}}
+
+      {{form_row(formTask.isDone)}}
+{{form_end(formTask)}}
+
+</div>
+
+
+
+
+{% endblock %}

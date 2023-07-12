@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!{% endblock %}
+
+{% block body %}
+
+{{form(form)}}
+
+{% if tasks | length == 0 %}
+            <h4>Aucun résulat pour votre recherche.</h4>
+
+            {% else %}
+               <h3 class="mt-3">Vos résulats de recherche :</h3>
+                 
+                 {% for task in tasks %}
+                  <article>
+
+                   
+                        <article>
+                            <h2 style="color: #333;">{{ task.title }}</h2>
+                    
+                            <div class="metadata">To be returned for <strong>{{ task.deadline|date('d/m/y') }}</strong></div>
+                            <div class="metadata">In category: <strong>{{ task.category.nom }}</strong></div>
+                    
+                            <div class="content" style="margin-top: 20px;">
+                                {{ task.description|raw }}
+                            </div>
+                        </article>
+                    {% endblock %}
+  
+      
+                      {% endfor %}
+               {% endif %}
+
+
+{% endblock %}

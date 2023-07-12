@@ -1,0 +1,46 @@
+{
+    "sourceFile": "templates/base.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1688742113458,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688742120867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,46 @@\n+<!DOCTYPE html>\n+<html>\n+    <head>\n+        <meta charset=\"UTF-8\">\n+        <title>\n+            {% block title %}\n+                Welcome!\n+                            \n+            {% endblock %}\n+        </title>\n+        <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>\">\n+        {% block stylesheets %}\n+            <link rel=\"stylesheet\" href=\"https://bootswatch.com/5/flatly/bootstrap.min.css\">\n+        {% endblock %}\n+        {% block javascripts %}{% endblock %}\n+    </head>\n+    <body>\n+        <nav class=\"navbar navbar-expand-lg bg-primary\" data-bs-theme=\"dark\">\n+            <div class=\"container-fluid\">\n+                <a class=\"navbar-brand\" href=\"{{ path('home')}}\">\n+                    SymBlog                    \n+                </a>\n+                <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n+                    <span class=\"navbar-toggler-icon\"></span>\n+                </button>\n+                <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">\n+                    <ul class=\"navbar-nav me-auto\">\n+                        <li class=\"nav-item\">\n+                            <a class=\"nav-link\" href=\"{{ path('blog')}}\">\n+                                Article                                            \n+                            </a>\n+                        </li>\n+                        <li class=\"nav-item\">\n+                            <a class=\"nav-link\" href=\"{{ pa\">\n+                                Add an article                                  \n+                            </a>\n+                        </li>\n+                    </li>\n+                </div>\n+            </div>\n+        </nav>\n+        <div class=\"container\">\n+            {% block body %}{% endblock %}\n+        </div>\n+    </body>\n+</html>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688742140559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n                                 Article                                            \n                             </a>\n                         </li>\n                         <li class=\"nav-item\">\n-                            <a class=\"nav-link\" href=\"{{ pa\">\n+                            <a class=\"nav-link\" href=\"\">\n                                 Add an article                                  \n                             </a>\n                         </li>\n                     </li>\n"
+                },
+                {
+                    "date": 1688742148363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     <body>\n         <nav class=\"navbar navbar-expand-lg bg-primary\" data-bs-theme=\"dark\">\n             <div class=\"container-fluid\">\n                 <a class=\"navbar-brand\" href=\"{{ path('home')}}\">\n-                    SymBlog                    \n+                                       \n                 </a>\n                 <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n                     <span class=\"navbar-toggler-icon\"></span>\n                 </button>\n"
+                },
+                {
+                    "date": 1688742153805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     <body>\n         <nav class=\"navbar navbar-expand-lg bg-primary\" data-bs-theme=\"dark\">\n             <div class=\"container-fluid\">\n                 <a class=\"navbar-brand\" href=\"{{ path('home')}}\">\n-                                       \n+                    TaskPlanner                   \n                 </a>\n                 <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n                     <span class=\"navbar-toggler-icon\"></span>\n                 </button>\n"
+                },
+                {
+                    "date": 1688742165410,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n                 <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">\n                     <ul class=\"navbar-nav me-auto\">\n                         <li class=\"nav-item\">\n                             <a class=\"nav-link\" href=\"{{ path('blog')}}\">\n-                                Article                                            \n+                                Tasks                                           \n                             </a>\n                         </li>\n                         <li class=\"nav-item\">\n                             <a class=\"nav-link\" href=\"\">\n"
+                },
+                {
+                    "date": 1688742173413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n                 <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">\n                     <ul class=\"navbar-nav me-auto\">\n                         <li class=\"nav-item\">\n                             <a class=\"nav-link\" href=\"{{ path('blog')}}\">\n-                                 LisTasks                                           \n+                                 ListTasks                                           \n                             </a>\n                         </li>\n                         <li class=\"nav-item\">\n                             <a class=\"nav-link\" href=\"\">\n"
+                },
+                {
+                    "date": 1688772406663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n                         <button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Search</button>\n                       </form>\n                        \n                       <li class=\"nav-item\">\n-                      <a class=\"nav-link\">{{}}\n+                      <a class=\"nav-link\">{{ }}\n                                Sign In                        \n                       </a>\n \n \n"
+                }
+            ],
+            "date": 1688742113458,
+            "name": "Commit-0",
+            "content": ""
+        }
+    ]
+}

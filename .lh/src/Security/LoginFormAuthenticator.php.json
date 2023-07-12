@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/Security/LoginFormAuthenticator.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1688771838363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688771852032,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {\n             return new RedirectResponse($targetPath);\n         }\n \n-        // For example:\n+      \n         // return new RedirectResponse($this->urlGenerator->generate('some_route'));\n       \n     }\n \n"
+                },
+                {
+                    "date": 1688771858569,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n             return new RedirectResponse($targetPath);\n         }\n \n       \n-        // return new RedirectResponse($this->urlGenerator->generate('some_route'));\n+        return new RedirectResponse($this->urlGenerator->generate(''));\n       \n     }\n \n     protected function getLoginUrl(Request $request): string\n"
+                },
+                {
+                    "date": 1688771864543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n             return new RedirectResponse($targetPath);\n         }\n \n       \n-        return new RedirectResponse($this->urlGenerator->generate(''));\n+        return new RedirectResponse($this->urlGenerator->generate('task'));\n       \n     }\n \n     protected function getLoginUrl(Request $request): string\n"
+                },
+                {
+                    "date": 1688771904427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n             return new RedirectResponse($targetPath);\n         }\n \n       \n-        return new RedirectResponse($this->urlGenerator->generate('task'));\n+        return new RedirectResponse($this->urlGenerator->generate('/task'));\n       \n     }\n \n     protected function getLoginUrl(Request $request): string\n"
+                },
+                {
+                    "date": 1688772697032,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n             return new RedirectResponse($targetPath);\n         }\n \n       \n-        return new RedirectResponse($this->urlGenerator->generate('/task'));\n+        return new RedirectResponse($this->urlGenerator->generate('task'));\n       \n     }\n \n     protected function getLoginUrl(Request $request): string\n"
+                }
+            ],
+            "date": 1688771838363,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Security;\n\nuse Symfony\\Bundle\\SecurityBundle\\Security;\nuse Symfony\\Component\\HttpFoundation\\RedirectResponse;\nuse Symfony\\Component\\HttpFoundation\\Request;\nuse Symfony\\Component\\HttpFoundation\\Response;\nuse Symfony\\Component\\Routing\\Generator\\UrlGeneratorInterface;\nuse Symfony\\Component\\Security\\Core\\Authentication\\Token\\TokenInterface;\nuse Symfony\\Component\\Security\\Http\\Authenticator\\AbstractLoginFormAuthenticator;\nuse Symfony\\Component\\Security\\Http\\Authenticator\\Passport\\Badge\\CsrfTokenBadge;\nuse Symfony\\Component\\Security\\Http\\Authenticator\\Passport\\Badge\\UserBadge;\nuse Symfony\\Component\\Security\\Http\\Authenticator\\Passport\\Credentials\\PasswordCredentials;\nuse Symfony\\Component\\Security\\Http\\Authenticator\\Passport\\Passport;\nuse Symfony\\Component\\Security\\Http\\Util\\TargetPathTrait;\n\nclass LoginFormAuthenticator extends AbstractLoginFormAuthenticator\n{\n    use TargetPathTrait;\n\n    public const LOGIN_ROUTE = 'app_login';\n\n    public function __construct(private UrlGeneratorInterface $urlGenerator)\n    {\n    }\n\n    public function authenticate(Request $request): Passport\n    {\n        $email = $request->request->get('email', '');\n\n        $request->getSession()->set(Security::LAST_USERNAME, $email);\n\n        return new Passport(\n            new UserBadge($email),\n            new PasswordCredentials($request->request->get('password', '')),\n            [\n                new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),\n            ]\n        );\n    }\n\n    public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response\n    {\n        if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {\n            return new RedirectResponse($targetPath);\n        }\n\n        // For example:\n        // return new RedirectResponse($this->urlGenerator->generate('some_route'));\n      \n    }\n\n    protected function getLoginUrl(Request $request): string\n    {\n        return $this->urlGenerator->generate(self::LOGIN_ROUTE);\n    }\n}\n"
+        }
+    ]
+}

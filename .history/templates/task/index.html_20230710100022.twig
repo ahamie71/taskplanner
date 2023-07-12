@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TaskController!{% endblock %}
+
+{% block body %}
+
+
+<section class="article">
+{% for task in tasks %}
+    <article>
+
+        <h2>
+            {{ task.title }}
+        </h2>Categorie{{task.Category.nom}}
+        <div class="metadata">
+           
+        a rendre pour le 
+                                
+            {{ task.deadline | date('d/m/Y') }}
+        
+                           
+      
+        </div>
+        <div class="contents">
+         
+                {{ task.description | raw }}
+                <a href="" class="btn btn-primary">
+                    Lire la suite                            
+                                                                        
+                                            
+                </a>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{
+    "sourceFile": "templates/task/search.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1689062508097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1689062515383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-{\n\\ No newline at end of file\n+{% extends %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1689062521319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-{% extends %}\n\\ No newline at end of file\n+{% extends 'base.html%}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1689062528384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-{% extends 'base.html%}\n\\ No newline at end of file\n+{% extends 'base.html.twig '%}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1689062508097,
+            "name": "Commit-0",
+            "content": "{"
+        }
+    ]
+}

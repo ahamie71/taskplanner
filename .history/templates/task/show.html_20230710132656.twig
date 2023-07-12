@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  <article>
+    
+
+    <h2>{{ task.title }}</h2>
+    
+    <div class="metadata"> {{ task.deadline|date('d/m/y')}}
+   
+       in category {{ task.category.nom }}</div>
+    <div class="content">
+ 
+      {{ task.description|raw }}
+    </div>
+  </article>
+    
+          </section>
+        
+{% endblock %}
+
