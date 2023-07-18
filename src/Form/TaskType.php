@@ -22,24 +22,24 @@ class TaskType extends AbstractType
         $builder
             ->add('title',TextType::class,[
                 'required'=> 'required',
+                'label'=>'Titre',
             ])
             ->add('description',TextareaType::class,[
                 'required' => 'required',
+                'label'=>'Description'
             ])
 
             ->add('deadline',DateType::class,[
-
+                   'label'=>'Date Limite'
             ])
           
             ->add('category',EntityType::class,[
                 'class' => Category::class,
-                'choice_label'=> 'nom'
+                'choice_label'=> 'nom',
+                'label'=>'Category'
             ])
           
-            ->add('isDone', CheckboxType::class, [
-                'label' => 'Tâche terminée',
-                'required' => false, // La case à cocher n'est pas obligatoire
-            ])
+          
       
         
         ;

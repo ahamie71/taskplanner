@@ -23,11 +23,11 @@
                       <div class="task-header">
                       {% if task.user == app.user %}
                       {% if not task.isdone %}
-                    <a href="{{ path('task_complete', { 'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id) }) }}" style="margin-left: 700px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;">☐</a>
+                    <a href="{{ path('task_complete', { 'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id) }) }}" style="margin-left: 1200px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;">☐</a>
             
             
                  {% else %}
-                <a href="{{ path('task_incomplete', {'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id)}) }}" style="margin-left: 700px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;">☑</a>
+                <a href="{{ path('task_incomplete', {'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id)}) }}" style="margin-left: 1200px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;">☑</a>
             
                  {% endif %}
                 {% endif %}
@@ -48,7 +48,7 @@
                         
                     {% endif %}
 
-                <span style="margin-left:250px ;" class="task-deadline">A faire pour le : {{ task.deadline|date('d/m/Y') }}</span>
+                <span style="margin-left:800px ;" class="task-deadline">A faire pour le : {{ task.deadline|date('d/m/Y') }}</span>
                       </div>
                     </div>
                   {% endfor %}

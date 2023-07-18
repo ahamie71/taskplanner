@@ -2,22 +2,23 @@
 
 {% block body %}
 
-   <h1> Create a task </h1>
+   <h1> Ajouter une tâche</h1>
 
     {{form_start(formTask) }}
 
-    {{form_row(formTask.title, {'attr':{'placeholder':"Title of the task"}})}}
+    {{form_row(formTask.title, {'attr':{'placeholder':"Titre de la tâche"}})}}
 
-     {{form_row(formTask.category, {'attr':{'placeholder':"Category of the task"}})}}
+     {{form_row(formTask.category, {'attr':{'placeholder':"Categorie de la tâche"}})}}
 
-     {{form_row(formTask.description, {'attr':{'placeholder':"Description of the task"}})}}
+     {{form_row(formTask.description, {'attr':{'placeholder':"Description  de la tâche"}})}}
+
      
-      
+     
      <button type="submit" class="btn btn-success">
   {% if editMode %}
   Enregistrer les modifications
   {% else %}
-  Ajouter l'article
+  Ajouter la tâche
   {% endif %}
 </button>
 

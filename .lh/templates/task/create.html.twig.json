@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 43,
+            "activePatchIndex": 53,
             "patches": [
                 {
                     "date": 1688981642656,
@@ -180,6 +180,46 @@
                 {
                     "date": 1689166122182,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n      {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n      \n-\n+      \n      <button type=\"submit\" class=\"btn btn-success\">\n   {% if editMode %}\n   Enregistrer les modifications\n   {% else %}\n"
+                },
+                {
+                    "date": 1689672632255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends 'base.html.twig'%}\n \n {% block body %}\n \n-   <h1> Create a task </h1>\n+   <h1> </h1>\n \n     {{form_start(formTask) }}\n \n     {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n"
+                },
+                {
+                    "date": 1689672638386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends 'base.html.twig'%}\n \n {% block body %}\n \n-   <h1> </h1>\n+   <h1> Ajouter une t</h1>\n \n     {{form_start(formTask) }}\n \n     {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n"
+                },
+                {
+                    "date": 1689672653217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,13 @@\n {% extends 'base.html.twig'%}\n \n {% block body %}\n \n-   <h1> Ajouter une t</h1>\n+   <h1> Ajouter une tâche</h1>\n \n     {{form_start(formTask) }}\n \n-    {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n+    {{form_row(formTask.title, {'attr':{'placeholder':\"Titre of the task\"}})}}\n \n      {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n"
+                },
+                {
+                    "date": 1689672658530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n    <h1> Ajouter une tâche</h1>\n \n     {{form_start(formTask) }}\n \n-    {{form_row(formTask.title, {'attr':{'placeholder':\"Titre of the task\"}})}}\n+    {{form_row(formTask.title, {'attr':{'placeholder':\"Titre de la tâche\"}})}}\n \n      {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n"
+                },
+                {
+                    "date": 1689672663966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     {{form_start(formTask) }}\n \n     {{form_row(formTask.title, {'attr':{'placeholder':\"Titre de la tâche\"}})}}\n \n-     {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n+     {{form_row(formTask.category, {'attr':{'placeholder':\"Categorie de la tâche\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n      \n       \n"
+                },
+                {
+                    "date": 1689672672396,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,16 +9,16 @@\n     {{form_row(formTask.title, {'attr':{'placeholder':\"Titre de la tâche\"}})}}\n \n      {{form_row(formTask.category, {'attr':{'placeholder':\"Categorie de la tâche\"}})}}\n \n-     {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n+     {{form_row(formTask.description, {'attr':{'placeholder':\"Description  de la tâche\"}})}}\n      \n       \n      <button type=\"submit\" class=\"btn btn-success\">\n   {% if editMode %}\n   Enregistrer les modifications\n   {% else %}\n-  Ajouter l'article\n+  Ajouter \n   {% endif %}\n </button>\n \n {{form_end(formTask)}}\n"
+                },
+                {
+                    "date": 1689672677623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n      <button type=\"submit\" class=\"btn btn-success\">\n   {% if editMode %}\n   Enregistrer les modifications\n   {% else %}\n-  Ajouter \n+  Ajouter la tâche\n   {% endif %}\n </button>\n \n {{form_end(formTask)}}\n"
+                },
+                {
+                    "date": 1689672694175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,8 @@\n      {{form_row(formTask.category, {'attr':{'placeholder':\"Categorie de la tâche\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description  de la tâche\"}})}}\n      \n-      \n      <button type=\"submit\" class=\"btn btn-success\">\n   {% if editMode %}\n   Enregistrer les modifications\n   {% else %}\n"
+                },
+                {
+                    "date": 1689672951720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n      {{form_row(formTask.category, {'attr':{'placeholder':\"Categorie de la tâche\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description  de la tâche\"}})}}\n      \n+     \n      <button type=\"submit\" class=\"btn btn-success\">\n   {% if editMode %}\n   Enregistrer les modifications\n   {% else %}\n"
+                },
+                {
+                    "date": 1689672960076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n \n      {{form_row(formTask.category, {'attr':{'placeholder':\"Categorie de la tâche\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description  de la tâche\"}})}}\n+\n      \n      \n      <button type=\"submit\" class=\"btn btn-success\">\n   {% if editMode %}\n"
                 }
             ],
             "date": 1688981642656,

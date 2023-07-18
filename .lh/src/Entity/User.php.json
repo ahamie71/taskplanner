@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 8,
+            "activePatchIndex": 18,
             "patches": [
                 {
                     "date": 1688758771155,
@@ -40,6 +40,46 @@
                 {
                     "date": 1688990689118,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n     #[Assert\\Length(\n         min: 5,\n         max: 15,\n         minMessage: 'Your first name must be at least {{ limit }} characters long')]\n-    private ?string $nom ;\n+    private ?string $nom = null;\n \n     #[ORM\\Column(length: 255)]\n     #[Assert\\Length(\n         min: 5,\n"
+                },
+                {
+                    "date": 1689683430657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n \n     #[ORM\\Column]\n     private array $roles = [];\n \n+    \n     /**\n      * @var string The hashed password\n      */\n     #[ORM\\Column]\n"
+                },
+                {
+                    "date": 1689683436021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n \n     #[ORM\\Column]\n     private array $roles = [];\n \n-    \n+    #\n     /**\n      * @var string The hashed password\n      */\n     #[ORM\\Column]\n"
+                },
+                {
+                    "date": 1689683441476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n \n     #[ORM\\Column]\n     private array $roles = [];\n \n-    #\n+    #[]\n     /**\n      * @var string The hashed password\n      */\n     #[ORM\\Column]\n"
+                },
+                {
+                    "date": 1689683476948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n \n     #[ORM\\Column]\n     private array $roles = [];\n \n-    #[]\n+    #[ORM\\]\n     /**\n      * @var string The hashed password\n      */\n     #[ORM\\Column]\n"
+                },
+                {
+                    "date": 1689683482093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n \n     #[ORM\\Column]\n     private array $roles = [];\n \n-    #[ORM\\]\n+    #[ORM\\Column]\n     /**\n      * @var string The hashed password\n      */\n     #[ORM\\Column]\n"
+                },
+                {
+                    "date": 1689683488068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n \n     #[ORM\\Column]\n     private array $roles = [];\n \n-    #[ORM\\Column]\n+    #[ORM\\Column(type:'string', length:)]\n     /**\n      * @var string The hashed password\n      */\n     #[ORM\\Column]\n"
+                },
+                {
+                    "date": 1689683493848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,10 @@\n \n     #[ORM\\Column]\n     private array $roles = [];\n \n-    #[ORM\\Column(type:'string', length:)]\n+    #[ORM\\Column(type:'string', length: 100)]\n+    \n     /**\n      * @var string The hashed password\n      */\n     #[ORM\\Column]\n"
+                },
+                {
+                    "date": 1689683516296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n     #[ORM\\Column]\n     private array $roles = [];\n \n     #[ORM\\Column(type:'string', length: 100)]\n-    \n+     \n     /**\n      * @var string The hashed password\n      */\n     #[ORM\\Column]\n"
+                },
+                {
+                    "date": 1689683522353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n     #[ORM\\Column]\n     private array $roles = [];\n \n     #[ORM\\Column(type:'string', length: 100)]\n-     \n+     private $reset\n     /**\n      * @var string The hashed password\n      */\n     #[ORM\\Column]\n"
+                },
+                {
+                    "date": 1689683541666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n     #[ORM\\Column]\n     private array $roles = [];\n \n     #[ORM\\Column(type:'string', length: 100)]\n-     private $reset\n+     private $resetToken;\n     /**\n      * @var string The hashed password\n      */\n     #[ORM\\Column]\n@@ -179,5 +179,23 @@\n         }\n \n         return $this;\n     }\n+\n+     /**\n+      * Get the value of resetToken\n+      */\n+     public function getResetToken()\n+     {\n+          return $this->resetToken;\n+     }\n+\n+     /**\n+      * Set the value of resetToken\n+      */\n+     public function setResetToken($resetToken): self\n+     {\n+          $this->resetToken = $resetToken;\n+\n+          return $this;\n+     }\n }\n"
                 }
             ],
             "date": 1688758771155,

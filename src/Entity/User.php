@@ -27,6 +27,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private array $roles = [];
 
+    #[ORM\Column(type:'string', length: 100)]
+     private $resetToken;
     /**
      * @var string The hashed password
      */
@@ -178,4 +180,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+     /**
+      * Get the value of resetToken
+      */
+     public function getResetToken()
+     {
+          return $this->resetToken;
+     }
+
+     /**
+      * Set the value of resetToken
+      */
+     public function setResetToken($resetToken): self
+     {
+          $this->resetToken = $resetToken;
+
+          return $this;
+     }
 }

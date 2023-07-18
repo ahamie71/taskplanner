@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 66,
+            "activePatchIndex": 86,
             "patches": [
                 {
                     "date": 1688980544894,
@@ -272,6 +272,86 @@
                 {
                     "date": 1689166139257,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,13 +40,9 @@\n                 'label' => 'Tâche terminée',\n                 'required' => false, // La case à cocher n'est pas obligatoire\n             ])\n       \n-         ->add('submit', SubmitType::class, [\n-            'label' => \"ADD\",\n-            'attr' => [\n-                'class' => 'btn btn-primary'\n-            ] \n+        \n         ]);\n         \n \n     }\n"
+                },
+                {
+                    "date": 1689672700947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('title',TextType::class,[\n+            ->add('',TextType::class,[\n                 'required'=> 'required',\n             ])\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n@@ -41,9 +41,9 @@\n                 'required' => false, // La case à cocher n'est pas obligatoire\n             ])\n       \n         \n-        ]);\n+        ;\n         \n \n     }\n \n"
+                },
+                {
+                    "date": 1689672714977,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('',TextType::class,[\n+            ->add('titre',TextType::class,[\n                 'required'=> 'required',\n             ])\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n"
+                },
+                {
+                    "date": 1689672722494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n {\n     public function buildForm(FormBuilderInterface $builder, array $options): void\n     {\n         $builder\n-            ->add('titre',TextType::class,[\n+            ->add('title',TextType::class,[\n                 'required'=> 'required',\n             ])\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n"
+                },
+                {
+                    "date": 1689672741196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,9 @@\n     {\n         $builder\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n+                \n             ])\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n"
+                },
+                {
+                    "date": 1689672751649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n     {\n         $builder\n             ->add('title',TextType::class,[\n                 'required'=> 'required',\n-                \n+                'label'=>'Titre',\n             ])\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n             ])\n"
+                },
+                {
+                    "date": 1689672758369,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n                 'label'=>'Titre',\n             ])\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n+                'label'\n             ])\n \n             ->add('deadline',DateType::class,[\n \n"
+                },
+                {
+                    "date": 1689672773553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,16 +25,16 @@\n                 'label'=>'Titre',\n             ])\n             ->add('description',TextareaType::class,[\n                 'required' => 'required',\n-                'label'\n+                'label'=>'Description'\n             ])\n \n             ->add('deadline',DateType::class,[\n \n             ])\n           \n-            ->add('category',EntityType::class,[\n+            ->add('Cat',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n             ])\n           \n"
+                },
+                {
+                    "date": 1689672778875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,11 +32,12 @@\n             ->add('deadline',DateType::class,[\n \n             ])\n           \n-            ->add('Cat',EntityType::class,[\n+            ->add('category',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n+                'la'\n             ])\n           \n             ->add('isDone', CheckboxType::class, [\n                 'label' => 'Tâche terminée',\n"
+                },
+                {
+                    "date": 1689672786246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n           \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n-                'la'\n+                'label'=>\n             ])\n           \n             ->add('isDone', CheckboxType::class, [\n                 'label' => 'Tâche terminée',\n"
+                },
+                {
+                    "date": 1689672793025,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,10 @@\n           \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n-                'label'=>\n+\n+                'label '=>\n             ])\n           \n             ->add('isDone', CheckboxType::class, [\n                 'label' => 'Tâche terminée',\n"
+                },
+                {
+                    "date": 1689672802660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,10 +35,9 @@\n           \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n-\n-                'label '=>\n+                'label '=>'Category'\n             ])\n           \n             ->add('isDone', CheckboxType::class, [\n                 'label' => 'Tâche terminée',\n"
+                },
+                {
+                    "date": 1689672813309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,10 +34,10 @@\n             ])\n           \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n-                'choice_label'=> 'nom'\n-                'label '=>'Category'\n+                'choice_label'=> 'nom',\n+                'label'=>'Category'\n             ])\n           \n             ->add('isDone', CheckboxType::class, [\n                 'label' => 'Tâche terminée',\n"
+                },
+                {
+                    "date": 1689672825089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n                 'required' => 'required',\n                 'label'=>'Description'\n             ])\n \n-            ->add('deadline',DateType::class,[\n+            ->add('',DateType::class,[\n \n             ])\n           \n             ->add('category',EntityType::class,[\n"
+                },
+                {
+                    "date": 1689672833429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n                 'required' => 'required',\n                 'label'=>'Description'\n             ])\n \n-            ->add('',DateType::class,[\n+            ->add('deadline',DateType::class,[\n \n             ])\n           \n             ->add('category',EntityType::class,[\n"
+                },
+                {
+                    "date": 1689672867205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n                 'label'=>'Description'\n             ])\n \n             ->add('deadline',DateType::class,[\n-\n+                   \n             ])\n           \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n"
+                },
+                {
+                    "date": 1689672873891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n                 'label'=>'Description'\n             ])\n \n             ->add('deadline',DateType::class,[\n-                   \n+                   'label'=>'date limite\n             ])\n           \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n"
+                },
+                {
+                    "date": 1689672879321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n                 'label'=>'Description'\n             ])\n \n             ->add('deadline',DateType::class,[\n-                   'label'=>'date limite\n+                   'label'=>'Dateimite\n             ])\n           \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n"
+                },
+                {
+                    "date": 1689672887956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n                 'label'=>'Description'\n             ])\n \n             ->add('deadline',DateType::class,[\n-                   'label'=>'Dateimite\n+                   'label'=>'DateLimite'\n             ])\n           \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n"
+                },
+                {
+                    "date": 1689672893267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n                 'label'=>'Description'\n             ])\n \n             ->add('deadline',DateType::class,[\n-                   'label'=>'DateLimite'\n+                   'label'=>'Date Limite'\n             ])\n           \n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n"
+                },
+                {
+                    "date": 1689672909022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,12 +38,9 @@\n                 'choice_label'=> 'nom',\n                 'label'=>'Category'\n             ])\n           \n-            ->add('isDone', CheckboxType::class, [\n-                'label' => 'Tâche terminée',\n-                'required' => false, // La case à cocher n'est pas obligatoire\n-            ])\n+          \n       \n         \n         ;\n         \n"
                 }
             ],
             "date": 1688980544894,
