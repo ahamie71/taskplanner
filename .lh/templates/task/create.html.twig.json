@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 38,
+            "activePatchIndex": 43,
             "patches": [
                 {
                     "date": 1688981642656,
@@ -160,6 +160,26 @@
                 {
                     "date": 1688996919168,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,18 +11,14 @@\n     {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n      \n-      <div class='hello'>\n-     <button type=\"submit\" class=\"btn btn-success\">\n-     Add the Task \n-     </button>\n-      </div>\n+     \n \n {{form_end(formTask)}}\n \n-<\n \n \n \n \n+\n {% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1689165434559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,11 @@\n    <h1> Create a task </h1>\n \n     {{form_start(formTask) }}\n \n-   {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n+    {{form_row(formTask.title, {'attr':{'placeholder':\"Title of the task\"}})}}\n \n-    {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n+     {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n      \n      \n"
+                },
+                {
+                    "date": 1689166052004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,13 @@\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n      \n      \n+     {% if editMode %}\n+  Enregistrer les modifications\n+  {% else %}\n+  Ajouter l'article\n+  {% endif %}\n \n {{form_end(formTask)}}\n \n \n"
+                },
+                {
+                    "date": 1689166072758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n      \n      \n+     \n      {% if editMode %}\n   Enregistrer les modifications\n   {% else %}\n   Ajouter l'article\n"
+                },
+                {
+                    "date": 1689166103790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,15 +11,16 @@\n      {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n      \n-     \n-     \n-     {% if editMode %}\n+\n+     <button type=\"submit\" class=\"btn btn-success\">\n+  {% if editMode %}\n   Enregistrer les modifications\n   {% else %}\n   Ajouter l'article\n   {% endif %}\n+</button>\n \n {{form_end(formTask)}}\n \n \n"
+                },
+                {
+                    "date": 1689166122182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n      {{form_row(formTask.category, {'attr':{'placeholder':\"Category of the task\"}})}}\n \n      {{form_row(formTask.description, {'attr':{'placeholder':\"Description of the task\"}})}}\n      \n-\n+      \n      <button type=\"submit\" class=\"btn btn-success\">\n   {% if editMode %}\n   Enregistrer les modifications\n   {% else %}\n"
                 }
             ],
             "date": 1688981642656,

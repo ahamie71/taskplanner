@@ -42,26 +42,16 @@ class TaskRepository extends ServiceEntityRepository
 
   
     //  @return Task[] Returns an array of Task objects
-    public function findAllTasksBysearch($search):array
-    {
-       
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.title LIKE :toto')
-            ->setParameter('toto',"%$search%")
-            ->getQuery()
-            ->getResult();
-    }
-
-    public function findAllTasksByCategory()
-
-    {
-   
-        
-      
-      
-
-
-    }
+    public function findAllTasksBySearch($search): array
+{
+    return $this->createQueryBuilder('t')
+        ->join('t.Category', 'c') 
+        ->join('t.user', 'u')
+        ->andWhere('t.title LIKE :toto OR c.nom  LIKE :toto OR u.nom LIKE :toto') 
+        ->setParameter('toto', "%$search%")
+        ->getQuery()
+        ->getResult();
+}
 //    public function findOneBySomeField($value): ?Task
 //    {
 //        return $this->createQueryBuilder('t')

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 62,
+            "activePatchIndex": 66,
             "patches": [
                 {
                     "date": 1688980544894,
@@ -256,6 +256,22 @@
                 {
                     "date": 1688996963457,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,14 @@\n                 'choice_label'=> 'nom'\n             ])\n \n \n-         \n+         ->add('submit', SubmitType::class, [\n+            'label' => \"ADD\",\n+            'attr' => [\n+                'class' => 'btn btn-primary'\n+            ] \n+        ]);\n         \n \n     }\n \n"
+                },
+                {
+                    "date": 1689165311654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,10 +34,10 @@\n             ->add('category',EntityType::class,[\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n             ])\n+          \n \n-\n          ->add('submit', SubmitType::class, [\n             'label' => \"ADD\",\n             'attr' => [\n                 'class' => 'btn btn-primary'\n"
+                },
+                {
+                    "date": 1689165368167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n             ])\n           \n-\n+      \n          ->add('submit', SubmitType::class, [\n             'label' => \"ADD\",\n             'attr' => [\n                 'class' => 'btn btn-primary'\n"
+                },
+                {
+                    "date": 1689165513827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,8 +35,12 @@\n                 'class' => Category::class,\n                 'choice_label'=> 'nom'\n             ])\n           \n+            ->add('isDone', CheckboxType::class, [\n+                'label' => 'Tâche terminée',\n+                'required' => false, // La case à cocher n'est pas obligatoire\n+            ])\n       \n          ->add('submit', SubmitType::class, [\n             'label' => \"ADD\",\n             'attr' => [\n"
+                },
+                {
+                    "date": 1689166139257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,13 +40,9 @@\n                 'label' => 'Tâche terminée',\n                 'required' => false, // La case à cocher n'est pas obligatoire\n             ])\n       \n-         ->add('submit', SubmitType::class, [\n-            'label' => \"ADD\",\n-            'attr' => [\n-                'class' => 'btn btn-primary'\n-            ] \n+        \n         ]);\n         \n \n     }\n"
                 }
             ],
             "date": 1688980544894,

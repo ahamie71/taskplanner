@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 18,
+            "activePatchIndex": 20,
             "patches": [
                 {
                     "date": 1689148736071,
@@ -80,6 +80,14 @@
                 {
                     "date": 1689149372742,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n-{% extends '@EasyAdmin/page/content.html.twig' %}\n-\n+{% extends '@EasyAdmin/page/content.html.twig'%}\n+{% block body %}\n <h1>Bienvenue au sein de l'administration</h1>\n-\n+{% endblock %}\n"
+                },
+                {
+                    "date": 1689594467432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {% extends '@EasyAdmin/page/content.html.twig'%}\n-{% block body %}\n+{% block  %}\n <h1>Bienvenue au sein de l'administration</h1>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1689594476935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n {% extends '@EasyAdmin/page/content.html.twig'%}\n-{% block  %}\n+{% block con %}\n <h1>Bienvenue au sein de l'administration</h1>\n {% endblock %}\n"
                 }
             ],
             "date": 1689148736071,

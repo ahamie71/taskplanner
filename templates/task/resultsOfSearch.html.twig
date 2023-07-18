@@ -12,22 +12,118 @@
             {% else %}
                <h3 class="mt-3">Vos résulats de recherche :</h3>
                  
-                 {% for task in tasks %}
                   <article>
 
                         
-                            <h2 style="color: #333;">{{ task.title }}</h2>
-                    
-                            <div class="metadata">To be returned for <strong>{{ task.deadline|date('d/m/y') }}</strong></div>
-                            <div class="metadata">In category: <strong>{{ task.category.nom }}</strong></div>
-                    
-                            <div class="content" style="margin-top: 20px;">
-                                {{ task.description|raw }}
-                            </div>
-                        </article>
-      
-                      {% endfor %}
-               {% endif %}
+                    <div class="task-list">
+                <h1> Liste des tâches </h1>
+                    {% for task in tasks %}
 
+                    <div class="task">
+                      <div class="task-header">
+                      {% if task.user == app.user %}
+                      {% if not task.isdone %}
+                    <a href="{{ path('task_complete', { 'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id) }) }}" style="margin-left: 700px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;">☐</a>
+            
+            
+                 {% else %}
+                <a href="{{ path('task_incomplete', {'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id)}) }}" style="margin-left: 700px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;">☑</a>
+            
+                 {% endif %}
+                {% endif %}
+                        <h2 class="task-title" >{{ task.title }}</h2>
+                      </div>
+                      <div class="task-meta">
+                      <span class="task-category">Categorie:{{ task.category.nom }}</span>
+                        <span class="task-user">Postée par : <strong>{{ task.user.nom }}</strong></span>
+                      </div>
+                    
+            <div class="description-box">
+            <div class="task-description">{{ task.description }}</div>
+            </div>
+                      <div class="task-actions">
+                        <a href="{{ path('showTask', { id: task.id }) }}" class="btn btn-primary btn-sm">Lire la suite</a>
+                        {% if task.user == app.user %}
+                          <a href="{{ path('edit', { id: task.id }) }}" class="btn btn-success btn-sm">Modifier ma tache</a>
+                        
+                    {% endif %}
 
+                <span style="margin-left:250px ;" class="task-deadline">A faire pour le : {{ task.deadline|date('d/m/Y') }}</span>
+                      </div>
+                    </div>
+                  {% endfor %}
+              
+                </div>
+              </div>
+            {% endif %}
+            
+       <style>
+           
+        .task-list {
+    flex: 2;
+    margin-top: 10px;
+  
+}
+
+.description-box {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 10px;
+  }
+.task {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.task-header {
+  margin-bottom: 10px;
+}
+
+.task-title {
+    font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+h2{
+    text-align: center;
+    margin: 0%;
+}
+.task-meta {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.task-category,
+.task-deadline {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.task-user {
+  font-weight: bold;
+}
+
+.task-description {
+  margin-bottom: 10px;
+}
+
+.task-actions {
+  margin-top: 10px;
+}
+
+.task-checkbox-input {
+  margin-right: 5px;
+}
+
+.task-checkbox-label {
+  position: relative;
+  top: 3px;
+}
+</style>
 {% endblock %}
+
+

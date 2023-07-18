@@ -6,15 +6,18 @@ use App\Entity\Task;
 use App\Form\TaskType;
 use App\Entity\Category;
 use App\Repository\TaskRepository;
-use App\Repository\UserRepository;
+
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class TaskController extends AbstractController
 {
@@ -42,8 +45,9 @@ class TaskController extends AbstractController
     
     
     }
-
+    
     #[Route('/task/newTask', name: 'create')]
+    #[Route("/task/{id}/edit", name:"edit")]
     public function create(Task $task = null, Request $request, EntityManagerInterface $entityManager)
     {
         if (!$task) {
@@ -59,7 +63,13 @@ class TaskController extends AbstractController
                 $task->setDeadline($form->get('deadline')->getData());
                 $task->setUser($this->getUser());
                 $task->setIsDone(False);
+                }else{
+                    if ($task->getUser() !== $this->getUser()) {
+                        throw $this->createAccessDeniedException('Access denied.'); // Rediriger ou afficher une erreur si l'accès est refusé
+                    }
+
                 }  
+                
             
             $entityManager->persist($task);
             $entityManager->flush();
@@ -71,6 +81,8 @@ class TaskController extends AbstractController
 
         return $this->render('task/create.html.twig', [
             'formTask' => $form->createView(),
+            'editMode'   => $task->getId() !== null
+            
            
         ]);
     }
@@ -88,17 +100,19 @@ class TaskController extends AbstractController
     
 
     #[Route("/task/{id}", name:"showTask")]
+    
     public function show(Task $task)
     {    
-
+   
         
         return $this->render('task/show.html.twig', [
-            'task' => $task
+            'task' => $task,
+            
         ]);
     }
 
     #[Route('tasks/search', name: 'search')]
-    public function search(Request $request, TaskRepository $taskRepo  ): Response {
+    public function search(Request $request, TaskRepository $taskRepo ): Response {
      // on cherche plusierus tasks par un mot clef
      //on cree une instance
      $tasks= new Task();
@@ -124,6 +138,7 @@ class TaskController extends AbstractController
 
  if ($form->isSubmitted() && $form->isValid()){
 
+    
     $tasks=$taskRepo->findAllTasksBysearch($form->getData()['query']);
 
  }
@@ -136,9 +151,73 @@ class TaskController extends AbstractController
 }
     
 
+ 
+     #[Route("/task/{id}/complete", name: "task_complete")]
+    public function complete( $id,Task $task, EntityManagerInterface $entityManager, Request $request)
+
+    {
+
+        $task = $entityManager->getRepository(Task::class)->find($id);
+        if (!$task) {
+            throw $this->createNotFoundException('Task not found.');
+        }
+        $submittedToken = $request->query->get('_csrf_token');
+        if (!$this->isCsrfTokenValid('task_complete'.$task->getId() , $submittedToken)) {
+            throw new AccessDeniedException('Invalid CSRF token.');
+        }
 
 
+        if ($task->getUser() !== $this->getUser()) {
+            throw $this->createAccessDeniedException('Access denied.'); // Rediriger ou afficher une erreur si l'accès est refusé
+        }
+        else{
+        $task->setIsDone(true);
+        $entityManager->flush();
+        return new RedirectResponse($this->generateUrl('task'));
+    }
+      
+
+
+
+    }
+
+    
+
+    
+     #[Route("/task/incomplete/{id}", name:"task_incomplete")]
+     
+    public function incompleteTask($id, EntityManagerInterface $entityManager, Request $request): RedirectResponse
+    {
+        // Récupération de la tâche à partir de l'ID
+        $task = $entityManager->getRepository(Task::class)->find($id);
+
+        // Vérification de l'existence de la tâche
+        if (!$task) {
+            throw $this->createNotFoundException('Task not found.');
+        }
+
+        // Vérification du jeton CSRF spécifique à la tâche
+        $submittedToken = $request->query->get('_csrf_token');
+        if (!$this->isCsrfTokenValid('task_complete' . $task->getId(), $submittedToken)) {
+            throw new AccessDeniedException('Invalid CSRF token.');
+        }
+
+        // Vérification si l'utilisateur actuel est autorisé à marquer la tâche comme non terminée
+        if ($task->getUser() !== $this->getUser()) {
+            throw $this->createAccessDeniedException('Access denied.');
+        }
+
+        // Marquer la tâche comme non terminée
+        $task->setIsDone(false);
+
+        // Enregistrement des modifications dans la base de données
+        $entityManager->flush();
+
+        // Redirection vers la page de la liste des tâches ou autre
+        return $this->redirectToRoute('task');
+    }
 }
+
 
 
 

@@ -33,7 +33,7 @@ class Task
     private ?User $user = null;
 
     #[ORM\Column]
-    private ?bool $isDone = null;
+    private ?bool $isDone = false;
 
     #[ORM\ManyToOne(inversedBy: 'tasks')]
     private ?Category $Category = null;

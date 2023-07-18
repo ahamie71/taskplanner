@@ -35,14 +35,14 @@ class TaskType extends AbstractType
                 'class' => Category::class,
                 'choice_label'=> 'nom'
             ])
-
-
-         ->add('submit', SubmitType::class, [
-            'label' => "ADD",
-            'attr' => [
-                'class' => 'btn btn-primary'
-            ] 
-        ]);
+          
+            ->add('isDone', CheckboxType::class, [
+                'label' => 'Tâche terminée',
+                'required' => false, // La case à cocher n'est pas obligatoire
+            ])
+      
+        
+        ;
         
 
     }

@@ -1,55 +1,185 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Task List{% endblock %}
-
+{% block title %}
+  Task List
+{% endblock %}
 {% block body %}
+  <div class="button-container">
+    <a href="{{ path('create') }}" class="custom-button"><i class="fa fa-plus"></i></a>
+  </div>
+  <div class="container">
+    <div class="category-list">
+      <h1>Les catégories</h1>
+      {% for category in categories %}
+        <div class="category-item">
+          <a href="{{ path('task', { category: category.id }) }}">{{ category.nom }}</a>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="task-list">
+      <h1>Liste des tâches</h1>
+      {% for task in tasks %}
+
+        <div class="task">
+          <div class="task-header">
+          {% if task.user == app.user %}
+          {% if not task.isdone %}
+        <a href="{{ path('task_complete', { 'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id) }) }}" style="margin-left: 700px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;">☐</a>
 
 
+     {% else %}
+    <a href="{{ path('task_incomplete', {'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id)}) }}" style="margin-left: 700px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;">☑</a>
 
-<h1>Liste des Catégories</h1>
-    <ul>
-        {% for category in categories %}
-            <li>
-                <a href="{{ path('task', {'category': category.id}) }}">{{ category.nom }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+     {% endif %}
+    {% endif %}
+            <h2 class="task-title" >{{ task.title }}</h2>
+          </div>
+          <div class="task-meta">
+          <span class="task-category">Categorie:{{ task.category.nom }}</span>
+            <span class="task-user">Postée par : <strong>{{ task.user.nom }}</strong></span>
+          </div>
+        
+<div class="description-box">
+<div class="task-description">{{ task.description }}</div>
+</div>
+          <div class="task-actions">
+            <a href="{{ path('showTask', { id: task.id }) }}" class="btn btn-primary btn-sm">Lire la suite</a>
+            {% if task.user == app.user %}
+              <a href="{{ path('edit', { id: task.id }) }}" class="btn btn-success btn-sm">Modifier ma tache</a>
+            
+        {% endif %}
+    <span style="margin-left:250px ;" class="task-deadline">A faire pour le : {{ task.deadline|date('d/m/Y') }}</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 
-
-        {% for task in tasks %}
-            <div class="task">
-                <div class="task-header">
-                    <h2 class="task-title">{{ task.title }}</h2>
-
-                </div>
-                <div class="task-meta">
-                    <span class="task-category">Category: {{task.category.nom}}</span>
-                
-
-                    <span class="task-deadline">Due: {{ task.deadline | date('d/m/Y') }}</span>
-                  
-                <span class="task-user"> </br>
- 
-             POSTED BY: <strong>{{task.user.nom}}</strong></span>
-              
-                </div>
-                <div class="task-description">
-                    {{ task.description }}
-                </div>
-                <div class="task-actions">
-                    <a href="" class="btn btn-success">Edit</a>
-                   
-                </div>
-            </div>
-            <a href="{{ path('showTask',{'id' : task.id })}}" class="btn btn-primary">Read More</a>
-                <div class="task-checkbox">
-                    <input type="checkbox" id="task-{{ task.id }}" class="task-checkbox-input"{% if task.isDone %}checked{% endif %}>
-                    <label for="task-{{ task.id }}" class="task-checkbox-label"></label>
-                </div>
-            </article>
-        {% endfor %}
-    </section>
-
+  <style>
+    .mark-completed {
+      background-color: #28a745;
+      color: #fff;
+    }
+    .mark-completed:hover,
+    .mark-completed:focus {
+      background-color: #218838;
+      color: #fff;
+    }
     
+    body {
+      background-color: white !important;
+      font-family:Arial, Helvetica, sans-serif
+    }
+    .container {
+      display: flex;
+    }
+    .title {
+      text-align: start;
+    }
 
+    .description-box {
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        border-radius: 30px;
+        padding: 10px;
+      }
+
+    h2{
+        text-align: center;
+        margin: 0%;
+    }
+    
+    .button-container {
+      margin-top: 300px;
+      padding-left: 50px;
+    }
+    .custom-button {
+      border: 1px solid #000;
+      border-radius: 5px;
+      padding: 5px 10px;
+    }
+    
+    .Category {
+      display: grid;
+      align-items: center;
+      margin-bottom: 80px;
+      padding-top: 90px;
+    }
+    .category-list {
+      flex: 1;
+      padding-top: 100px;
+      margin-left: 100px;
+    }
+    .Category a {
+      padding: 20px 10px;
+    }
+    a {
+      text-decoration: none;
+    }
+    
+    .category-item {
+      width: 90px;
+      height: 50px;
+      background-color: black;
+      color: whitesmoke;
+      text-align: center;
+    
+      line-height: 30px;
+      margin-bottom: 40px;
+      padding: 10px;
+    }
+    
+    .task-list {
+      flex: 2;
+      margin-top: 10px;
+    }
+    
+    .task {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .task-header {
+      margin-bottom: 10px;
+    }
+    
+    .task-title {
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+    }
+    
+    .task-meta {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    
+    .task-category,
+    .task-deadline {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    
+    .task-user {
+      font-weight: bold;
+    }
+    
+    .task-description {
+      margin-bottom: 10px;
+    }
+    
+    .task-actions {
+      margin-top: 10px;
+    }
+    
+    .task-checkbox-input {
+      margin-right: 5px;
+    }
+    
+    .task-checkbox-label {
+      position: relative;
+      top: 3px;
+    }
+  </style>
 {% endblock %}

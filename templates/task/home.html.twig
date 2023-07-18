@@ -1,7 +1,81 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>Welcome to TaskPlanner</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Planner</title>
+    <!-- css link -->
+  
+
+    <!-- fontawesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div id="container">
+        <!-- logo -->
+        <div id="logo">TASK-PLANNER</div>
+
+        
+
+        <!-- navbar -->
+        
+        <!-- image -->
+       
+
+        <!-- content -->
+        <div id="content">
+            <h2>TASK</h2>
+            <h4>Planner</h4>
+
+        </div>
+
+        <!-- icons -->
+        <div id="icons">
+            <!-- visit => "fontawesome.com" for icons -->
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+
+        <!-- pagination -->
+        <div id="pagination">
+            <!-- left arrow -->
+            <a href="#"><i class="fas fa-angle-left"></i></a>
+            <!-- right arrow -->
+            <a href="#"><i class="fas fa-angle-right"></i></a>
+        </div>
+
+        <!-- lines -->
+        <div id="line1"></div>
+        <div id="line2"></div>
+    </div>
+    <p><strong>TaskPlanner est une application de gestion de tâches permettant à un manager de suivre et de gérer le travail de ses collaborateurs.
+    </strong></p>
+<h1>Avantage du planificateur de tâches</h1>
+<h2>Améliore la productivité</h2>
+    <p>L'un des avantages les plus importants de la gestion des tâches est qu'elle augmente considérablement votre productivité lorsqu'elle est utilisée correctement. Il élimine le besoin d'équilibrer les tâches chronophages et vous permet de hiérarchiser facilement votre liste de tâches pour une meilleure exécution des tâches.
+
+        En créant une liste de priorités visualisée, vous pouvez effectuer les tâches les plus critiques en premier et augmenter la productivité de toute votre équipe.
+        
+    <h2>Taux de haute efficacité</h2>
+        <p>Avec la croissance de la productivité, l'efficacité va également monter en flèche. Une plus grande efficacité apportera de meilleures opportunités aux personnes qui ont du mal à être efficaces dans l'accomplissement de leurs tâches. Cela crée également des opportunités pour analyser les zones mortes de votre flux de travail et les optimiser pour une efficacité maximale.</p>
+
+    <h2>Gagne du temps</h2>
+     <p>Nous savons tous que le temps est important, et c'est l'une des principales raisons pour lesquelles les gens adoptent des astuces et des routines de gestion des tâches. La gestion des tâches permet de gagner un temps précieux sur les tâches moins importantes et de l'utiliser pour les plus importantes.
+
+    
+    La gestion des tâches permet de fixer des délais qui vous permettent de livrer les projets à temps. De plus, cela vous donne plus de temps pour vous-même plutôt que de perdre votre temps sur des tâches inutiles.</p>
+            
+</body>
+</html>
+
+{# <h1>Welcome to TaskPlanner</h1>
 <p><strong>TaskPlanner is a task management application allowing a manager to follow and manage the work of his collaborators.
 </strong></p>
 <h1>Advantage of Taskplanner</h1>
@@ -16,7 +90,211 @@
         <h2>Saves Time</h2> 
          <p>We all know time is important, and it is one of the primary reasons people adopt task management tips and routines. Task management saves precious time from less important tasks and utilizes it for more important ones. 
 
-         Task management helps set deadlines that allow you to deliver projects on time. Furthermore, it gives you more time for yourself rather than consuming your time on unnecessary tasks.</p>          
+        
+        Task management helps set deadlines that allow you to deliver projects on time. Furthermore, it gives you more time for yourself rather than consuming your time on unnecessary tasks.</p>  
+        
+        #}
+
+        <style>
+
+            *
+{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+#container
+{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: #e9e9eb;
+}
+/* logo */
+#container #logo
+{
+    position: absolute;
+    left: 8%;
+    top: 30px;
+    font-size: 30px;
+    z-index: 997;
+    font-weight: bold;
+    color: #165397;
+}
+/* navbar */
+#navbar
+{
+    height: 12px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    display: grid;
+    place-items: center;
+}
+#navbar ul
+{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+#navbar ul li
+{
+    font-size: 20px;
+    margin: 0 45px;
+}
+#navbar ul li a
+{
+    text-decoration: none;
+    color: #000;
+}
+#navbar ul li a:hover
+{
+    color: #165397;
+}
+/* login button */
+#navbar ul #login
+{
+    height: 50px;
+    width: 120px;
+    position: absolute;
+    top: 20px;
+    right: 7%;
+    display: grid;
+    place-items: center;
+    background: #165397;
+    border-radius: 10px 20px;
+}
+#navbar ul #login a
+{
+    color: #e9e9eb;
+}
+#navbar ul #login:hover
+{
+    background: #000;
+}
+/* image */
+#image
+{
+    position: absolute;
+    top: calc(50% - 300px);
+    right: 5%;
+    z-index: 999;
+}
+#image img
+{
+    height: 600px;
+    filter: drop-shadow(-140px -140px 5px rgba(0,0,0,0.5));
+    transition: 0.5s;
+}
+#image img:hover
+{
+    filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.5));
+
+}
+/* content */
+#content
+{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    z-index: 996;
+}
+#content h2
+{
+    font-size: 300px;
+    color: #165397;
+}
+#content:hover h2
+{
+    color: #000;
+    transition: 0.5s;
+}
+#content h4
+{
+    font-size: 70px;
+    color: #000;
+}
+#content:hover h4
+{
+    color: #165397;
+    transition: 0.5s;
+}
+/* icons */
+#icons
+{
+    height: 500px;
+    width: 65px;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 250px);
+    background: #1c5da4;
+    border-radius: 0 60px 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 998;
+}
+#icons:hover
+{
+    background: #000;
+}
+#icons a
+{
+    text-decoration: none;
+    height: 40px;
+    width: 40px;
+    font-size: 23px;
+    color: #e9e9eb;
+    display: grid;
+    place-items: center;
+    margin: 30px 0
+}
+#icons a:hover
+{
+    color: #1b66bb;
+}
+/* pagination */
+#pagination
+{
+    position: absolute;
+    bottom: 4%;
+    right: 20%;
+    z-index: 995;
+}
+#pagination a
+{
+    text-decoration: none;
+    color: #000;
+    font-size: 70px;
+    margin: 0 30px;
+    transition: 0.5s;
+}
+#pagination a:hover
+{
+    color: #165397;
+}
+/* lines */
+#line1,#line2
+{
+    height: 150px;
+    width: 60px;
+    background: #000;
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    transform: skewX(-45deg);
+}
+#line2
+{
+    height: 60px;
+    left: 26%;
+}
 {% endblock %}
 
 

@@ -1,0 +1,113 @@
+.mark-completed {
+    background-color: #28a745;
+    color: #fff;
+  }
+  .mark-completed:hover,
+  .mark-completed:focus {
+    background-color: #218838;
+    color: #fff;
+  }
+  
+  body {
+    background-color: white !important;
+  }
+  .container {
+    display: flex;
+  }
+  .title {
+    text-align: start;
+  }
+  
+  .button-container {
+    margin-top: 300px;
+    padding-left: 50px;
+  }
+  .custom-button {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+  
+  .Category {
+    display: grid;
+    align-items: center;
+    margin-bottom: 80px;
+    padding-top: 90px;
+  }
+  .category-list {
+    flex: 1;
+    padding-top: 100px;
+    margin-left: 100px;
+  }
+  .Category a {
+    padding: 20px 10px;
+  }
+  a {
+    text-decoration: none;
+  }
+  
+  .category-item {
+    width: 90px;
+    height: 50px;
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+  
+    line-height: 30px;
+    margin-bottom: 40px;
+    padding: 10px;
+  }
+  
+  .task-list {
+    flex: 2;
+    margin-top: 10px;
+  }
+  
+  .task {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .task-header {
+    margin-bottom: 10px;
+  }
+  
+  .task-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .task-meta {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .task-category,
+  .task-deadline {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .task-user {
+    font-weight: bold;
+  }
+  
+  .task-description {
+    margin-bottom: 10px;
+  }
+  
+  .task-actions {
+    margin-top: 10px;
+  }
+  
+  .task-checkbox-input {
+    margin-right: 5px;
+  }
+  
+  .task-checkbox-label {
+    position: relative;
+    top: 3px;
+  }

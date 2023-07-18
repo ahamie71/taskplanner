@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 33,
             "patches": [
                 {
                     "date": 1689077398694,
@@ -48,6 +48,98 @@
                 {
                     "date": 1689077501724,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,9 @@\n                  \n                  {% for task in tasks %}\n                   <article>\n \n-                   \n-                        <article>\n+                        \n                             <h2 style=\"color: #333;\">{{ task.title }}</h2>\n                     \n                             <div class=\"metadata\">To be returned for <strong>{{ task.deadline|date('d/m/y') }}</strong></div>\n                             <div class=\"metadata\">In category: <strong>{{ task.category.nom }}</strong></div>\n@@ -25,9 +24,9 @@\n                             <div class=\"content\" style=\"margin-top: 20px;\">\n                                 {{ task.description|raw }}\n                             </div>\n                         </article>\n-                    {% endblock %}\n+            \n   \n       \n                       {% endfor %}\n                {% endif %}\n"
+                },
+                {
+                    "date": 1689583798706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,19 +15,39 @@\n                  {% for task in tasks %}\n                   <article>\n \n                         \n-                            <h2 style=\"color: #333;\">{{ task.title }}</h2>\n-                    \n-                            <div class=\"metadata\">To be returned for <strong>{{ task.deadline|date('d/m/y') }}</strong></div>\n-                            <div class=\"metadata\">In category: <strong>{{ task.category.nom }}</strong></div>\n-                    \n-                            <div class=\"content\" style=\"margin-top: 20px;\">\n-                                {{ task.description|raw }}\n-                            </div>\n+                    <div class=\"task-list\">\n+                <h1> Liste des tâches </h1>\n+                    {% for task in tasks %}\n+                      <div class=\"task\">\n+                      \n+                        <div class=\"task-header\">\n+                          <h2 class=\"task-title\">{{ task.title }}</h2>\n+                        </div>\n+                        <div class=\"task-meta\">\n+                          <span class=\"task-category\">Category: {{ task.category.nom }}</span>\n+                          <span class=\"task-deadline\">Due: {{ task.deadline | date('d/m/Y') }}</span>\n+                          <span class=\"task-user\">Posted By: <strong>{{ task.user.nom }}</strong></span>\n+                        </div>\n+                        <div class=\"task-description\">\n+                          {{ task.description }}\n+                        </div>\n+                        <div class=\"task-actions\">\n+                          {% if task.user == app.user %}\n+                            <a href=\"{{ path('edit', {'id': task.id}) }}\" class=\"btn btn-success btn-sm\">Edit</a>\n+                          {% endif %}\n+                          <a href=\"{{ path('showTask', {'id': task.id}) }}\" class=\"btn btn-primary btn-sm\">Read More</a>\n+                          <div class=\"task-checkbox\">\n+                            <input type=\"checkbox\" id=\"task-{{ task.id }}\" class=\"task-checkbox-input\"{% if task.isDone %} checked{% endif %}>\n+                            <label for=\"task-{{ task.id }}\" class=\"task-checkbox-label\"></label>\n+                          </div>\n+                        </div>\n+                      </div>\n+                    {% endfor %}\n+                  </div>\n+                </div>\n                         </article>\n-            \n-  \n       \n                       {% endfor %}\n                {% endif %}\n \n"
+                },
+                {
+                    "date": 1689583836052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n             {% else %}\n                <h3 class=\"mt-3\">Vos résulats de recherche :</h3>\n                  \n-                 {% for task in tasks %}\n+                \n                   <article>\n \n                         \n                     <div class=\"task-list\">\n"
+                },
+                {
+                    "date": 1689583845903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,8 @@\n \n             {% else %}\n                <h3 class=\"mt-3\">Vos résulats de recherche :</h3>\n                  \n-                \n                   <article>\n \n                         \n                     <div class=\"task-list\">\n"
+                },
+                {
+                    "date": 1689583852962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n                   </div>\n                 </div>\n                         </article>\n       \n-                      {% endfor %}\n+                      \n                {% endif %}\n \n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1689583873278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,6 +49,7 @@\n       \n                       \n                {% endif %}\n \n+               \n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1689583878734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,7 +49,8 @@\n       \n                       \n                {% endif %}\n \n-               \n+       <style>\n+                \n \n {% endblock %}\n"
+                },
+                {
+                    "date": 1689583902683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,7 +50,61 @@\n                       \n                {% endif %}\n \n        <style>\n-                \n+           \n+        .task-list {\n+    flex: 2;\n+    margin-top: 10px;\n+  \n+}\n \n+.task {\n+  border: 1px solid #ccc;\n+  padding: 10px;\n+  margin-bottom: 20px;\n+}\n+\n+.task-header {\n+  margin-bottom: 10px;\n+}\n+\n+.task-title {\n+    font-weight: bold;\n+  font-size: 18px;\n+  color: #333;\n+}\n+\n+.task-meta {\n+  font-size: 14px;\n+  color: #666;\n+  margin-bottom: 10px;\n+}\n+\n+.task-category,\n+.task-deadline {\n+  margin-right: 10px;\n+  font-weight: bold;\n+}\n+\n+.task-user {\n+  font-weight: bold;\n+}\n+\n+.task-description {\n+  margin-bottom: 10px;\n+}\n+\n+.task-actions {\n+  margin-top: 10px;\n+}\n+\n+.task-checkbox-input {\n+  margin-right: 5px;\n+}\n+\n+.task-checkbox-label {\n+  position: relative;\n+  top: 3px;\n+}\n+\n {% endblock %}\n"
+                },
+                {
+                    "date": 1689668611803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,39 +17,38 @@\n                         \n                     <div class=\"task-list\">\n                 <h1> Liste des tâches </h1>\n                     {% for task in tasks %}\n-                      <div class=\"task\">\n-                      \n-                        <div class=\"task-header\">\n-                          <h2 class=\"task-title\">{{ task.title }}</h2>\n-                        </div>\n-                        <div class=\"task-meta\">\n-                          <span class=\"task-category\">Category: {{ task.category.nom }}</span>\n-                          <span class=\"task-deadline\">Due: {{ task.deadline | date('d/m/Y') }}</span>\n-                          <span class=\"task-user\">Posted By: <strong>{{ task.user.nom }}</strong></span>\n-                        </div>\n-                        <div class=\"task-description\">\n-                          {{ task.description }}\n-                        </div>\n-                        <div class=\"task-actions\">\n-                          {% if task.user == app.user %}\n-                            <a href=\"{{ path('edit', {'id': task.id}) }}\" class=\"btn btn-success btn-sm\">Edit</a>\n-                          {% endif %}\n-                          <a href=\"{{ path('showTask', {'id': task.id}) }}\" class=\"btn btn-primary btn-sm\">Read More</a>\n-                          <div class=\"task-checkbox\">\n-                            <input type=\"checkbox\" id=\"task-{{ task.id }}\" class=\"task-checkbox-input\"{% if task.isDone %} checked{% endif %}>\n-                            <label for=\"task-{{ task.id }}\" class=\"task-checkbox-label\"></label>\n-                          </div>\n-                        </div>\n+\n+                    <div class=\"task\">\n+                      <div class=\"task-header\">\n+                      {% if task.user == app.user %}\n+                      {% if not task.isdone %}\n+                    <a href=\"{{ path('task_complete', { 'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id) }) }}\" style=\"margin-left: 700px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;\">☐</a>\n+            \n+            \n+                 {% else %}\n+                <a href=\"{{ path('task_incomplete', {'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id)}) }}\" style=\"margin-left: 700px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;\">☑</a>\n+            \n+                 {% endif %}\n+                {% endif %}\n+                        <h2 class=\"task-title\">{{ task.title }}</h2>\n                       </div>\n-                    {% endfor %}\n-                  </div>\n-                </div>\n-                        </article>\n-      \n-                      \n-               {% endif %}\n+                      <div class=\"task-meta\">\n+                        <span class=\"task-category\">Category: {{ task.category.nom }}</span>\n+                        <span class=\"task-deadline\">Due: {{ task.deadline|date('d/m/Y') }}</span>\n+                        <span class=\"task-user\">Posted By: <strong>{{ task.user.nom }}</strong></span>\n+                      </div>\n+                      <div class=\"task-description\">{{ task.description }}</div>\n+                      <div class=\"task-actions\">\n+                        <a href=\"{{ path('showTask', { id: task.id }) }}\" class=\"btn btn-primary btn-sm\">Read More</a>\n+                        {% if task.user == app.user %}\n+                          <a href=\"{{ path('edit', { id: task.id }) }}\" class=\"btn btn-success btn-sm\">Edit</a>\n+                        \n+                    {% endif %}\n+                      </div>\n+                    </div>\n+                  {% endfor %}\n \n        <style>\n            \n         .task-list {\n@@ -105,6 +104,6 @@\n .task-checkbox-label {\n   position: relative;\n   top: 3px;\n }\n-\n+</style>\n {% endblock %}\n"
+                },
+                {
+                    "date": 1689668631306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n                     {% endif %}\n                       </div>\n                     </div>\n                   {% endfor %}\n-\n+ \n        <style>\n            \n         .task-list {\n     flex: 2;\n"
+                },
+                {
+                    "date": 1689668636906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n                     {% endif %}\n                       </div>\n                     </div>\n                   {% endfor %}\n- \n+ {% endblo%}\n        <style>\n            \n         .task-list {\n     flex: 2;\n"
+                },
+                {
+                    "date": 1689668664346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n                     {% endif %}\n                       </div>\n                     </div>\n                   {% endfor %}\n- {% endblo%}\n+            \n        <style>\n            \n         .task-list {\n     flex: 2;\n"
+                },
+                {
+                    "date": 1689668696769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n                  {% else %}\n                 <a href=\"{{ path('task_incomplete', {'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id)}) }}\" style=\"margin-left: 700px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;\">☑</a>\n             \n                  {% endif %}\n-                {% endif %}\n+               \n                         <h2 class=\"task-title\">{{ task.title }}</h2>\n                       </div>\n                       <div class=\"task-meta\">\n                         <span class=\"task-category\">Category: {{ task.category.nom }}</span>\n"
+                },
+                {
+                    "date": 1689668702221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n                  {% else %}\n                 <a href=\"{{ path('task_incomplete', {'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id)}) }}\" style=\"margin-left: 700px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;\">☑</a>\n             \n                  {% endif %}\n-               \n+                {% endif %}\n                         <h2 class=\"task-title\">{{ task.title }}</h2>\n                       </div>\n                       <div class=\"task-meta\">\n                         <span class=\"task-category\">Category: {{ task.category.nom }}</span>\n"
+                },
+                {
+                    "date": 1689668795037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                           <a href=\"{{ path('edit', { id: task.id }) }}\" class=\"btn btn-success btn-sm\">Edit</a>\n                         \n                     {% endif %}\n                       </div>\n-                    </div>\n+                 \n                   {% endfor %}\n             \n        <style>\n            \n"
+                },
+                {
+                    "date": 1689668801391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n                     {% endif %}\n                       </div>\n                  \n                   {% endfor %}\n-            \n+             </\n        <style>\n            \n         .task-list {\n     flex: 2;\n"
+                },
+                {
+                    "date": 1689668806937,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,11 @@\n                     {% endif %}\n                       </div>\n                  \n                   {% endfor %}\n-             </\n+                    </div>\n+                    </div>\n+                    \n        <style>\n            \n         .task-list {\n     flex: 2;\n"
+                },
+                {
+                    "date": 1689668817510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n                  \n                   {% endfor %}\n                     </div>\n                     </div>\n-                    \n+                    {% en%}\n        <style>\n            \n         .task-list {\n     flex: 2;\n"
+                },
+                {
+                    "date": 1689668889717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,10 +48,10 @@\n                       </div>\n                  \n                   {% endfor %}\n                     </div>\n-                    </div>\n-                    {% en%}\n+                  \n+                {% endif %}\n        <style>\n            \n         .task-list {\n     flex: 2;\n"
+                },
+                {
+                    "date": 1689668900545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n                       </div>\n                  \n                   {% endfor %}\n                     </div>\n-                  \n+                    </div>\n                 {% endif %}\n        <style>\n            \n         .task-list {\n"
+                },
+                {
+                    "date": 1689668906051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,12 +45,14 @@\n                           <a href=\"{{ path('edit', { id: task.id }) }}\" class=\"btn btn-success btn-sm\">Edit</a>\n                         \n                     {% endif %}\n                       </div>\n-                 \n+                  \n+                      </\n                   {% endfor %}\n                     </div>\n                     </div>\n+\n                 {% endif %}\n        <style>\n            \n         .task-list {\n"
+                },
+                {
+                    "date": 1689668913273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,12 +46,11 @@\n                         \n                     {% endif %}\n                       </div>\n                   \n-                      </\n+                    </div>\n                   {% endfor %}\n-                    </div>\n-                    </div>\n+                    \n \n                 {% endif %}\n        <style>\n            \n"
+                },
+                {
+                    "date": 1689668924446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n                     <div class=\"task\">\n                       <div class=\"task-header\">\n                       {% if task.user == app.user %}\n                       {% if not task.isdone %}\n-                    <a href=\"{{ path('task_complete', { 'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id) }) }}\" style=\"margin-left: px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;\">☐</a>\n+                    <a href=\"{{ path('task_complete', { 'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id) }) }}\" style=\"margin-left: 1px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;\">☐</a>\n             \n             \n                  {% else %}\n                 <a href=\"{{ path('task_incomplete', {'id': task.id, '_csrf_token': csrf_token('task_complete' ~ task.id)}) }}\" style=\"margin-left: 700px; font-size: 24px; line-height: 24px; display: inline-block; width: 24px; height: 24px; text-align: center;\">☑</a>\n"
+                },
+                {
+                    "date": 1689671500059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n                   {% endfor %}\n               \n                 </div>\n               </div>\n-              {\n+              {ù\n             \n        <style>\n            \n         .task-list {\n"
                 }
             ],
             "date": 1689077398694,
